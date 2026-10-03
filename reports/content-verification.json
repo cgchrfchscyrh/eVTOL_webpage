@@ -1,0 +1,51 @@
+{
+  "sourceUnchanged": true,
+  "tables": [
+    {
+      "id": "all-objectives",
+      "rows": 4,
+      "csvMatchesHTMLData": true
+    },
+    {
+      "id": "ablation",
+      "rows": 7,
+      "csvMatchesHTMLData": true
+    },
+    {
+      "id": "energy",
+      "rows": 18,
+      "csvMatchesHTMLData": true
+    },
+    {
+      "id": "efficiency",
+      "rows": 18,
+      "csvMatchesHTMLData": true
+    }
+  ],
+  "figures": [
+    {
+      "id": "overview",
+      "width": 1230,
+      "height": 585,
+      "dimensionsMatch": true
+    },
+    {
+      "id": "framework",
+      "width": 1571,
+      "height": 657,
+      "dimensionsMatch": true
+    },
+    {
+      "id": "wind",
+      "width": 1571,
+      "height": 513,
+      "dimensionsMatch": true
+    },
+    {
+      "id": "training",
+      "width": 1571,
+      "height": 1032,
+      "dimensionsMatch": true
+    }
+  ]
+}

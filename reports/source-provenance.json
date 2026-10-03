@@ -1,0 +1,9 @@
+{
+  "originalFile": "eVTOL.pdf",
+  "sha256": "7966db8be723b98a87bfbf4634e0cc22e4cdb1790a5801f0a6ae97897e29bbd3",
+  "doi": "10.1016/j.engappai.2025.110392",
+  "source": "User-supplied published PDF; original unchanged and not republished by this site.",
+  "figureExtraction": "Selected original figures rasterized at 216 dpi; no research content redrawn. Captions and explanations provided in HTML.",
+  "data": "Values transcribed from the paper tables; no estimates of missing training samples.",
+  "checkedOn": "2026-10-03"
+}

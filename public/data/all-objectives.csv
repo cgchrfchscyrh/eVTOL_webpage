@@ -1,0 +1,5 @@
+Method,Energy (kWh),Efficiency (m/kWh),Comfort score,Safety score,Time (s),Noise (dB)
+Ours-all,57.83,206.59,−401.59,−477.55,162,20.55
+DDPG-all,123.54,99.72,−778.11,−917.69,348,25.01
+TD-MPC2-all,76.58,156.56,−435.38,−382.53,160,21.59
+Average TD3-all,67.52,172.35,−612.21,−682.55,270,21.39

@@ -1,0 +1,8 @@
+Experiment,Success count,Out-of-bound count,Timeout count,Energy (kWh),Comfort score,Safety score,Noise (dB)
+Baseline,3455,46500,45,48.28,−416.45,−257.55,17.99
+No out-of-bound punish,0,49936,64,N/A,N/A,N/A,N/A
+No energy optimization,3799,46170,31,61.64,−436.75,−303.76,18.34
+No time optimization,339,49422,239,52.78,−420.06,−343.1,17.52
+No passenger comfort optimization,2987,46957,56,57.99,−452.93,−298.15,18.76
+No passenger safety optimization,3782,46175,43,49.73,−404.26,−424.70,16.3
+No noise optimization,3617,46305,78,50.18,−427.6,−417.9,20.70

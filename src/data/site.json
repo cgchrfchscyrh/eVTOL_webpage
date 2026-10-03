@@ -1,0 +1,433 @@
+{
+  "id": "eVTOL_webpage",
+  "wordmark": "eVTOL / MOTION PLANNING",
+  "shortTitle": "Learning to fly with the city in mind.",
+  "title": "Reinforcement learning based multi-perspective motion planning of manned electric vertical take-off and landing vehicle in urban environment with wind fields",
+  "description": "Multi-objective reinforcement learning for eVTOL flight through urban wind fields, considering energy, passenger experience, and environmental noise.",
+  "venue": "Engineering Applications of Artificial Intelligence · 2025",
+  "publication": "Engineering Applications of Artificial Intelligence, volume 149 (2025), article 110392.",
+  "doi": "10.1016/j.engappai.2025.110392",
+  "year": "2025",
+  "authors": [
+    {
+      "name": "Songyang Liu",
+      "aff": "1",
+      "email": "liusongyang@ufl.edu"
+    },
+    {
+      "name": "Weizi Li",
+      "aff": "2",
+      "email": "weizili@utk.edu"
+    },
+    {
+      "name": "Haochen Li",
+      "aff": "3",
+      "email": "hli111@utk.edu"
+    },
+    {
+      "name": "Shuai Li",
+      "aff": "1",
+      "email": "shuai.li@ufl.edu"
+    }
+  ],
+  "affiliations": [
+    "ESSIE — Engineering School of Sustainable Infrastructure and Environment, University of Florida, Gainesville, FL, USA",
+    "Min H. Kao Department of Electrical Engineering and Computer Science, University of Tennessee, Knoxville, TN, USA",
+    "Department of Civil and Environmental Engineering, University of Tennessee, Knoxville, TN, USA"
+  ],
+  "repo": "https://github.com/cgchrfchscyrh/eVTOL_RL",
+  "repoLabel": "Project repository",
+  "repoNote": "The research repository currently contains a README and license; implementation and data have not yet been posted (checked 3 October 2026).",
+  "siteRepo": "https://github.com/cgchrfchscyrh/eVTOL_webpage",
+  "paperUrl": "https://doi.org/10.1016/j.engappai.2025.110392",
+  "htmlPaper": "",
+  "pdfUrl": "",
+  "pdfLabel": "",
+  "heroFigure": "overview",
+  "heroFigureLabel": "Our study · Urban flight in simulation",
+  "heroFigureCaption": "Energy, passengers, and environmental noise in a single motion-planning problem.",
+  "heroIntro": "How should an air taxi move through urban winds while balancing energy, passenger experience, and noise?",
+  "intro": "An efficient flight path must account for more than distance. Urban winds change energy demand, movement affects passengers, and the route changes noise exposure on the ground. We bring these competing concerns into one reinforcement-learning framework.",
+  "insight": "Three perspectives. Six objectives. One learned flight policy.",
+  "stats": [
+    {
+      "value": "3",
+      "label": "perspectives: aircraft, passengers, environment"
+    },
+    {
+      "value": "6",
+      "label": "objectives in the reward design"
+    },
+    {
+      "value": "10 km",
+      "label": "origin–destination separation in simulation"
+    }
+  ],
+  "contextTitle": "The emerging air-taxi context.",
+  "contextDescription": "A Joby prototype in a NASA flight-testing video, filmed near Big Sur, California. It provides industry context; the paper evaluates an independent simulation of urban flight in Atlanta.",
+  "contextCredit": "NASA · “NASA and Joby Complete Air Taxi Testing” · 2021",
+  "contextUrl": "https://images.nasa.gov/details/NHQ20210915ARMD01",
+  "contextDuration": 15,
+  "contextDetails": [
+    "The first ten seconds show a white, multi-rotor Joby prototype moving above a dry field and a line of trees. A caption says that test data will be analyzed over several months. The shot then changes to a closer view of the aircraft against a clear sky, with its rotors spinning. A second caption describes a future role for advanced air mobility in passenger and cargo transportation.",
+    "This 15-second excerpt uses source time 01:44–01:59. It contains no speech and its music track has been removed. The aircraft, location, and testing program are separate from the eVTOL simulation in this paper; the footage does not demonstrate the authors’ controller."
+  ],
+  "contextLicense": "Source: NASA Image and Video Library, asset NHQ20210915ARMD01, published 15 September 2021. Used for educational context under NASA’s media-use guidelines. The clip is trimmed, re-encoded, and silent. No endorsement by NASA or Joby is implied.",
+  "contextLicenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+  "steps": [
+    {
+      "title": "Build the urban environment",
+      "text": "An OpenStreetMap model of Atlanta is paired with wind fields computed in OpenFOAM. The origin and destination are 10 km apart."
+    },
+    {
+      "title": "Learn 3D motion",
+      "text": "A modified PPO policy observes position, local wind, obstacles, and task state, then chooses continuous motion along the three spatial axes."
+    },
+    {
+      "title": "Balance competing objectives",
+      "text": "Reward terms combine energy, efficiency, passenger comfort, safety, flight time, and modeled noise received at nine rooftop points."
+    }
+  ],
+  "methodFigure": "framework",
+  "methodTitle": "Plan for the aircraft, its passengers, and the city.",
+  "methodIntro": "The framework combines a modified Proximal Policy Optimization algorithm with a multi-objective reward design. The study covers the flight phase; takeoff and landing are outside its scope.",
+  "resultsTitle": "Lower energy use, with visible trade-offs.",
+  "resultsIntro": "Table 6 compares four algorithms when optimizing all objectives together. The modified PPO approach achieves the lowest reported energy use, highest energy efficiency, best comfort score, and lowest noise among these methods.",
+  "highlights": [
+    {
+      "label": "Energy consumption",
+      "before": "123.54 kWh",
+      "after": "57.83 kWh",
+      "note": "DDPG-all → Ours-all"
+    },
+    {
+      "label": "Average step noise",
+      "before": "25.01 dB",
+      "after": "20.55 dB",
+      "note": "4.46 dB lower than DDPG-all"
+    }
+  ],
+  "resultNote": "These are reported simulation results from Table 6. TD-MPC2-all has a better safety score (−382.53 versus −477.55) and a slightly shorter flight time (160 versus 162 s). Comfort and safety are model reward scores, not measured passenger ratings or safety probabilities.",
+  "scopeTitle": "Simulation evidence, with clear boundaries.",
+  "limitations": [
+    "The planner is evaluated in a simulated Atlanta environment. The study does not include real flight trials, takeoff and landing, or validation for operating certification.",
+    "Policies are trained under individual wind-field conditions. Testing several named conditions does not establish generalization to arbitrary, changing winds.",
+    "Comfort, safety, and noise depend on the study’s models and reward definitions. Noise values are averaged over simulation steps and nine rooftop receivers; they are not community exposure measurements.",
+    "The multi-objective reward requires tuning and substantial training. Improving one objective can worsen another, including safety scores or flight time."
+  ],
+  "guideIntro": "This research guide is an HTML companion to the published article. It explains the method, figures, metrics, and reported results; it is not a complete transcription of the 17-page paper. The publisher link provides the version of record.",
+  "guideSections": [
+    {
+      "title": "The question",
+      "paragraphs": [
+        "How can an eVTOL flight policy account for energy use, passenger experience, and environmental noise at the same time? A short geometric route may not be the best route when winds, buildings, changes in motion, and noise receivers are considered together."
+      ]
+    },
+    {
+      "title": "Three perspectives, six objectives",
+      "paragraphs": [
+        "The aircraft perspective covers total energy consumption and energy efficiency. The passenger perspective covers comfort, safety, and travel time. The environmental perspective covers noise received at points in the city. These terms are combined in the reward rather than optimized as isolated problems.",
+        "Comfort and safety are numerical scores derived from the paper’s models and reward definitions. A higher, less negative score is better. They do not represent passenger survey responses or calibrated probabilities of avoiding an accident."
+      ]
+    },
+    {
+      "title": "State, actions, and learning",
+      "paragraphs": [
+        "The policy receives a fixed-length observation that includes the aircraft’s 3D position, its destination, distances to nearby buildings or boundaries in six directions, and the local wind field, along with task-related quantities described in the paper.",
+        "Continuous actions along the X, Y, and Z axes lie in [−1, 1]. They are scaled by the specified maximum velocity parameter of 60 m/s; an action is selected each second. The study models the flight phase and excludes takeoff and landing.",
+        "The modified PPO design uses normalization, dropout, a decaying learning rate, and reward normalization. Its reward architecture combines progress and terminal rewards with penalties for boundary violations and other task costs. Comparisons also evaluate reward designs with DDPG, TD3, TD-MPC2, and Average TD3."
+      ]
+    },
+    {
+      "title": "Simulation environment and wind fields",
+      "paragraphs": [
+        "An OpenStreetMap model of Atlanta is imported into OpenFOAM for city-scale steady-state wind simulation using Reynolds-averaged Navier–Stokes equations. The origin and destination are 10 km apart.",
+        "The paper reports seven named wind fields: D0-4, D0-8, D90-4, D180-4, D180-12, D270-16, and D270-20. The first number gives the angle from the positive X-axis in degrees; the second gives background wind speed in m/s. Policies are trained in individual conditions, which limits claims about unseen or time-varying winds."
+      ]
+    },
+    {
+      "title": "Noise modeling",
+      "paragraphs": [
+        "Noise is modeled through an emission–propagation–receiver framework. Nine points on building rooftops act as receivers. Average step noise aggregates the modeled received values over the nine points and the flight’s simulation steps.",
+        "The decibel differences in the results are differences between model outputs under the same experiment. They should not be interpreted as measured sound exposure for a community, a percentage reduction in loudness, or evidence of regulatory compliance."
+      ]
+    },
+    {
+      "title": "Reading the comparisons",
+      "paragraphs": [
+        "For the all-objective comparison, Ours-all has 57.83 kWh energy consumption, 206.59 m/kWh energy efficiency, comfort score −401.59, safety score −477.55, travel time 162 s, and noise 20.55 dB. It improves all six metrics relative to DDPG-all in this table, but not all six relative to TD-MPC2-all.",
+        "The paper describes comparisons using extremum values from training rather than a shared statistical uncertainty summary. The website reproduces tabulated values and does not invent confidence intervals or underlying training traces.",
+        "The reward ablation is a separate experiment. Its baseline consumes 48.28 kWh, not 57.83 kWh. Removing energy optimization raises it to 61.64 kWh; removing noise optimization raises the noise value from 17.99 to 20.70 dB. These baseline values should not be mixed with Table 6."
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "overview",
+      "number": "1",
+      "title": "A flight that connects three perspectives",
+      "file": "overview.png",
+      "width": 1230,
+      "height": 585,
+      "alt": "Concept diagram of an eVTOL route through city buildings, identifying energy consumption, passengers, wind, and noise receivers.",
+      "description": "An aircraft travels from an origin toward a destination among urban buildings. Labels connect the aircraft to energy use, the cabin to passenger concerns, and surrounding buildings to noise. The diagram introduces the coupled planning problem and is not to scale. The paper studies flight between the endpoints, excluding takeoff and landing.",
+      "credit": "Figure 1, published article, p. 2. The original caption credits partial imagery to Rizzi et al. (2020) and Pradeep and Wei (2018); see the article references."
+    },
+    {
+      "id": "framework",
+      "number": "2",
+      "title": "The reinforcement-learning framework",
+      "file": "framework.png",
+      "width": 1571,
+      "height": 657,
+      "alt": "Workflow connecting passenger, aircraft, and environmental objectives to an agent that acts in the urban simulation, receives rewards, and updates its policy.",
+      "description": "Objectives for safety, time, comfort, energy, and noise inform the reward. An agent selects actions, the urban environment produces a new state and reward, and the training process updates the policy. The lower part of the diagram groups the reward design into terminal conditions, non-terminal penalties, and target rewards. Arrows describe the feedback loop rather than a one-way route planner.",
+      "credit": "Figure 2, published article, p. 5."
+    },
+    {
+      "id": "wind",
+      "number": "7",
+      "title": "From city geometry to urban wind fields",
+      "file": "wind.png",
+      "width": 1571,
+      "height": 513,
+      "alt": "Side-by-side views of an OpenStreetMap model of Atlanta and a three-dimensional wind-field simulation around its buildings.",
+      "description": "The left panel shows the city’s building geometry. The right panel visualizes the wind simulation around buildings, with a vertical magnitude scale in the original figure. Its purpose is to show the CFD environment used by the planner. The paper studies named wind directions and background speeds; the rendered colors are not a stand-alone quantitative dataset.",
+      "credit": "Figure 7, published article, p. 9. City geometry uses OpenStreetMap; © OpenStreetMap contributors."
+    },
+    {
+      "id": "training",
+      "number": "12",
+      "title": "Six objectives during learning",
+      "file": "training.png",
+      "width": 1571,
+      "height": 1032,
+      "alt": "Six training plots compare modified PPO, DDPG, TD-MPC2, and Average TD3 for energy, efficiency, comfort, safety, time, and noise.",
+      "description": "Panels (a) through (f) respectively show energy consumption, energy efficiency, passenger comfort, passenger safety, flight time, and average step noise as training progresses. The trajectories illustrate different learning behaviors. The reported numeric comparison is reproduced in Table 6 on this page, including TD-MPC2’s better safety score and slightly shorter travel time. Exact training samples and uncertainty estimates cannot be recovered from this figure and are not supplied here.",
+      "credit": "Figure 12, published article, p. 13."
+    }
+  ],
+  "bibtex": "@article{liu2025evtol,\n  title = {Reinforcement learning based multi-perspective motion planning of manned electric vertical take-off and landing vehicle in urban environment with wind fields},\n  author = {Liu, Songyang and Li, Weizi and Li, Haochen and Li, Shuai},\n  journal = {Engineering Applications of Artificial Intelligence},\n  volume = {149},\n  pages = {110392},\n  year = {2025},\n  doi = {10.1016/j.engappai.2025.110392}\n}",
+  "citationKey": "liu2025evtol",
+  "comparisons": [
+    {
+      "id": "all",
+      "label": "All objectives",
+      "source": "Table 6, published article.",
+      "summary": "Ours-all uses less energy and produces a lower average noise value than the other three methods; the full table shows the safety and time trade-offs.",
+      "metrics": [
+        {
+          "title": "Energy consumption",
+          "unit": "kWh",
+          "direction": "Lower is better",
+          "max": 140,
+          "values": [57.83, 123.54, 76.58, 67.52]
+        },
+        {
+          "title": "Average step noise",
+          "unit": "dB",
+          "direction": "Lower is better",
+          "max": 30,
+          "values": [20.55, 25.01, 21.59, 21.39]
+        }
+      ],
+      "labels": ["Ours-all", "DDPG-all", "TD-MPC2-all", "Average TD3-all"],
+      "featured": 0
+    }
+  ],
+  "tables": [
+    {
+      "id": "all-objectives",
+      "title": "Table 6 · All objectives",
+      "caption": "All-objective performance comparison among four reinforcement-learning algorithms.",
+      "note": "Lower energy, time, and noise are better; higher efficiency, comfort, and safety scores are better. Comfort and safety are unitless model scores. These reported values are not accompanied by confidence intervals in Table 6.",
+      "headers": [
+        "Method",
+        "Energy (kWh)",
+        "Efficiency (m/kWh)",
+        "Comfort score",
+        "Safety score",
+        "Time (s)",
+        "Noise (dB)"
+      ],
+      "rows": [
+        ["Ours-all", "57.83", "206.59", "−401.59", "−477.55", "162", "20.55"],
+        ["DDPG-all", "123.54", "99.72", "−778.11", "−917.69", "348", "25.01"],
+        [
+          "TD-MPC2-all",
+          "76.58",
+          "156.56",
+          "−435.38",
+          "−382.53",
+          "160",
+          "21.59"
+        ],
+        [
+          "Average TD3-all",
+          "67.52",
+          "172.35",
+          "−612.21",
+          "−682.55",
+          "270",
+          "21.39"
+        ]
+      ]
+    },
+    {
+      "id": "ablation",
+      "title": "Table 7 · Reward ablation",
+      "caption": "Reward-term ablation across 50,000 training episodes per experiment.",
+      "note": "This is a separate experiment from Table 6. Success, out-of-bound, and timeout counts sum to 50,000 in each row. N/A means that the reported successful-flight metrics are unavailable.",
+      "headers": [
+        "Experiment",
+        "Success count",
+        "Out-of-bound count",
+        "Timeout count",
+        "Energy (kWh)",
+        "Comfort score",
+        "Safety score",
+        "Noise (dB)"
+      ],
+      "rows": [
+        [
+          "Baseline",
+          "3455",
+          "46500",
+          "45",
+          "48.28",
+          "−416.45",
+          "−257.55",
+          "17.99"
+        ],
+        [
+          "No out-of-bound punish",
+          "0",
+          "49936",
+          "64",
+          "N/A",
+          "N/A",
+          "N/A",
+          "N/A"
+        ],
+        [
+          "No energy optimization",
+          "3799",
+          "46170",
+          "31",
+          "61.64",
+          "−436.75",
+          "−303.76",
+          "18.34"
+        ],
+        [
+          "No time optimization",
+          "339",
+          "49422",
+          "239",
+          "52.78",
+          "−420.06",
+          "−343.1",
+          "17.52"
+        ],
+        [
+          "No passenger comfort optimization",
+          "2987",
+          "46957",
+          "56",
+          "57.99",
+          "−452.93",
+          "−298.15",
+          "18.76"
+        ],
+        [
+          "No passenger safety optimization",
+          "3782",
+          "46175",
+          "43",
+          "49.73",
+          "−404.26",
+          "−424.70",
+          "16.3"
+        ],
+        [
+          "No noise optimization",
+          "3617",
+          "46305",
+          "78",
+          "50.18",
+          "−427.6",
+          "−417.9",
+          "20.70"
+        ]
+      ]
+    },
+    {
+      "id": "energy",
+      "title": "Table 5 · Energy consumption",
+      "caption": "Energy consumption (kWh) under different algorithms, wind fields, and energy reward designs.",
+      "note": "Rows compare reward designs within the same algorithm and wind condition. N/A indicates a combination not reported in the paper. These are the scenario rows of Table 5; its aggregate percentage-difference row is not reproduced because the website uses the underlying values instead. Reward-design columns are not different RL algorithms.",
+      "headers": [
+        "Algorithm / wind field",
+        "Ours",
+        "Direct",
+        "Efficiency",
+        "Math",
+        "Queue"
+      ],
+      "rows": [
+        ["DDPG / D0-8", "49.71", "236.2", "62.2", "177.51", "123.34"],
+        ["DDPG / D90-4", "99.4", "52.36", "435.29", "118.48", "78.48"],
+        ["DDPG / D180-12", "149.34", "406.95", "103.75", "424.07", "370.88"],
+        ["DDPG / D270-16", "98.36", "131.77", "112.55", "144.59", "234.52"],
+        ["DDPG / D270-20", "154.92", "129.06", "332.08", "138.41", "659.2"],
+        ["Modified PPO / D0-4", "82.65", "97.47", "N/A", "N/A", "N/A"],
+        ["TD3 / D0-4", "52.08", "N/A", "56.29", "N/A", "N/A"],
+        ["TD3 / D180-12", "69.81", "N/A", "73.11", "N/A", "N/A"],
+        ["TD-MPC2 / D0-8", "57.44", "87.72", "58.75", "N/A", "N/A"],
+        ["TD-MPC2 / D90-4", "60.15", "62.47", "60.94", "N/A", "N/A"],
+        ["TD-MPC2 / D180-12", "95.88", "112.45", "111.07", "N/A", "N/A"],
+        ["TD-MPC2 / D270-16", "69.04", "86.22", "83.44", "N/A", "N/A"],
+        ["TD-MPC2 / D270-20", "99.67", "89.95", "100.51", "N/A", "N/A"],
+        ["Average TD3 / D0-8", "48.15", "161.8", "48.91", "N/A", "N/A"],
+        ["Average TD3 / D90-4", "53.62", "58.13", "54.36", "N/A", "N/A"],
+        ["Average TD3 / D180-12", "74.86", "67.83", "73.12", "N/A", "N/A"],
+        ["Average TD3 / D270-16", "75.93", "63.88", "74.21", "N/A", "N/A"],
+        ["Average TD3 / D270-20", "76.59", "128.91", "94.03", "N/A", "N/A"]
+      ]
+    },
+    {
+      "id": "efficiency",
+      "title": "Table 5 · Energy efficiency",
+      "caption": "Energy efficiency (m/kWh) under different algorithms, wind fields, and energy reward designs.",
+      "note": "Rows compare reward designs within the same algorithm and wind condition. N/A indicates a combination not reported in the paper. These are the scenario rows of Table 5; its aggregate percentage-difference row is not reproduced because the website uses the underlying values instead. Reward-design columns are not different RL algorithms.",
+      "headers": [
+        "Algorithm / wind field",
+        "Ours",
+        "Direct",
+        "Efficiency",
+        "Math",
+        "Queue"
+      ],
+      "rows": [
+        ["DDPG / D0-8", "231.37", "57.29", "190.69", "73.69", "99.5"],
+        ["DDPG / D90-4", "146.16", "240.76", "33.8", "108.52", "182.69"],
+        ["DDPG / D180-12", "81.51", "37.19", "112", "34.36", "37.23"],
+        ["DDPG / D270-16", "126.71", "93.1", "105.54", "87.26", "55.03"],
+        ["DDPG / D270-20", "89.77", "99.1", "42.11", "93.28", "27.43"],
+        ["Modified PPO / D0-4", "149.47", "129.1", "N/A", "N/A", "N/A"],
+        ["TD3 / D0-4", "251", "N/A", "230.69", "N/A", "N/A"],
+        ["TD3 / D180-12", "192.86", "N/A", "178.81", "N/A", "N/A"],
+        ["TD-MPC2 / D0-8", "203.84", "143.61", "198.9", "N/A", "N/A"],
+        ["TD-MPC2 / D90-4", "197", "189.51", "198.48", "N/A", "N/A"],
+        ["TD-MPC2 / D180-12", "130.61", "115.83", "114.46", "N/A", "N/A"],
+        ["TD-MPC2 / D270-16", "173.09", "144.07", "147.99", "N/A", "N/A"],
+        ["TD-MPC2 / D270-20", "124.77", "136.37", "117.78", "N/A", "N/A"],
+        ["Average TD3 / D0-8", "270.78", "90.55", "266.08", "N/A", "N/A"],
+        ["Average TD3 / D90-4", "243.67", "224.69", "241.14", "N/A", "N/A"],
+        ["Average TD3 / D180-12", "183.72", "192.55", "179.3", "N/A", "N/A"],
+        ["Average TD3 / D270-16", "194.2", "205.26", "200.16", "N/A", "N/A"],
+        ["Average TD3 / D270-20", "174.23", "104.45", "164.72", "N/A", "N/A"]
+      ]
+    }
+  ]
+}
