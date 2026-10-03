@@ -1,0 +1,11 @@
+{
+  "commit": "65d9e82ea2e72fd5d9b8cd52bff9e016defd87e8",
+  "workflowRun": 37144902582,
+  "workflowUrl": "https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/37144902582",
+  "conclusion": "success",
+  "axeScans": 10,
+  "additionalChecks": 91,
+  "axeViolations": 0,
+  "checkErrors": 0,
+  "site": "https://cgchrfchscyrh.github.io/eVTOL_webpage/"
+}
