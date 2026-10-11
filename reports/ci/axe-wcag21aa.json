@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-03T18:38:24.745Z",
+  "date": "2026-10-11T20:34:31.324Z",
   "project": "eVTOL_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
@@ -13,6 +13,60 @@
           "id": "color-contrast",
           "nodes": [
             [
+              ".hero-text > .eyebrow"
+            ],
+            [
+              "#paper-title"
+            ],
+            [
+              ".hero-question"
+            ],
+            [
+              "li:nth-child(1) > a[href=\"mailto:liusongyang@ufl.edu\"]"
+            ],
+            [
+              "li:nth-child(1) > sup > a[href$=\"#affiliation-1\"][aria-label=\"Affiliation 1\"]"
+            ],
+            [
+              "a[href$=\"mailto:weizili@utk.edu\"]"
+            ],
+            [
+              "a[href$=\"#affiliation-2\"]"
+            ],
+            [
+              "a[href$=\"mailto:hli111@utk.edu\"]"
+            ],
+            [
+              "a[href$=\"#affiliation-3\"]"
+            ],
+            [
+              "a[href$=\"mailto:shuai.li@ufl.edu\"]"
+            ],
+            [
+              "li:nth-child(4) > sup > a[href$=\"#affiliation-1\"][aria-label=\"Affiliation 1\"]"
+            ],
+            [
+              "#affiliation-1"
+            ],
+            [
+              "#affiliation-2"
+            ],
+            [
+              "#affiliation-3"
+            ],
+            [
+              ".hero-venue"
+            ],
+            [
+              ".actions > .light.button:nth-child(1)"
+            ],
+            [
+              ".light.button:nth-child(2)"
+            ],
+            [
+              ".light.button[href$=\"paper/\"]"
+            ],
+            [
               ".text-link[href$=\"paper/\"] > span[aria-hidden=\"true\"]"
             ],
             [
@@ -22,7 +76,10 @@
               "div:nth-child(2) > .numeric-pair > span[aria-hidden=\"true\"]"
             ],
             [
-              ".text-link[href$=\"results/\"] > span[aria-hidden=\"true\"]"
+              ".comparison > .text-link[href$=\"results/\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "#results > .text-link[href$=\"results/\"] > span[aria-hidden=\"true\"]"
             ]
           ]
         },
@@ -31,6 +88,9 @@
           "nodes": [
             [
               "#context-video"
+            ],
+            [
+              "#simulation-video"
             ]
           ]
         }
@@ -54,7 +114,10 @@
               "div:nth-child(2) > .numeric-pair > span[aria-hidden=\"true\"]"
             ],
             [
-              ".text-link[href$=\"results/\"] > span[aria-hidden=\"true\"]"
+              ".comparison > .text-link[href$=\"results/\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "#results > .text-link[href$=\"results/\"] > span[aria-hidden=\"true\"]"
             ]
           ]
         },
@@ -63,6 +126,9 @@
           "nodes": [
             [
               "#context-video"
+            ],
+            [
+              "#simulation-video"
             ]
           ]
         }
@@ -130,15 +196,33 @@
     "/: skip link is first keyboard stop",
     "/: keyboard focus has visible outline",
     "/: skip link focuses main",
-    "Video is paused on initial load",
-    "Keyboard starts video and exposes pause",
-    "Keyboard pauses video",
-    "Timed visual description track loads",
-    "Video ends without looping and exposes replay",
-    "Replay restarts video",
+    "NASA context and Flying DNA simulation videos are both present",
+    "Both title videos are paused on initial load",
+    "Both title videos are muted, inline, and retain native controls",
+    "Both videos have accessible names and existing text-description targets",
+    "Combined playback control has a visible keyboard focus outline",
+    "Keyboard starts both title videos and exposes pause",
+    "Keyboard pauses both title videos together",
+    "Native playback updates the group control without starting the other video",
+    "Native pause keeps the combined playback label synchronized",
+    "Keyboard activates full-frame mode with an accurate pressed state and label",
+    "Full-frame mode shows both complete video frames",
+    "Full-frame mode places both videos below the title text",
+    "Keyboard restores the title overlay and unpressed state",
+    "context-video: finite positive duration is available from media metadata",
+    "context-video: timed visual-description track loads",
+    "simulation-video: finite positive duration is available from media metadata",
+    "simulation-video: timed visual-description track loads",
+    "Both videos end without looping and expose replay",
+    "Replay restarts both title videos from the beginning",
     "Citation can be copied with keyboard",
     "/: no page-level horizontal overflow at 320 CSS px",
+    "Homepage places title text above the videos at 320 CSS px",
+    "Homepage shows complete video frames at 320 CSS px",
+    "Homepage stacks both videos vertically at 320 CSS px",
     "/: no page-level horizontal overflow at 768 CSS px",
+    "Homepage places title text above the videos at 768 CSS px",
+    "Homepage shows complete video frames at 768 CSS px",
     "/: reflows at 320 CSS px with increased text spacing",
     "/paper/: page loads",
     "/paper/: one H1",
@@ -205,10 +289,12 @@
     "/404.html: no page-level horizontal overflow at 768 CSS px",
     "/404.html: reflows at 320 CSS px with increased text spacing",
     "Comparison All objectives remains visible without JavaScript",
-    "Native video controls remain available without JavaScript",
+    "Both native video controls remain available without JavaScript",
+    "Unavailable JavaScript media controls are hidden without JavaScript",
+    "Homepage reflows at 320 CSS px without JavaScript",
     "Citation remains readable without JavaScript",
     "Unavailable JavaScript copy control is hidden",
-    "Reduced-motion visit does not start media"
+    "Reduced-motion visit does not start either title video"
   ],
   "errors": [],
   "limitations": [

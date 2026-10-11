@@ -12,7 +12,7 @@ The title pairs the existing 15-second NASA/Joby context video on the left with 
 
 Desktop users can play, pause, or replay both clips together, or choose Show full video frames to see complete frames outside the title overlay. At widths up to 1000 CSS pixels, the title appears before the complete frames; at widths up to 700 CSS pixels, the videos stack vertically. Native controls remain present from initial load and work without JavaScript. Neither video starts automatically or loops; no uncontrolled GIF is embedded.
 
-Local verification of this revision completed on 11 October 2026. Lint passed; Astro/TypeScript checked 21 files with zero errors, warnings, or hints, and the production build generated five pages. The dependency audit reported zero vulnerabilities with no advisory exceptions. GitHub Actions deployment and live verification of this revision are still pending; previous production records are identified as historical below.
+Local verification of this revision completed on 11 October 2026. Lint passed; Astro/TypeScript checked 21 files with zero errors, warnings, or hints, and the production build generated five pages. The dependency audit reported zero vulnerabilities with no advisory exceptions. GitHub Actions deployment and live verification of this revision also passed; see the current published verification below.
 
 ## Current automated results — 11 October 2026
 
@@ -58,6 +58,10 @@ Manual testing with multiple screen readers and users with disabilities, full re
 
 For official requirements, consult [UF Web Standards](https://brandcenter.ufl.edu/web-standards/) and [UF EIT Accessibility Policy](https://policy.ufl.edu/policy/electronic-information-technology-and-communication-accessibility-policy/). Contact for access barriers: liusongyang@ufl.edu.
 
-## Previous published build verification — 3 October 2026
+## Current published build verification — 11 October 2026
 
-The [previous successful deployment workflow](https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/37144902582) scanned 10 page states and passed 91 additional checks. Its report was saved in `reports/ci/axe-wcag21aa.json`. Live verification checked 5 pages and 25 unique page/resource URLs, confirmed public-media bytes matched the source assets, tested video playback and pause, and checked 320 CSS-pixel reflow. These checks predate Flying DNA and the two-video title layout. This revision has completed local verification but is still awaiting publication and live checks. Deployment reports must be updated after publishing; see `reports/live-deployment.json` and `reports/live-browser.json`.
+The [successful deployment workflow](https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/38172730548) published commit `f464007fabff27284f9186bdb363854b844cc838`. Its clean CI run passed lint, the dependency audit, Astro checks, the build, 10 axe scans, and 111 functional checks. The CI report has zero violations and zero check errors and is saved in `reports/ci/axe-wcag21aa.json`.
+
+Live verification checked five pages, 30 unique page/resource URLs, 37 internal fragment links, and both MP4 byte-range requests. All public media and data bytes checked matched their source assets. HTTPS is enforced, and the custom 404 response retains the institutional disclaimer and noindex directive. See `reports/live-deployment.json` for observed response headers and their GitHub Pages limitations.
+
+The live browser confirmed both clips start paused, keyboard play/pause works, full-frame switching works, and 320 CSS-pixel content reflows with complete stacked videos and no horizontal overflow. No console or page errors were found. See `reports/live-browser.json`.

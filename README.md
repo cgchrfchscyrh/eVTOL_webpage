@@ -47,11 +47,13 @@ TEST_URL=http://127.0.0.1:4332/eVTOL_webpage npm run test:a11y
 
 2026 年 10 月 11 日本轮 Flying DNA 与双视频修订已通过本地 lint、Astro/TypeScript 检查及构建：检查 21 个文件，0 错误、0 警告、0 提示，生成 5 个页面。无障碍测试完成 10 次 axe 扫描和 111 项功能检查，0 违规、0 检查错误。已目视核对 1440 CSS 像素桌面、完整画面模式和 320 CSS 像素移动端截图，未发现页面横向溢出；动态背景按最亮白色像素核算时，所检查标题文字的最低对比度为 6.89:1。自动检查与这些人工核对不代表完整 WCAG/ADA 认证。
 
-本轮尚待 GitHub Actions 发布与线上复核。2026 年 10 月 3 日的旧 CI 和部署记录仅作历史记录，不能替代本轮线上检查。
+本轮 GitHub Actions 已成功发布，且完成线上资源、媒体、HTTPS 和浏览器复核；完整记录见本文末尾。2026 年 10 月 3 日检查仅作历史记录。
 
 ## 修改内容
 
-- `src/data/site.json`：论文题目、作者、研究叙事、图表说明、数值与 BibTeX。
+- `src/data/site.json`：论文题目、作者、原图说明、数值与 BibTeX。
+- `src/data/narrative.json`：七段研究叙事与独立相关工作。
+- `src/data/presentation.json`、`hero-media.json`：PPT 静图和仿真视频的说明与来源。
 - `src/components/` 和 `src/pages/`：布局和交互。
 - `src/styles/global.css`：响应式样式、可见焦点、打印与 reduced-motion 支持。
 - `public/figures/`：原论文图与 Flying DNA 第 5 页静图的阅读副本。
@@ -84,3 +86,7 @@ PPT 仿真视频来自作者提供的 Flying DNA 第 6 页嵌入动画 `image13.
 参考：[UF Web Standards](https://brandcenter.ufl.edu/web-standards/)、[UF EIT Accessibility Policy](https://policy.ufl.edu/policy/electronic-information-technology-and-communication-accessibility-policy/)。中性视觉和免责声明不代表已获得 UF 官方品牌批准。自动化检查也不代表 ADA 或完整 WCAG 认证。
 
 基于 Roman Hauksson 的 [Academic Project Astro Template](https://github.com/RomanHauksson/academic-project-astro-template)，按本研究内容重新实现。已上线的 HOIST 网站由另一个仓库维护。
+
+## 本轮发布记录 — 2026 年 10 月 11 日
+
+[GitHub Actions 部署成功](https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/38172730548)，版本 `f464007`。云端重复通过 10 次 axe 扫描、111 项功能检查，零违规或错误；线上已验证 5 个页面、30 个页面/资源 URL、37 个页内定位链接及两段视频的字节范围请求。键盘播放/暂停、完整画面切换、320 CSS 像素回流和 HTTPS 均通过，具体证据保存在 `reports/ci/`、`reports/live-deployment.json`、`reports/live-browser.json`。这不是完整 ADA/WCAG 认证。
