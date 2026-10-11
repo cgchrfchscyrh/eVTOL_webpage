@@ -24,13 +24,19 @@ import { asset } from "../data/paths";
             The first keyboard link skips to the main content. Keyboard focus is
             visible throughout the page.
           </li><li>
-            Videos start only when you choose to play them. Native player
-            controls and a separate play/pause button is also available. No
-            video loops automatically.
+            Videos start only when you choose to play them. Both native players
+            retain controls from initial load. A shared button can play, pause,
+            or replay both title clips together. Neither video loops
+            automatically.
           </li><li>
-            The context clip has no audio track. A complete visual description
-            appears below the main content; a timed description track is also
-            provided.
+            The 15-second NASA/Joby context clip and approximately 20.93-second
+            Flying DNA simulation clip have no audio tracks. Each has a complete
+            HTML visual description and a timed WebVTT description track.
+          </li><li>
+            On desktop, choose “Show full video frames” to view the complete
+            videos outside the title overlay. On smaller screens, the title
+            appears before the complete frames; on narrow screens, the videos
+            stack vertically.
           </li><li>
             Paper figures have descriptive alternatives and longer explanations.
             Results appear as labeled values and structured tables, so color is
@@ -39,10 +45,31 @@ import { asset } from "../data/paths";
             At narrow widths, content reflows into a single column. Wide data
             tables and BibTeX text scroll within their own focusable areas.
           </li><li>
-            Core content, all result comparisons, and media controls remain
-            available without JavaScript.
+            Core content, all result comparisons, and native player controls
+            remain available without JavaScript.
           </li>
         </ul>
+      </section>
+      <section>
+        <h2>Flying DNA materials and research scope</h2><p>
+          The authors’ six-slide <cite>Flying DNA - Copy 1.pptx</cite> introduces
+          a project vision built around Digital Twin, Networked Systems, and Artificial
+          Intelligence. These three pillars are distinct from the methods and results
+          validated in the 2025 published eVTOL paper. Presentation material does
+          not extend the paper’s experimental claims.
+        </p><p>
+          The selected stills show the digital-twin city and wind field from
+          slide 5; both have alt text and complete HTML explanations. The right
+          title video presents the complete slide 6 animation,
+          <code>image13.gif</code>, as an original-speed, silent MP4 with
+          playback controls. The source presentation remains unchanged and is
+          not republished as a complete attachment.
+        </p><p>
+          The left title video is existing NASA/Joby real-flight footage. It and
+          the presentation simulation come from separate sources, not the same
+          experiment. Neither demonstrates a real-aircraft trial of this paper’s
+          controller. Full visual descriptions and source credits appear below.
+        </p>
       </section>
       <section id="attachments">
         <h2>Papers, figures & data attachments</h2><p>
@@ -51,16 +78,28 @@ import { asset } from "../data/paths";
             >HTML result tables and figure descriptions</a
           > accompany the downloadable CSV data and images.
         </p><p>
-          {
-            site.id === "mixed_traffic"
-              ? "The supplied IEEE publisher PDF is untagged. We link to the published article and to the full arXiv preprint in HTML; the latter is a preprint version, not a guaranteed identical copy of the published paper. The external preprint PDF has not been fully assessed for accessibility."
-              : "The supplied Elsevier PDF reports that it contains tags. Tag presence alone does not verify heading structure, figure alternatives, equation reading, or reading order. We link to the publisher’s version of record, whose full-text availability may depend on access rights."
-          }
+          The supplied Elsevier PDF reports that it contains tags. Tag presence
+          alone does not verify heading structure, figure alternatives, equation
+          reading, or reading order. We link to the publisher’s version of
+          record, whose full-text availability may depend on access rights.
         </p><p>
           The original uploaded PDF has not been altered or republished here. We
           have not certified external PDF reading order, mathematical
           accessibility, or assistive-technology behavior. CSV files are plain
           data; the HTML tables provide captions and row/column headers.
+        </p>
+      </section>
+      <section>
+        <h2>External related work</h2><p>
+          GeoWind2Plan is related work by independent authors. Its
+          <a href="https://arxiv.org/html/2609.36056v1">HTML preprint</a> and
+          <a href="https://arxiv.org/pdf/2609.36056v1">GeoWind2Plan PDF</a> are linked
+          for further reading; its findings are not presented as this project’s experiments.
+        </p><p>
+          The external GeoWind2Plan PDF is untagged, and its reading order and
+          assistive-technology behavior have not been verified. The HTML version
+          provides another reading format, without a claim of complete
+          accessibility conformance.
         </p>
       </section>
       <section>
@@ -73,6 +112,17 @@ import { asset } from "../data/paths";
           > and <a href={`${site.siteRepo}/blob/main/ACCESSIBILITY.md`}
             >the review record</a
           >.
+        </p><p>
+          On 11 October 2026, the local production build passed 10 axe scans and
+          111 functional checks with zero violations or check errors. Lint and
+          Astro/TypeScript checks also passed, and the dependency audit reported
+          zero vulnerabilities without advisory exceptions. Desktop, full-frame
+          video, and 320 CSS-pixel mobile views were visually reviewed with no
+          page-level horizontal overflow. The reviewed title text has a minimum
+          6.89:1 contrast ratio even when a white video pixel is used as the
+          brightest background case beneath its overlay. These results concern
+          the local revision; deployment and live checks are recorded separately
+          in the repository review record.
         </p><p>
           Automated coverage is limited. A full review with multiple screen
           readers, users with disabilities, and institutional accessibility and
@@ -95,7 +145,7 @@ import { asset } from "../data/paths";
           institutional disclaimer appears on every page. A neutral visual
           design is not a substitute for institutional brand approval.
         </p><p>
-          This static site loads its fonts, figures, and short video excerpt
+          This static site loads its fonts, figures, and short video excerpts
           locally. It uses no analytics, advertising, or embedded third-party
           players. Following an external link opens the provider’s site, where
           that provider’s privacy practices apply.
@@ -112,6 +162,12 @@ import { asset } from "../data/paths";
           href={asset("results/#figures")}>results and figures page</a
         >. Rights in published papers and third-party media remain with their
         respective holders.
+      </p><p>
+        The additional city and wind-field stills come from slide 5 of the
+        authors’ Flying DNA presentation. The original scientific diagram colors
+        are retained as research content, not as a UF interface palette; labels
+        and text alternatives explain the information without requiring color
+        identification.
       </p>{
         site.id === "eVTOL_webpage" && (
           <p>

@@ -1,0 +1,146 @@
+{
+  "source_file": "/home/liusongyang/Videos/eVTOL/Flying DNA - Copy 1.pptx",
+  "source_sha256": "6dfda9cdc544f61b18b1670dbac9115f83a417c5e32e4d205bc072ea547498ba",
+  "slides": 6,
+  "read_only_source": true,
+  "source_slide_media_map": "/tmp/evtol-revision/assets/slide-media-map.json",
+  "assets": [
+    {
+      "id": "urban-digital-twin",
+      "slide": 5,
+      "source_zip_entry": "ppt/media/image7.png",
+      "file": "urban-digital-twin.webp",
+      "alt": "Oblique view of a textured digital city model containing streets, city blocks, and buildings of different heights.",
+      "description": "The model shows a bounded cluster of city blocks, with streets between low- and mid-rise buildings and several taller towers. Facade textures, road markings, trees, and surrounding terrain are visible. The viewpoint is elevated and oblique. Slide 5 labels this image City Model Registration. The image illustrates urban geometry used in the broader Flying DNA presentation; it does not identify a city, map scale, registration accuracy, or a specific quantitative experiment.",
+      "transformation": "Original embedded image decoded and encoded as lossless WebP. No crop, rescale, recoloring, or annotation change.",
+      "path": "/tmp/evtol-revision/assets/urban-digital-twin.webp",
+      "width": 1446,
+      "height": 978,
+      "bytes": 1571040,
+      "sha256": "04d43c13c058509ed95fbe5753b04bfabc07e87189c4b153ec2943a46a7e81c6"
+    },
+    {
+      "id": "urban-wind-field",
+      "slide": 5,
+      "also_on_slide": 4,
+      "source_zip_entry": "ppt/media/image5.png",
+      "file": "urban-wind-field.webp",
+      "alt": "Three-dimensional urban wind-field visualization around building blocks, with a U Magnitude legend ranging from zero to one.",
+      "description": "Solid building blocks of different heights stand within a spatially varying colored field on a black background. Bands and lobes of the displayed field extend around the blocks and through the gaps between them. A vertical legend labelled U Magnitude has tick values from 0.0 to 1.0 in increments of 0.2, and a small coordinate-axis symbol appears at lower left. The legend does not state physical units or whether values are normalized. Slide 5 labels this image Urban Wind Field. The rendering illustrates how a field varies around urban geometry; it is not a table of wind measurements and does not establish the city, wind direction, or one of the paper’s named test conditions.",
+      "transformation": "Original embedded image decoded and encoded as lossless WebP. Full legend and coordinate axes preserved. No crop, rescale, recoloring, or annotation change.",
+      "path": "/tmp/evtol-revision/assets/urban-wind-field.webp",
+      "width": 1600,
+      "height": 1052,
+      "bytes": 656572,
+      "sha256": "be230018d7ae2b7366071efa0959d873182ab14663a5366c31d595f617a7288e"
+    },
+    {
+      "id": "urban-wind-workflow",
+      "slide": 5,
+      "source_zip_entry": "ppt/slides/slide5.xml with embedded pictures and native text/arrows",
+      "file": "urban-wind-workflow.webp",
+      "alt": "Flying DNA presentation workflow links drone sensing, wind sensing, city-model registration, urban wind fields, wind prediction, and wind effects on a drone.",
+      "description": "The workflow begins on the left with a wind-sensor image and an outdoor drone image. Arrows connect the drone to a Drone Sensing Network illustration and to Wind Impact on Drone. Along the top, Drone Sensing Network points to Wind Sensing, then to City Model Registration. A vertical connection labelled CFD/Physics-Informed AI leads from the city model to an Urban Wind Field rendering. The bottom row connects Urban Wind Field to Wind Prediction and then to Wind Impact on Drone, returning toward the drone. Written labels and this sequence identify the components without requiring the viewer to distinguish arrow colors. This is a conceptual overview from the broader presentation, not a verified deployment report or the exact modified-PPO architecture used in the 2025 eVTOL article.",
+      "transformation": "Rendered original slide at 2560×1440 using LibreOffice and pdftoppm. Cropped x=0,y=305,x2=2560,y2=1440, removing only the page title and top blank space. Retained all workflow images, native arrows, and component labels. Saved as lossless WebP. Animated areas appear as the source render’s static initial frame.",
+      "optional": true,
+      "path": "/tmp/evtol-revision/assets/urban-wind-workflow.webp",
+      "width": 2560,
+      "height": 1135,
+      "bytes": 1494674,
+      "sha256": "8929a3034e208f14b8a41d58bcbb18d5d4eb9679282978e316c4a5cfa4c90a54"
+    }
+  ],
+  "video": {
+    "label": "Urban flight simulation from the Flying DNA presentation",
+    "slide": 6,
+    "source_zip_entry": "ppt/media/image13.gif",
+    "source_sha256": "7718250f7fe5b2f23f8ef2735f40d1d1756c2e1c5d83b2420991840b72bac268",
+    "source_type": "Animated GIF with no audio capability",
+    "selected_start_seconds": 0,
+    "selected_end_seconds_exclusive": 20.93,
+    "source_duration_seconds": 20.93,
+    "output_duration_seconds": 20.93,
+    "width": 854,
+    "height": 480,
+    "frame_count": 628,
+    "frame_intervals_ms": [
+      30,
+      40
+    ],
+    "average_fps": 30.00477783086479,
+    "timing_preservation": {
+      "all_source_frames_retained": true,
+      "maximum_frame_timestamp_difference_ms": 1.8189894035458565e-12,
+      "speed_multiplier": 1,
+      "cuts": 0,
+      "crop": null,
+      "rescale": null
+    },
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "audio_streams": 0,
+    "faststart": true,
+    "poster": {
+      "source_frame": 314,
+      "source_time_seconds": 10.47
+    },
+    "full_visual_description": "A silent, 20.93-second urban flight simulation taken from slide 6 of the Flying DNA presentation. A small four-rotor aircraft is shown above streets and intersections between multistory buildings. The rendered city includes cars, crosswalks, sidewalks, and reflective road surfaces. A broad yellow path or trail meets the aircraft and curves through the scene. The camera follows the aircraft from changing rear, elevated, and side viewpoints, first overlooking a street and an intersection, then moving closer to a building facade. The final view shows the aircraft beside the buildings with the yellow trace extending across the image. The complete original animation is retained at its original timing and resolution, without cropping, added motion, or audio. This is a drone simulation from the broader presentation; it does not by itself establish the aircraft model, controller, wind condition, quantitative performance, or identity of the city, and it is not footage of the 2025 eVTOL policy operating on a real aircraft.",
+    "files": {
+      "urban-flight-simulation.mp4": {
+        "path": "/tmp/evtol-revision/assets/urban-flight-simulation.mp4",
+        "bytes": 7171874,
+        "sha256": "f8672f333303b9c3783d38033ef653b64b072acbc6133dce98f2b43f6fede5f0"
+      },
+      "urban-flight-simulation.jpg": {
+        "path": "/tmp/evtol-revision/assets/urban-flight-simulation.jpg",
+        "bytes": 149539,
+        "sha256": "df21504bf548ca3f84211be0a980086df2f26b60878c5724e021a6d967a514da"
+      },
+      "urban-flight-simulation-descriptions.vtt": {
+        "path": "/tmp/evtol-revision/assets/urban-flight-simulation-descriptions.vtt",
+        "bytes": 599,
+        "sha256": "1b991536012c0cba388b2188451c6afeca018293cce8ed0e662995202d5aaf30"
+      },
+      "visual-description.txt": {
+        "path": "/tmp/evtol-revision/assets/visual-description.txt",
+        "bytes": 1029,
+        "sha256": "2cb84abf4d45d4912f1e9518976279dd776566035a1d9e723e3f8171ceb5784c"
+      }
+    },
+    "classification": "Confirmed simulated drone/city imagery from the supplied presentation. Exact link to a specific manuscript, controller, or trial is unverified.",
+    "claims_to_avoid": [
+      "Physical validation of the eVTOL policy",
+      "Proof of multi-objective performance",
+      "Named city or exact wind condition",
+      "GeoWind2Plan authorship or result attribution",
+      "Comparison of algorithms from this animation alone"
+    ],
+    "decode_validation": "Full ffmpeg decode completed successfully."
+  },
+  "not_selected": [
+    {
+      "source_zip_entry": "ppt/media/media1.mp4",
+      "slide": 5,
+      "reason": "Outdoor drone footage with an AAC audio track, 6.567 seconds. Not used or muted without sound review."
+    },
+    {
+      "source_zip_entry": "ppt/media/image15.png",
+      "slide": 6,
+      "reason": "Contains replay-buffer actor/critic learning and broader reward components; not used to replace the published modified-PPO method figure."
+    },
+    {
+      "source_zip_entry": "ppt/media/image4.png",
+      "slide": 3,
+      "reason": "Decorative overlapping colored circles. Main agent will use accessible HTML descriptions of DNA pillars."
+    }
+  ],
+  "verification": [
+    "Viewed source embedded images at their native dimensions.",
+    "Rendered and inspected source slides 4, 5, and 6.",
+    "Inspected animation frames across its full duration.",
+    "Preserved full scientific legends, text, annotations, and source colors.",
+    "No UF logo or UF masthead in exported assets.",
+    "No image generation, scientific redrawing, invented units, or invented location.",
+    "No repository files edited."
+  ]
+}

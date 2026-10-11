@@ -1,18 +1,22 @@
 # eVTOL / MOTION PLANNING — 论文项目网页
 
-论文：**Reinforcement learning based multi-perspective motion planning of manned electric vertical take-off and landing vehicle in urban environment with wind fields**。以作者提供的正式发表 PDF 为事实来源；原始 PDF 保持不变，不在仓库中重新分发。
+论文：**Reinforcement learning based multi-perspective motion planning of manned electric vertical take-off and landing vehicle in urban environment with wind fields**。2025 年发表论文及其原表是已验证方法与量化结果的事实来源；原始 PDF 保持不变，不在仓库中重新分发。本次修订另使用作者提供的六页 `Flying DNA - Copy 1.pptx` 介绍更广泛的项目愿景，明确区分愿景、演示素材与论文实验。
 
 网站地址：<https://cgchrfchscyrh.github.io/eVTOL_webpage/>。科研代码仓库与本网页仓库分开：<https://github.com/cgchrfchscyrh/eVTOL_RL>。
 
 ## 网站内容
 
-- `/`：英文论文介绍、真实场景视频与论文图并列的首屏、方法、结果对比、研究边界、引用。
+- `/`：标题叠在真实飞行与 PPT 仿真双视频之上的首屏、Flying DNA 愿景、2025 年论文方法与结果、相关工作、研究边界和引用。
 - `/paper/`：HTML 研究指南，明确是论文的阅读辅助，不是完整逐字转录。
 - `/results/`：原始图、详细文字说明、结果表格及 CSV 下载。
 - `/accessibility/`：无障碍说明、媒体来源、附件限制和联系信息。
 - `/404.html`：保留导航与 UF 非官方立场声明的错误页面。
 
 中性炭黑和灰白界面不使用 UF 标志或蓝橙主题。保留论文作者单位和所有页面的 UF 非官方立场声明。原论文图的科学配色保持不变，另提供文字和表格说明。
+
+Flying DNA 的三柱为 Digital Twin、Networked Systems、Artificial Intelligence。这是项目的研究愿景，不表示 2025 年论文已经验证完整的三柱系统。PPT 阅读副本仅选第 5 页的数字孪生城市场景与风场静图，以及第 6 页嵌入的 `image13.gif`；原 PPT 保持不变，不整份公开。静图提供 alt text 和完整 HTML 说明，保留科学图示的原配色，不将其作为 UF 界面品牌配色。
+
+首屏左侧保留 NASA/Joby 的 15 秒现实背景视频，右侧将 `image13.gif` 的完整约 20.93 秒序列转换为原速、无音轨 MP4。两者不是同场实验，也不构成本论文实机验证。桌面提供同时播放、暂停、重播和 “Show full video frames” 按钮；宽度不超过 1000 CSS 像素时标题位于视频前，不超过 700 CSS 像素时完整画面纵向排列。两段视频均保留原生控件、完整 HTML 画面说明和 WebVTT 描述轨道，不自动播放或循环。无 JavaScript 时仍可播放和阅读说明。
 
 ## 本地运行与检查
 
@@ -39,14 +43,18 @@ TEST_URL=http://127.0.0.1:4332/eVTOL_webpage npm run test:a11y
 
 也可以用 `CHROME_PATH` 指定已安装的 Chrome。无障碍测试包括 axe、键盘跳转/标签页/视频控制、320 像素回流、文字间距、无 JavaScript 页面、媒体描述轨道和引用复制。详细记录见 [ACCESSIBILITY.md](ACCESSIBILITY.md)。
 
-安全审计仍报告一个未修复的上游公告；[SECURITY.md](SECURITY.md) 记录其静态站点适用性评估和复查期限。`audit:security` 会保留原始 npm 输出，并拒绝新增、过期或不符合已复核范围的问题。不要将通过此检查表述为“所有依赖零漏洞”。
+2026 年 10 月 11 日安全审计为零漏洞、无公告例外：仅将 `http-cache-semantics` 从 4.2.0 更新至 4.3.0，并移除未使用的 Markdown 检查器及其 KaTeX 依赖链；其他保留包版本未变。`audit:security` 保留原始 npm 输出，并拒绝任何漏洞或审计失败。详见 [SECURITY.md](SECURITY.md)。这是有日期的依赖检查，不是未来安全保证。
+
+2026 年 10 月 11 日本轮 Flying DNA 与双视频修订已通过本地 lint、Astro/TypeScript 检查及构建：检查 21 个文件，0 错误、0 警告、0 提示，生成 5 个页面。无障碍测试完成 10 次 axe 扫描和 111 项功能检查，0 违规、0 检查错误。已目视核对 1440 CSS 像素桌面、完整画面模式和 320 CSS 像素移动端截图，未发现页面横向溢出；动态背景按最亮白色像素核算时，所检查标题文字的最低对比度为 6.89:1。自动检查与这些人工核对不代表完整 WCAG/ADA 认证。
+
+本轮尚待 GitHub Actions 发布与线上复核。2026 年 10 月 3 日的旧 CI 和部署记录仅作历史记录，不能替代本轮线上检查。
 
 ## 修改内容
 
 - `src/data/site.json`：论文题目、作者、研究叙事、图表说明、数值与 BibTeX。
 - `src/components/` 和 `src/pages/`：布局和交互。
 - `src/styles/global.css`：响应式样式、可见焦点、打印与 reduced-motion 支持。
-- `public/figures/`：从原 PDF 提取的 PNG。
+- `public/figures/`：原论文图与 Flying DNA 第 5 页静图的阅读副本。
 - `public/data/`：与 HTML 数值一致的 CSV。修改结果时同步更新并核对原论文。
 - `public/media/`：静音片段、封面及英文画面描述 VTT。
 - `reports/source-provenance.json`：原 PDF 文件名、SHA-256、提取来源和核对日期。
@@ -68,6 +76,10 @@ git push origin main
 ## 素材与规范
 
 视频来源：[NASA · “NASA and Joby Complete Air Taxi Testing” · 2021](https://images.nasa.gov/details/NHQ20210915ARMD01)。使用方式、完整画面说明与研究录像的区别见网站媒体说明。
+
+PPT 仿真视频来自作者提供的 Flying DNA 第 6 页嵌入动画 `image13.gif`。完整动画按原有时间顺序转换为可暂停的静音 MP4，不在网页直接放置不可控循环 GIF。它展示项目演示场景，不能据此推断已完成实机试飞或扩展论文验证范围。
+
+[GeoWind2Plan 的 HTML 预印本](https://arxiv.org/html/2609.36056v1) 与 [PDF](https://arxiv.org/pdf/2609.36056v1) 作为独立作者的相关工作链接，不能将其结果写成本项目实验。该外部 PDF 未加标签，阅读顺序与辅助技术体验未核验；优先提供 HTML 阅读入口，但不声明外部内容已完全无障碍。本项目原始 Elsevier PDF 虽报告含标签，也不能据此认定其阅读顺序、公式或图示已完全合规。
 
 参考：[UF Web Standards](https://brandcenter.ufl.edu/web-standards/)、[UF EIT Accessibility Policy](https://policy.ufl.edu/policy/electronic-information-technology-and-communication-accessibility-policy/)。中性视觉和免责声明不代表已获得 UF 官方品牌批准。自动化检查也不代表 ADA 或完整 WCAG 认证。
 

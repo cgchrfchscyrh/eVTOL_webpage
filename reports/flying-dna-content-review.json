@@ -1,0 +1,211 @@
+{
+  "sources": {
+    "presentation": {
+      "path": "/home/liusongyang/Videos/eVTOL/Flying DNA - Copy 1.pptx",
+      "sha256": "6dfda9cdc544f61b18b1670dbac9115f83a417c5e32e4d205bc072ea547498ba",
+      "slideCount": 6,
+      "title": "FLYING DNA",
+      "notes": "No experiment details in speaker notes; only slide numbers on a few pages."
+    },
+    "publishedPaper": {
+      "path": "/home/liusongyang/Downloads/1-s2.0-S0952197625003926-main.pdf",
+      "sha256": "f944af3f53c90f721378b1ab7f3a1c162a8103746b6e4e50f0ae742a9f9f1e2b",
+      "title": "Reinforcement learning based multi-perspective motion planning of manned electric vertical take-off and landing vehicle in urban environment with wind fields",
+      "doi": "10.1016/j.engappai.2025.110392",
+      "pages": 17,
+      "verifiedBy": "pdftotext -layout, page-specific text review, and visual review of pp. 12–13 (Tables 6 and 7).",
+      "originalProvenanceSha256": "7966db8be723b98a87bfbf4634e0cc22e4cdb1790a5801f0a6ae97897e29bbd3",
+      "fileIdentityNote": "The current Downloads publisher PDF has a different byte hash from the original eVTOL.pdf recorded by the site. Its title, DOI, author list, 17-page layout, and checked Tables 5–7 match the existing site. Do not claim byte identity with the previously uploaded file or replace the historical provenance hash."
+    },
+    "relatedWork": {
+      "path": "/tmp/evtol-revision/arxiv-2609.36056.pdf",
+      "sha256": "94749d3c85ca79c12876b6f4dc7abddbd66545852ad07b107931a344a4f73944",
+      "title": "GeoWind2Plan: Mission-Time 3D Urban Wind Prediction for Energy-Efficient UAV Planning",
+      "version": "arXiv:2609.36056v1 [cs.AI], 28 Sep 2026",
+      "authors": [
+        "Shaoxiang Qin",
+        "Yucheng Zhao",
+        "Fuyuan Lyu",
+        "Di Zhou",
+        "Jiachen Yao",
+        "Xue Liu",
+        "Anima Anandkumar",
+        "Liangzhu Leon Wang",
+        "Xiongye Xiao"
+      ],
+      "url": "https://arxiv.org/abs/2609.36056",
+      "attribution": "Independent research team; not Songyang Liu et al. and not part of the 2025 EAAI paper. Verified against arXiv abstract, HTML v1, and downloaded PDF title page.",
+      "htmlUrl": "https://arxiv.org/html/2609.36056v1",
+      "taggedPdf": false,
+      "pdfAccessibilityNote": "PDF is untagged; reading order and screen-reader usability have not been certified. Link to the arXiv HTML reading version is provided."
+    }
+  },
+  "presentationScope": [
+    {
+      "slide": 1,
+      "content": "FLYING DNA cover",
+      "status": "Program framing; no claims or experimental protocol."
+    },
+    {
+      "slide": 2,
+      "content": "AAM passenger transportation and drone logistics; market forecast",
+      "status": "Background. The 137 B by 2035 / CAGR 25.5% forecast has no source in deck; omitted from website facts."
+    },
+    {
+      "slide": 3,
+      "content": "Digital Twin / Networked Systems / Artificial Intelligence",
+      "status": "Broader program architecture; can guide website narrative without implying all components were implemented in the published planner."
+    },
+    {
+      "slide": 4,
+      "content": "Past Projects; AI and digital twins for urban flight",
+      "status": "Past-project framing, but no quantitative protocol or validation details. Broad adaptation wording is not evidence of online learning or arbitrary dynamic-wind generalization."
+    },
+    {
+      "slide": 5,
+      "content": "City registration, CFD/physics-informed AI, drone sensing network, wind sensing/prediction, wind effects on drone",
+      "status": "Conceptual research workflow plus illustrative media. No metrics, sample sizes, tracking logs, or linked quantitative experiments."
+    },
+    {
+      "slide": 6,
+      "content": "AI navigation demonstrations and smarter/safer/more sustainable aspirations",
+      "status": "Demonstration material, not a reported new quantitative trial or certification claim."
+    }
+  ],
+  "validatedVersusPlanned": {
+    "publishedCompleted": "The 2025 paper reports a single-eVTOL multi-objective planning study in simulated Atlanta, using steady-state CFD wind fields and modified PPO with baseline and reward-ablation experiments.",
+    "notEstablishedByDeck": "Operational sensor-network assimilation, real-time physics-informed wind inference, lifelong learning, multi-aircraft coordination, flight certification, or field-tested dynamic-wind autonomy are not established by this deck.",
+    "paperFutureWork": "Multi-eVTOL coordination, varied origin–destination demands, joint air-ground studies, and stronger multi-wind generalization are discussed as future work."
+  },
+  "distinctions": [
+    {
+      "topic": "Wind source",
+      "publishedProject": "Precomputed OpenFOAM steady-state RANS city wind fields.",
+      "geowind2plan": "Mission-local 3D wind predicted from building geometry and background wind using a localized neural operator."
+    },
+    {
+      "topic": "Planner",
+      "publishedProject": "Modified PPO policy with continuous 3-axis actions and multi-objective rewards.",
+      "geowind2plan": "RRT-initialized nonlinear continuous path and speed optimization with a physical UAV energy model."
+    },
+    {
+      "topic": "Objectives",
+      "publishedProject": "Aircraft energy/efficiency, passenger comfort/safety/time, and modeled urban noise.",
+      "geowind2plan": "UAV energy-efficient planning under wind-dependent vehicle and obstacle constraints."
+    },
+    {
+      "topic": "Evaluation",
+      "publishedProject": "Named Atlanta simulation conditions; tabulated training extremum values and a separate reward ablation.",
+      "geowind2plan": "Independent urban-block missions; trajectories planned with alternate wind inputs and evaluated under reference CFD. Results and units cannot be treated as a direct cross-paper benchmark."
+    }
+  ],
+  "knownCautions": [
+    {
+      "issue": "Dynamic-wind adaptation",
+      "source": "Flying DNA slide 4 versus EAAI Section 5 p. 14",
+      "resolution": "The deck uses broad continuously sense/learn/adapt language. The article explicitly states single-wind-field training; retain that limitation."
+    },
+    {
+      "issue": "No new PPT experiment data",
+      "source": "All six slides",
+      "resolution": "Do not invent numerical experiments or move the existing table values under a claim of new Flying DNA results."
+    },
+    {
+      "issue": "Across-all-metrics superiority",
+      "source": "EAAI Table 6 p. 12",
+      "resolution": "Ours-all leads four of six metrics among listed methods; TD-MPC2-all has better safety and flight time. Preserve both facts."
+    },
+    {
+      "issue": "Distinct baselines",
+      "source": "EAAI Tables 6 and 7",
+      "resolution": "57.83 kWh / 20.55 dB all-objective result is distinct from 48.28 kWh / 17.99 dB ablation baseline; no cross-experiment subtraction."
+    },
+    {
+      "issue": "Percentage claims",
+      "source": "EAAI Section 4.4.1 p. 10 and aggregate table rows",
+      "resolution": "Some prose calls a 375.1% difference a reduction; aggregate denominators differ. Keep existing absolute scenario data and do not introduce those percentage claims."
+    },
+    {
+      "issue": "Non-universal energy reward gains",
+      "source": "EAAI Table 5 p. 11",
+      "resolution": "Preserve adverse cases such as DDPG/D90-4 99.4 vs Direct 52.36 kWh. The paper prose example for TD-MPC2/D270-16 is inconsistent with its numeric row; use the table values."
+    },
+    {
+      "issue": "Seven named winds versus Table 5 subset",
+      "source": "EAAI Section 4.2 p. 9; Table 5 p. 11",
+      "resolution": "Seven named fields are reported overall; Table 5 contains six unique named conditions and not every cross-product. Do not present full-factorial coverage."
+    },
+    {
+      "issue": "Training outcome counts",
+      "source": "Table 7 p. 13",
+      "resolution": "Counts over 50,000 training episodes do not constitute a deployed policy success probability."
+    },
+    {
+      "issue": "Reference-paper attribution",
+      "source": "GeoWind2Plan title page and methods",
+      "resolution": "Only a concise independently attributed related-work card; no claimed authorship, shared results, adopted implementation, or direct performance comparison."
+    }
+  ],
+  "preserveData": {
+    "metadata": [
+      "title",
+      "authors",
+      "affiliations",
+      "publication",
+      "doi",
+      "year",
+      "bibtex",
+      "citationKey"
+    ],
+    "comparisons": "Keep existing Table 6 energy/noise interactive comparison values unchanged.",
+    "tables": [
+      {
+        "id": "all-objectives",
+        "scope": "Preserve all four method rows and six metrics of Table 6. Existing website does not reproduce the paper’s percentage-difference summary row."
+      },
+      {
+        "id": "ablation",
+        "scope": "Preserve all seven Table 7 experiment rows, counts, N/A entries, and successful-flight metrics."
+      },
+      {
+        "id": "energy",
+        "scope": "Preserve all 18 Table 5 scenario rows for energy consumption, including N/A and adverse cases. Existing aggregate-percentage omission remains explicitly documented."
+      },
+      {
+        "id": "efficiency",
+        "scope": "Preserve all 18 Table 5 scenario rows for energy efficiency, including N/A and adverse cases. Existing aggregate-percentage omission remains explicitly documented."
+      }
+    ],
+    "csv": "Preserve the corresponding CSV numeric data without transformations.",
+    "existingTableRowCounts": {
+      "all-objectives": 4,
+      "ablation": 7,
+      "energy": 18,
+      "efficiency": 18
+    }
+  },
+  "narrative": {
+    "path": "/tmp/evtol-revision/narrative.json",
+    "schema": "Seven sections problem, relatedWork, gap, method, experiments, results, conclusion. Each has title/heading/intro/sourceSlides/sourcePaper. Additional program pillars, method.steps, experiments.protocol, results.keyFindings, conclusion.limitations; one relatedWork.externalReference card.",
+    "sourceSlidesNote": "Empty arrays for experiments/results mean the deck contains no quantitative protocol/results; the sourcePaper field is authoritative.",
+    "externalReferenceVisibleWordCount": 126,
+    "externalReferenceUsage": "Render the card once on the homepage; guide should link to that section instead of repeating its text. Keep total GeoWind-derived prose under 180 English words."
+  },
+  "finalReview": {
+    "checkedOn": "2026-10-11",
+    "metadataAndTablesUnchanged": true,
+    "csvFilesByteIdenticalToPreviousCommit": true,
+    "preservedRowCounts": {
+      "all-objectives": 4,
+      "ablation": 7,
+      "energy": 18,
+      "efficiency": 18
+    },
+    "sections": 7,
+    "mediaSources": [
+      "NASA/Joby context footage retained, 15 s, silent",
+      "Flying DNA slide 6 simulation, 20.93 s, original timing, silent"
+    ],
+    "claimReview": "DNA is a broader research context. The original modified-PPO experiment results, adverse cases, and limitations are preserved. GeoWind2Plan is independently attributed related work, with no cross-paper metric comparison."
+  }
+}

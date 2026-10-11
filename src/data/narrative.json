@@ -1,0 +1,203 @@
+{
+  "problem": {
+    "title": "01 / The problem",
+    "heading": "Flight planning must account for the city around it.",
+    "intro": "An urban flight affects more than the aircraft. Buildings reshape the wind, motion changes passenger comfort, and the route changes noise received on the ground. Planning for these interactions requires more than finding a short path.",
+    "program": {
+      "title": "FLYING DNA",
+      "heading": "Digital twins. Networked systems. Artificial intelligence.",
+      "intro": "The Flying DNA presentation frames advanced air mobility around three connected research directions, spanning passenger transportation and drone logistics.",
+      "pillars": [
+        {
+          "letter": "D",
+          "title": "Digital Twin",
+          "text": "Virtual representations of environments and systems provide a setting for understanding urban flight."
+        },
+        {
+          "letter": "N",
+          "title": "Networked Systems",
+          "text": "Connected physical agents and infrastructure motivate sensing and coordination across the city."
+        },
+        {
+          "letter": "A",
+          "title": "Artificial Intelligence",
+          "text": "Learning and optimization support the understanding, design, and control of aerial systems."
+        }
+      ],
+      "scopeNote": "This page presents the published 2025 eVTOL planning study within that broader research context. The presentation’s sensing networks and wind-prediction concepts are research directions, not validated components of the published planner.",
+      "sourceSlides": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "sourceSlides": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sourcePaper": "Liu et al. (2025), Introduction and Figure 1, pp. 1–2."
+  },
+  "relatedWork": {
+    "title": "02 / Existing work",
+    "heading": "Model the wind. Then decide how to move.",
+    "intro": "Motion-planning methods use geometric search, mathematical optimization, or learned policies to navigate around obstacles and manage flight costs. The published paper reviews approaches to energy use, passenger concerns, and urban noise, and asks how to consider them together.",
+    "approaches": [
+      {
+        "title": "Urban environment models",
+        "text": "City geometry and computational fluid dynamics describe the spatial wind conditions that a planner encounters."
+      },
+      {
+        "title": "Flight planning and control",
+        "text": "Search, optimization, and reinforcement learning provide different ways to choose routes or motion actions under physical and environmental constraints."
+      },
+      {
+        "title": "Multiple perspectives",
+        "text": "Energy, passenger experience, and noise introduce competing objectives; improving one does not establish the best overall flight."
+      }
+    ],
+    "externalReference": {
+      "id": "geowind2plan",
+      "title": "GeoWind2Plan: Mission-Time 3D Urban Wind Prediction for Energy-Efficient UAV Planning",
+      "attribution": "Qin et al. · independent related work · arXiv preprint, 2026",
+      "url": "https://arxiv.org/abs/2609.36056",
+      "pdfUrl": "https://arxiv.org/pdf/2609.36056",
+      "summary": "GeoWind2Plan predicts mission-local urban wind with a geometry-conditioned neural operator, then optimizes a UAV’s continuous path and speed using a physics-based energy model. Its planner uses RRT initializations and evaluates trajectories in reference CFD wind.",
+      "distinction": "Our published eVTOL study uses precomputed urban CFD fields and a modified PPO policy to balance energy, passenger concerns, and environmental noise. These are complementary research directions with different vehicles, objectives, and evaluation protocols; their reported results are not a direct benchmark comparison.",
+      "htmlUrl": "https://arxiv.org/html/2609.36056v1",
+      "scopeNote": "GeoWind2Plan uses time-averaged wind and holds background wind direction and speed fixed during each mission; its stated limitations include unresolved turbulence effects."
+    },
+    "sourceSlides": [
+      3,
+      5
+    ],
+    "sourcePaper": "Liu et al. (2025), Related work, pp. 2–4. GeoWind2Plan is a later, separately attributed reference, not a cited predecessor or component of the 2025 paper."
+  },
+  "gap": {
+    "title": "03 / The research gap",
+    "heading": "One route must serve three perspectives.",
+    "intro": "Optimizing an isolated cost can miss trade-offs that matter to other stakeholders. This study asks whether one learned flight policy can jointly account for aircraft energy, passenger concerns, and environmental noise while moving through urban wind fields.",
+    "question": "How can an eVTOL policy balance six objectives—energy consumption, energy efficiency, comfort, safety, travel time, and noise—in a single planning problem?",
+    "scopeNote": "The task is simulated flight between an origin and a destination. Takeoff and landing are outside the study’s scope.",
+    "sourceSlides": [
+      4,
+      6
+    ],
+    "sourcePaper": "Liu et al. (2025), Introduction and problem formulation, pp. 2, 4–5."
+  },
+  "method": {
+    "title": "04 / Our method",
+    "heading": "A modified PPO policy with a multi-objective reward.",
+    "intro": "The published pipeline combines an urban wind simulation, a continuous-action reinforcement-learning policy, and rewards for aircraft, passengers, and the surrounding environment.",
+    "steps": [
+      {
+        "title": "Build the city and wind environment",
+        "text": "An OpenStreetMap model of Atlanta is paired with steady-state wind fields computed in OpenFOAM. The policy receives local wind, position, destination, and nearby-obstacle information.",
+        "sourcePaper": "Sections 3.1.2 and 3.2, pp. 5 and 8."
+      },
+      {
+        "title": "Learn three-dimensional motion",
+        "text": "The policy chooses continuous motion actions along the X, Y, and Z axes. Modified PPO uses tanh activation, normalization and dropout layers, a decaying learning rate, and reward normalization.",
+        "sourcePaper": "Sections 3.1.1 and 3.1.5, pp. 4 and 8."
+      },
+      {
+        "title": "Balance six objectives",
+        "text": "The reward combines energy consumption, energy efficiency, passenger comfort, passenger safety, flight time, and modeled noise at nine rooftop receivers. Progress and boundary-related terms shape the learning task.",
+        "sourcePaper": "Sections 3.1.2–3.1.4 and Figures 5–6, pp. 5–8."
+      }
+    ],
+    "programContext": "The Flying DNA presentation also connects city-model registration, CFD or physics-informed AI, wind sensing, prediction, and aerial navigation. That broader framework is shown as research context; the 2025 evaluation uses computed wind fields and does not establish an operational drone-sensing network or online wind-prediction system.",
+    "sourceSlides": [
+      3,
+      5,
+      6
+    ],
+    "sourcePaper": "Liu et al. (2025), Methodology, pp. 4–8. The method steps above describe the published study, not an inference from the presentation graphics."
+  },
+  "experiments": {
+    "title": "05 / Experiments",
+    "heading": "Urban flight evaluated in simulation.",
+    "intro": "The study evaluates flights across Atlanta with an origin and destination 10 km apart. It compares reward designs and reinforcement-learning algorithms under named wind conditions, then removes reward terms to examine their contributions.",
+    "protocol": [
+      {
+        "title": "Urban setting",
+        "text": "An OpenStreetMap model of Atlanta and OpenFOAM steady-state wind fields provide the simulated environment. Origin and destination are 10 km apart.",
+        "sourcePaper": "Section 4.2, p. 9."
+      },
+      {
+        "title": "Reported wind conditions",
+        "text": "Seven named conditions are reported: D0-4, D0-8, D90-4, D180-4, D180-12, D270-16, and D270-20. A label gives direction in degrees from the positive X-axis and background speed in m/s.",
+        "sourcePaper": "Section 4.2, p. 9. Not every algorithm/reward design is evaluated in every condition."
+      },
+      {
+        "title": "All-objective comparison",
+        "text": "Table 6 compares Ours-all (modified PPO), DDPG-all, TD-MPC2-all, and Average TD3-all across all six objectives.",
+        "sourcePaper": "Section 4.4.4 and Table 6, p. 12."
+      },
+      {
+        "title": "Reward-design comparisons",
+        "text": "Table 5 compares energy reward designs within matched algorithm and wind-field settings. Its columns Ours, Direct, Efficiency, Math, and Queue are reward designs, not five different RL algorithms.",
+        "sourcePaper": "Sections 4.1 and 4.4.1; Table 5, pp. 9–11."
+      },
+      {
+        "title": "Reward ablation",
+        "text": "Table 7 removes one reward component at a time across 50,000 training episodes per experiment. Success, out-of-bound, and timeout counts describe training outcomes, not a deployed system’s reliability.",
+        "sourcePaper": "Section 4.5 and Table 7, pp. 12–13."
+      }
+    ],
+    "metricNote": "Comfort and safety are model reward scores. Noise is modeled over simulation steps and nine rooftop receivers. The paper compares reported extremum values from training; these are not passenger ratings, field measurements, or confidence intervals.",
+    "scopeNote": "The presentation supplies illustrative research media but no new quantitative experiment protocol. The results below remain those of the published article.",
+    "sourceSlides": [],
+    "sourcePaper": "Liu et al. (2025), Sections 4.1–4.5 and Tables 5–7, pp. 9–13; single-condition training limitation in Section 5, p. 14."
+  },
+  "results": {
+    "title": "06 / Results",
+    "heading": "Lower energy and noise, with visible trade-offs.",
+    "intro": "In the all-objective comparison, modified PPO has the lowest reported energy consumption and noise, the highest efficiency, and the best comfort score among the four methods. It does not lead every metric: TD-MPC2 has a better safety score and a slightly shorter flight time.",
+    "keyFindings": [
+      {
+        "title": "Energy and noise",
+        "text": "Ours-all records 57.83 kWh and 20.55 dB, compared with 123.54 kWh and 25.01 dB for DDPG-all. These are matched reported values from Table 6.",
+        "sourcePaper": "Table 6, p. 12."
+      },
+      {
+        "title": "Safety and time trade-offs",
+        "text": "TD-MPC2-all records a safety score of −382.53 and flight time of 160 s, compared with −477.55 and 162 s for Ours-all. A higher, less negative safety score is better under this model.",
+        "sourcePaper": "Table 6, p. 12."
+      },
+      {
+        "title": "Reward components matter",
+        "text": "In the separate ablation experiment, removing energy optimization raises energy from 48.28 to 61.64 kWh. Removing noise optimization raises noise from 17.99 to 20.70 dB. These values use the Table 7 baseline, not the Table 6 all-objective baseline.",
+        "sourcePaper": "Table 7, p. 13."
+      },
+      {
+        "title": "Not every reward comparison improves",
+        "text": "For DDPG in D90-4, the proposed energy reward records 99.4 kWh, while Direct records 52.36 kWh. The full scenario tables preserve this and other less favorable outcomes.",
+        "sourcePaper": "Table 5, p. 11."
+      }
+    ],
+    "comparisonNote": "The interactive comparison highlights energy and noise from Table 6. The complete six-metric table, reward ablation, and scenario tables remain available in the results section.",
+    "sourceSlides": [],
+    "sourcePaper": "Liu et al. (2025), Tables 5–7, pp. 11–13. No quantitative result is attributed to Flying DNA presentation media or to an independent reference paper."
+  },
+  "conclusion": {
+    "title": "07 / Conclusion",
+    "heading": "A multi-perspective planning study within Flying DNA.",
+    "intro": "The published study shows that a learned policy can combine aircraft, passenger, and environmental objectives in a simulated urban flight task. The results provide evidence for multi-objective reward design while keeping its trade-offs and modeling assumptions visible.",
+    "limitations": [
+      "The evaluation is simulation-based and excludes takeoff, landing, real flight trials, and operating certification.",
+      "Policies are trained under individual wind-field conditions. The tested scenarios do not demonstrate generalization to arbitrary or rapidly changing urban winds.",
+      "Comfort, safety, and noise depend on the study’s models; no passenger survey, community noise measurement, or calibrated safety probability is reported.",
+      "The broader Flying DNA vision includes sensing, connected systems, and wind prediction. These directions must be distinguished from the validated components and results of the 2025 study."
+    ],
+    "futureWork": "The published paper identifies multi-eVTOL coordination, varied origin–destination demand, and joint air–ground mobility as future research directions. They are not completed capabilities established by these experiments.",
+    "sourceSlides": [
+      3,
+      5,
+      6
+    ],
+    "sourcePaper": "Liu et al. (2025), Discussion and limitations and Conclusion and future work, pp. 13–15."
+  }
+}

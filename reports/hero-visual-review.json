@@ -1,0 +1,142 @@
+{
+  "checkedOn": "2026-10-11",
+  "desktopWidth": 1440,
+  "mobileWidth": 320,
+  "screenshotsReviewed": [
+    "Desktop title overlays two visible background scenes",
+    "Full-frame mode places complete recordings below title",
+    "Mobile title and both complete videos stack without horizontal overflow"
+  ],
+  "contrast": {
+    "overlay": "rgba(17, 17, 17, 0.733)",
+    "worstCaseVideoPixel": [
+      255,
+      255,
+      255
+    ],
+    "compositedBackground": [
+      80.546,
+      80.546,
+      80.546
+    ],
+    "measurements": [
+      {
+        "text": "FLYING DNA · eVTOL research",
+        "foreground": "rgb(238, 238, 238)",
+        "ratio": 6.890332585492312,
+        "insideOverlay": true
+      },
+      {
+        "text": "Reinforcement learning based multi-perspective motion planning of manned electri",
+        "foreground": "rgb(255, 255, 255)",
+        "ratio": 7.994373821198942,
+        "insideOverlay": true
+      },
+      {
+        "text": "How should an air taxi move through urban winds while balancing energy, passenge",
+        "foreground": "rgb(255, 255, 255)",
+        "ratio": 7.994373821198942,
+        "insideOverlay": true
+      },
+      {
+        "text": "Songyang Liu",
+        "foreground": "rgb(255, 255, 255)",
+        "ratio": 7.994373821198942,
+        "insideOverlay": true
+      },
+      {
+        "text": "1",
+        "foreground": "rgb(255, 255, 255)",
+        "ratio": 7.994373821198942,
+        "insideOverlay": true
+      },
+      {
+        "text": "Weizi Li",
+        "foreground": "rgb(255, 255, 255)",
+        "ratio": 7.994373821198942,
+        "insideOverlay": true
+      },
+      {
+        "text": "2",
+        "foreground": "rgb(255, 255, 255)",
+        "ratio": 7.994373821198942,
+        "insideOverlay": true
+      },
+      {
+        "text": "Haochen Li",
+        "foreground": "rgb(255, 255, 255)",
+        "ratio": 7.994373821198942,
+        "insideOverlay": true
+      },
+      {
+        "text": "3",
+        "foreground": "rgb(255, 255, 255)",
+        "ratio": 7.994373821198942,
+        "insideOverlay": true
+      },
+      {
+        "text": "Shuai Li",
+        "foreground": "rgb(255, 255, 255)",
+        "ratio": 7.994373821198942,
+        "insideOverlay": true
+      },
+      {
+        "text": "1",
+        "foreground": "rgb(255, 255, 255)",
+        "ratio": 7.994373821198942,
+        "insideOverlay": true
+      },
+      {
+        "text": "ESSIE — Engineering School of Sustainable Infrastructure and Environment, Univer",
+        "foreground": "rgb(238, 238, 238)",
+        "ratio": 6.890332585492312,
+        "insideOverlay": true
+      },
+      {
+        "text": "Min H. Kao Department of Electrical Engineering and Computer Science, University",
+        "foreground": "rgb(238, 238, 238)",
+        "ratio": 6.890332585492312,
+        "insideOverlay": true
+      },
+      {
+        "text": "Department of Civil and Environmental Engineering, University of Tennessee, Knox",
+        "foreground": "rgb(238, 238, 238)",
+        "ratio": 6.890332585492312,
+        "insideOverlay": true
+      },
+      {
+        "text": "Engineering Applications of Artificial Intelligence · 2025",
+        "foreground": "rgb(238, 238, 238)",
+        "ratio": 6.890332585492312,
+        "insideOverlay": true
+      },
+      {
+        "text": "Read published paper ↗",
+        "foreground": "rgb(32, 32, 32)",
+        "ratio": 16.29325535858735,
+        "insideOverlay": true
+      },
+      {
+        "text": "Project repository ↗",
+        "foreground": "rgb(32, 32, 32)",
+        "ratio": 16.29325535858735,
+        "insideOverlay": true
+      },
+      {
+        "text": "Explore the research",
+        "foreground": "rgb(32, 32, 32)",
+        "ratio": 16.29325535858735,
+        "insideOverlay": true
+      }
+    ]
+  },
+  "mediaNotes": [
+    "Original video speed and no autoplay or loop.",
+    "Source and web output are silent; HTML descriptions and WebVTT are supplied.",
+    "Two clips are contextual views, not synchronized comparative evidence."
+  ],
+  "limitations": [
+    "Automated scans cannot infer raster media contrast or validate external PDF accessibility.",
+    "This visual review does not replace a full assistive-technology or institutional review."
+  ]
+}

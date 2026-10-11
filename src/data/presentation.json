@@ -1,0 +1,27 @@
+{
+  "source": "Flying DNA - Copy 1.pptx",
+  "figures": [
+    {
+      "id": "urban-digital-twin",
+      "file": "urban-digital-twin.webp",
+      "width": 1446,
+      "height": 978,
+      "alt": "Oblique view of a textured digital city model containing streets, city blocks, and buildings of different heights.",
+      "description": "The model shows a bounded cluster of city blocks, with streets between low- and mid-rise buildings and several taller towers. Facade textures, road markings, trees, and surrounding terrain are visible. The viewpoint is elevated and oblique. Slide 5 labels this image City Model Registration. The image illustrates urban geometry used in the broader Flying DNA presentation; it does not identify a city, map scale, registration accuracy, or a specific quantitative experiment.",
+      "slide": 5,
+      "title": "City-model registration",
+      "credit": "Flying DNA presentation, slide 5. Original embedded image preserved without cropping or recoloring."
+    },
+    {
+      "id": "urban-wind-field",
+      "file": "urban-wind-field.webp",
+      "width": 1600,
+      "height": 1052,
+      "alt": "Three-dimensional urban wind-field visualization around building blocks, with a U Magnitude legend ranging from zero to one.",
+      "description": "Solid building blocks of different heights stand within a spatially varying colored field on a black background. Bands and lobes of the displayed field extend around the blocks and through the gaps between them. A vertical legend labelled U Magnitude has tick values from 0.0 to 1.0 in increments of 0.2, and a small coordinate-axis symbol appears at lower left. The legend does not state physical units or whether values are normalized. Slide 5 labels this image Urban Wind Field. The rendering illustrates how a field varies around urban geometry; it is not a table of wind measurements and does not establish the city, wind direction, or one of the paper’s named test conditions.",
+      "slide": 5,
+      "title": "Urban wind field",
+      "credit": "Flying DNA presentation, slide 5. Original embedded image preserved without cropping or recoloring."
+    }
+  ]
+}

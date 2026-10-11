@@ -28,6 +28,7 @@ import { asset } from "../data/paths";
     </header>
     <nav class="contents" aria-label="Research guide contents">
       <h2>In this guide</h2><ol>
+        <li><a href="#guide-flying-dna">Flying DNA and the published study</a></li>
         {
           site.guideSections.map((section, i) => (
             <li>
@@ -38,16 +39,50 @@ import { asset } from "../data/paths";
       </ol>
     </nav>
     <div class="prose">
-      {
-        site.guideSections.map((section, i) => (
-          <section id={`guide-${i + 1}`}>
-            <h2>{section.title}</h2>
-            {section.paragraphs.map((p) => (
-              <p>{p}</p>
-            ))}
-          </section>
-        ))
-      }<section>
+      <section id="guide-flying-dna">
+        <h2>Flying DNA and the published study</h2>
+        <p>
+          The six-slide Flying DNA project presentation places advanced air
+          mobility within a broader research vision: digital twins represent
+          environments and systems, networked systems connect physical agents
+          and infrastructure, and artificial intelligence supports understanding,
+          design, and control. Slides 5–6 illustrate directions in urban wind
+          sensing, prediction, and aerial navigation.
+        </p>
+        <p>
+          The published 2025 study below evaluates a specific part of that
+          vision: modified PPO learns multi-objective eVTOL motion in a simulated
+          city with computed CFD wind fields. The broader presentation does not
+          add a quantitative benchmark or establish an operational sensing
+          network, online wind prediction, or real-flight validation for this
+          planner. All reported numbers and technical details continue to follow
+          the published article.
+        </p>
+        <p>
+          For a separately attributed reference, see
+          <a href={asset("#related-work")}
+            >GeoWind2Plan in the homepage’s independent related work</a
+          >.
+        </p>
+        <p class="fine-print">
+          Presentation source: Flying DNA, slides 2–3 (program framework) and
+          5–6 (wind and navigation illustrations). The original presentation and
+          published paper remain unchanged.
+        </p>
+      </section>
+      <Fragment>
+        {
+          site.guideSections.map((section, i) => (
+            <section id={`guide-${i + 1}`}>
+              <h2>{section.title}</h2>
+              {section.paragraphs.map((p) => (
+                <p>{p}</p>
+              ))}
+            </section>
+          ))
+        }
+      </Fragment>
+      <section>
         <h2>Boundaries of the evidence</h2><ul>
           {site.limitations.map((p) => <li>{p}</li>)}
         </ul>
