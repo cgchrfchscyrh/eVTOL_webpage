@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-18",
+  "baseline_commit": "0ae5adf546041e4f54c510b8d2cd0f2ede78ec2c",
+  "scientific_data_unchanged": {
+    "authors": true,
+    "affiliations": true,
+    "title": true,
+    "doi": true,
+    "bibtex": true,
+    "stats": true,
+    "highlights": true,
+    "resultNote": true,
+    "limitations": true,
+    "guideSections": true,
+    "figures": true,
+    "comparisons": true,
+    "tables": true
+  },
+  "public_asset_changes": [],
+  "source_materials_unchanged": true,
+  "verification": "Compared parsed site data against HEAD for authors, affiliations, title, DOI, citation, figures, metrics, comparisons, tables, limitations and research guide. No public asset changed.",
+  "layout": "Neutral title and authors above complete paired videos; short research sections; figure and media descriptions in disclosure controls.",
+  "preview_url": "http://127.0.0.1:4514/eVTOL_webpage/",
+  "screenshots": {
+    "desktop": "/tmp/evtol-visual-review/desktop.png",
+    "mobile": "/tmp/evtol-visual-review/mobile-top.png",
+    "mobile_full": "/tmp/evtol-visual-review/mobile-full.png",
+    "method": "/tmp/evtol-visual-review/method.png"
+  },
+  "visual_review": {
+    "desktop_width": 1440,
+    "mobile_width": 320,
+    "page_level_overflow": false,
+    "complete_media_frames": true,
+    "institutional_copy_present": false
+  },
+  "accessibility_report": "reports/axe-wcag21aa.json",
+  "security_report": "reports/security-review.json",
+  "publishing_status": "Local revision only; root agent will publish and verify production."
+}

@@ -1732,3 +1732,67 @@ tbody tr:hover {
     font-size: 1.85rem;
   }
 }
+
+/* Visual research overview: short sections, large figures, optional details. */
+.visual-research { max-width: 1180px; }
+.visual-research .section { padding: 3.2rem 0; }
+.visual-research h2 { margin: 0 0 1.3rem; font-size: clamp(1.7rem, 3vw, 2.3rem); letter-spacing: -0.035em; }
+.visual-research .abstract-section { max-width: 840px; margin-inline: auto; }
+.visual-research .abstract-section p { font-size: 1.06rem; line-height: 1.8; }
+.visual-research .section-intro { max-width: 850px; margin-bottom: 1.5rem; }
+.visual-research .research-figure { margin: 1.8rem 0 0; }
+.visual-research .research-figure .figure-image { padding: 0.75rem; }
+.visual-research .research-figure figcaption { padding: 1rem 1.15rem; }
+.figure-details { margin-top: 0.55rem; font-size: 0.88rem; }
+.figure-details summary { cursor: pointer; text-decoration: underline; text-underline-offset: 0.2em; padding-block: 0.3rem; }
+.figure-details p:first-of-type { margin-top: 0.8rem; }
+.section-link { margin: 1.1rem 0 0; font-size: 0.92rem; }
+.visual-research .presentation-grid { gap: 1.2rem; }
+.visual-research .presentation-grid .research-figure { margin: 0; }
+.result-numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0 1rem; }
+.result-numbers p { display: grid; gap: 0.5rem; margin: 0; }
+.result-numbers strong { font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: -0.04em; line-height: 1.2; }
+.result-numbers strong span { font-size: 1.2rem; }
+.result-numbers p > span { font-size: 0.9rem; color: #4c4c4c; }
+.related-reading { border-top: 1px solid var(--line); padding: 1.5rem 0 0; font-size: 0.9rem; }
+.media-notes { padding: 1rem 0 2rem; }
+.media-notes > summary { cursor: pointer; text-decoration: underline; text-underline-offset: 0.2em; padding: 0.5rem 0; }
+.media-notes .media-description { margin-top: 1.5rem; }
+.cinematic-hero .hero-text { min-height: 650px; padding-block: 3rem 6rem; }
+.cinematic-hero h1 { font-size: clamp(2rem, 3.15vw, 3.2rem); max-width: 1070px; }
+.cinematic-hero .hero-question { margin-bottom: 2rem; font-size: 1.05rem; }
+.cinematic-hero .authors { margin-bottom: 1.2rem; }
+.cinematic-hero .hero-venue { margin-bottom: 1.4rem; }
+.hero-scene-captions { padding-top: 1rem; }
+.hero-playback { padding-bottom: 1.4rem; }
+.site-footer { padding-block: 2.3rem; }
+@media (max-width: 1000px) {
+  .cinematic-hero .hero-text { min-height: 0; padding: 2.7rem 1.5rem; }
+}
+@media (max-width: 700px) {
+  .visual-research .section { padding: 2.4rem 0; }
+  .visual-research .presentation-grid { gap: 1.5rem; }
+  .result-numbers { grid-template-columns: 1fr; gap: 1.5rem; }
+  .cinematic-hero h1 { font-size: clamp(1.75rem, 6vw, 2.6rem); }
+}
+/* The complete media stays below the title at every viewport width. */
+.hero.cinematic-hero { background: #f4f4f2; color: #202020; }
+.cinematic-hero .hero-stage::before { display: none; }
+.cinematic-hero .hero-text { min-height: 0; padding: 3.5rem 1.5rem 2.5rem; }
+.cinematic-hero .hero-backdrops { position: relative; z-index: auto; max-width: 1440px; margin: auto; }
+.cinematic-hero .hero-backdrops video { height: auto; aspect-ratio: 16 / 9; object-fit: contain; }
+.cinematic-hero .eyebrow, .cinematic-hero .hero-question, .cinematic-hero .hero-venue,
+.cinematic-hero .authors, .cinematic-hero .authors a { color: #303030; }
+.cinematic-hero .hero-question { max-width: 850px; margin-bottom: 1.8rem; }
+.cinematic-hero .actions .button { border: 1px solid #aaa; }
+.hero-scene-captions { max-width: 1440px; padding-block: 0.7rem 0; }
+.hero-scene-captions p:last-child, .hero-scene-captions a { color: #444; }
+.hero-playback p:not(.sr-only), .hero-playback p a { color: #444; }
+.hero-playback .button.dark { background: #202020; color: #fff; }
+@media (max-width: 700px) {
+  .cinematic-hero .hero-text { padding: 2.2rem 1.25rem; }
+}
+@media (max-width: 700px) {
+  .cinematic-hero h1 { font-size: clamp(1.5rem, 5vw, 2.35rem); line-height: 1.17; }
+  .cinematic-hero .authors { font-size: 1rem; gap: 0.5rem 1.4rem; }
+}

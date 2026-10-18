@@ -1,4 +1,7 @@
-# eVTOL / MOTION PLANNING — 论文项目网页
+# eVTOL research webpage
+
+2026-10-18 视觉精简：首页采用 Abstract / Method / Experiments / Results / Citation，标题和作者位于完整双视频上方，长图注与媒体说明可展开。静音视频首次进入视口时自动播放并循环，提供明确的 Pause videos / Play videos；减少动画或省流量时不自动播放，滚出视口暂停，用户暂停不会被自动恢复。主页取消 UF 单位介绍和免责声明；原研究附件不变。
+
 
 论文：**Reinforcement learning based multi-perspective motion planning of manned electric vertical take-off and landing vehicle in urban environment with wind fields**。2025 年发表论文及其原表是已验证方法与量化结果的事实来源；原始 PDF 保持不变，不在仓库中重新分发。本次修订另使用作者提供的六页 `Flying DNA - Copy 1.pptx` 介绍更广泛的项目愿景，明确区分愿景、演示素材与论文实验。
 
@@ -6,17 +9,17 @@
 
 ## 网站内容
 
-- `/`：标题叠在真实飞行与 PPT 仿真双视频之上的首屏、Flying DNA 愿景、2025 年论文方法与结果、相关工作、研究边界和引用。
+- `/`：浅灰标题与作者、完整双视频、Abstract / Method / Experiments / Results / Citation、可展开图注及媒体说明。
 - `/paper/`：HTML 研究指南，明确是论文的阅读辅助，不是完整逐字转录。
 - `/results/`：原始图、详细文字说明、结果表格及 CSV 下载。
 - `/accessibility/`：无障碍说明、媒体来源、附件限制和联系信息。
-- `/404.html`：保留导航与 UF 非官方立场声明的错误页面。
+- `/404.html`：保留导航的错误页面。
 
-中性炭黑和灰白界面不使用 UF 标志或蓝橙主题。保留论文作者单位和所有页面的 UF 非官方立场声明。原论文图的科学配色保持不变，另提供文字和表格说明。
+中性炭黑和灰白界面不使用 UF 标志或蓝橙主题。按用户 2026-10-18 最新要求，网站不再展示机构介绍和免责声明，作者姓名及原论文资料保持不变。原论文图的科学配色保持不变，另提供文字和表格说明。
 
-Flying DNA 的三柱为 Digital Twin、Networked Systems、Artificial Intelligence。这是项目的研究愿景，不表示 2025 年论文已经验证完整的三柱系统。PPT 阅读副本仅选第 5 页的数字孪生城市场景与风场静图，以及第 6 页嵌入的 `image13.gif`；原 PPT 保持不变，不整份公开。静图提供 alt text 和完整 HTML 说明，保留科学图示的原配色，不将其作为 UF 界面品牌配色。
+Flying DNA 的三柱为 Digital Twin、Networked Systems、Artificial Intelligence。这是项目的研究愿景，不表示 2025 年论文已经验证完整的三柱系统。PPT 阅读副本仅选第 5 页的数字孪生城市场景与风场静图，以及第 6 页嵌入的 `image13.gif`；原 PPT 保持不变，不整份公开。静图提供 alt text 和完整 HTML 说明，保留科学图示的原配色，不将其作为界面品牌配色。
 
-首屏左侧保留 NASA/Joby 的 15 秒现实背景视频，右侧将 `image13.gif` 的完整约 20.93 秒序列转换为原速、无音轨 MP4。两者不是同场实验，也不构成本论文实机验证。桌面提供同时播放、暂停、重播和 “Show full video frames” 按钮；宽度不超过 1000 CSS 像素时标题位于视频前，不超过 700 CSS 像素时完整画面纵向排列。两段视频均保留原生控件、完整 HTML 画面说明和 WebVTT 描述轨道，不自动播放或循环。无 JavaScript 时仍可播放和阅读说明。
+首屏左侧保留 NASA/Joby 现实背景视频，右侧使用 Flying DNA 原速无音轨仿真。两者不是同场实验，也不构成本论文实机验证。所有宽度下标题均位于完整画面上方，窄屏纵向排列。两段视频保留原生控件、完整 HTML 画面说明和 WebVTT 描述轨道；自动播放与暂停行为见页首最新约定。无 JavaScript 时仍可用原生控件播放和阅读说明。
 
 ## 本地运行与检查
 
@@ -83,7 +86,7 @@ PPT 仿真视频来自作者提供的 Flying DNA 第 6 页嵌入动画 `image13.
 
 [GeoWind2Plan 的 HTML 预印本](https://arxiv.org/html/2609.36056v1) 与 [PDF](https://arxiv.org/pdf/2609.36056v1) 作为独立作者的相关工作链接，不能将其结果写成本项目实验。该外部 PDF 未加标签，阅读顺序与辅助技术体验未核验；优先提供 HTML 阅读入口，但不声明外部内容已完全无障碍。本项目原始 Elsevier PDF 虽报告含标签，也不能据此认定其阅读顺序、公式或图示已完全合规。
 
-参考：[UF Web Standards](https://brandcenter.ufl.edu/web-standards/)、[UF EIT Accessibility Policy](https://policy.ufl.edu/policy/electronic-information-technology-and-communication-accessibility-policy/)。中性视觉和免责声明不代表已获得 UF 官方品牌批准。自动化检查也不代表 ADA 或完整 WCAG 认证。
+自动化检查不代表 ADA 或完整 WCAG 认证。原始论文与研究数据不因视觉精简而改变。
 
 基于 Roman Hauksson 的 [Academic Project Astro Template](https://github.com/RomanHauksson/academic-project-astro-template)，按本研究内容重新实现。已上线的 HOIST 网站由另一个仓库维护。
 

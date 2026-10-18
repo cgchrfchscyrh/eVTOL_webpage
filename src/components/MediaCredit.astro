@@ -21,7 +21,7 @@ import { asset } from "../data/paths";
       {simulation.description.map((paragraph) => <p>{paragraph}</p>)}
     </div>
     <p class="fine-print">{simulation.credit}</p>
-    <p><a href={asset(simulation.video)}>Download the {Math.round(simulation.duration)}-second urban flight visualization (MP4)</a> · <a href={asset(simulation.track)}>Read the timed simulation descriptions (VTT)</a></p>
+    <p><a href={asset(simulation.video)}>Download the urban flight visualization (MP4)</a> · <a href={asset(simulation.track)}>Read the timed simulation descriptions (VTT)</a></p>
   </section>
-  <p class="fine-print">Both clips are silent and play only on request. The title view crops the backgrounds to fill their panels. Choose “Show full video frames” to move the title above the uncropped recordings; smaller screens show complete frames automatically. The two recordings illustrate different settings and are not a synchronized experimental comparison.</p>
+  <p class="fine-print">Both clips are silent. They start automatically when first visible unless reduced motion or data saving is enabled. Use “Pause videos” to stop both; your pause is retained when returning to the videos. The complete videos appear below the title. At narrow widths, they stack vertically. The two recordings illustrate different settings and are not a synchronized experimental comparison.</p>
 </section>

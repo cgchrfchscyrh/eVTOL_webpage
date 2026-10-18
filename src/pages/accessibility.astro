@@ -24,19 +24,17 @@ import { asset } from "../data/paths";
             The first keyboard link skips to the main content. Keyboard focus is
             visible throughout the page.
           </li><li>
-            Videos start only when you choose to play them. Both native players
-            retain controls from initial load. A shared button can play, pause,
-            or replay both title clips together. Neither video loops
-            automatically.
+            Silent videos can start automatically when first visible and loop.
+            Use “Pause videos” or native controls to stop playback. Scrolling
+            the videos out of view pauses them; returning does not override a
+            manual pause. Reduced-motion and data-saving preferences suppress
+            automatic playback. Explicit playback remains available.
           </li><li>
-            The 15-second NASA/Joby context clip and approximately 20.93-second
-            Flying DNA simulation clip have no audio tracks. Each has a complete
+            The NASA/Joby context clip and Flying DNA simulation clip have no audio tracks. Each has a complete
             HTML visual description and a timed WebVTT description track.
           </li><li>
-            On desktop, choose “Show full video frames” to view the complete
-            videos outside the title overlay. On smaller screens, the title
-            appears before the complete frames; on narrow screens, the videos
-            stack vertically.
+            The title and authors appear above complete video frames. The
+            videos stack vertically on narrow screens.
           </li><li>
             Paper figures have descriptive alternatives and longer explanations.
             Results appear as labeled values and structured tables, so color is
@@ -113,16 +111,10 @@ import { asset } from "../data/paths";
             >the review record</a
           >.
         </p><p>
-          On 11 October 2026, the local production build passed 10 axe scans and
-          111 functional checks with zero violations or check errors. Lint and
-          Astro/TypeScript checks also passed, and the dependency audit reported
-          zero vulnerabilities without advisory exceptions. Desktop, full-frame
-          video, and 320 CSS-pixel mobile views were visually reviewed with no
-          page-level horizontal overflow. The reviewed title text has a minimum
-          6.89:1 contrast ratio even when a white video pixel is used as the
-          brightest background case beneath its overlay. These results concern
-          the local revision; deployment and live checks are recorded separately
-          in the repository review record.
+          The 18 October revision checks controlled automatic playback,
+          keyboard pause and play, persistent manual pause, reduced-motion and
+          data-saving preferences, complete media frames, and 320 CSS-pixel
+          reflow. Detailed outcomes are recorded in the repository review record.
         </p><p>
           Automated coverage is limited. A full review with multiple screen
           readers, users with disabilities, and institutional accessibility and
@@ -139,12 +131,7 @@ import { asset } from "../data/paths";
         </p>
       </section>
       <section>
-        <h2>Institutional identity & privacy</h2><p>
-          Author affiliations are reproduced from the paper. The website does
-          not use the UF logo, seal, or blue/orange identity palette. The
-          institutional disclaimer appears on every page. A neutral visual
-          design is not a substitute for institutional brand approval.
-        </p><p>
+        <h2>Privacy</h2><p>
           This static site loads its fonts, figures, and short video excerpts
           locally. It uses no analytics, advertising, or embedded third-party
           players. Following an external link opens the provider’s site, where
@@ -165,7 +152,7 @@ import { asset } from "../data/paths";
       </p><p>
         The additional city and wind-field stills come from slide 5 of the
         authors’ Flying DNA presentation. The original scientific diagram colors
-        are retained as research content, not as a UF interface palette; labels
+        are retained as research content; labels
         and text alternatives explain the information without requiring color
         identification.
       </p>{
