@@ -36,5 +36,7 @@
   },
   "accessibility_report": "reports/axe-wcag21aa.json",
   "security_report": "reports/security-review.json",
-  "publishing_status": "Local revision only; root agent will publish and verify production."
+  "publishing_status": "Published and verified on 18 October 2026.",
+  "deployed_commit": "a2019dea58fa7e29d99a6e1be53b1c125bdae4cc",
+  "workflow_url": "https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/39156613305"
 }

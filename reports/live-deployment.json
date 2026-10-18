@@ -1,337 +1,289 @@
 {
-  "checkedOn": "2026-10-11",
-  "checkedAt": "2026-10-11T20:35:48.441809+00:00",
+  "checkedOn": "2026-10-18",
+  "checkedAt": "2026-10-18T19:01:27.946989+00:00",
   "site": "https://cgchrfchscyrh.github.io/eVTOL_webpage/",
+  "deployed_commit": "a2019dea58fa7e29d99a6e1be53b1c125bdae4cc",
   "httpsEnforced": true,
   "pages": [
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/",
-      "finalUrl": "https://cgchrfchscyrh.github.io/eVTOL_webpage/",
       "status": 200,
+      "final_url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/",
       "headers": {
-        "Server": "GitHub.com",
         "Content-Type": "text/html; charset=utf-8",
-        "Strict-Transport-Security": "max-age=31556952"
+        "Strict-Transport-Security": "max-age=31556952",
+        "X-Content-Type-Options": null,
+        "X-Frame-Options": null,
+        "Content-Security-Policy": null
       },
-      "csp": "default-src 'self'; script-src 'self' 'sha256-XSHyaWFDOw9FjceI6LZyHRf5uHKw/rDCb294iP9Amwc=' 'sha256-TU3hnMU3gPWzfZWshlG8UZ5qQZwIuwm6EELObo6tR0M=' 'sha256-7iPcghAV4DfeDhWpYgaTOcpbTcQZ0NEanRMdOSrW388='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'",
+      "csp": "default-src 'self'; script-src 'self' 'sha256-+DQ13l7pG4ME1gN2k9hiiopSDz7y4qSUZXqKCoa3tHU=' 'sha256-7iPcghAV4DfeDhWpYgaTOcpbTcQZ0NEanRMdOSrW388='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'",
       "referrer": "strict-origin-when-cross-origin",
-      "canonical": "https://cgchrfchscyrh.github.io/eVTOL_webpage/",
-      "title": "Reinforcement learning based multi-perspective motion planning of manned electric vertical take-off and landing vehicle in urban environment with wind fields"
+      "canonical": "https://cgchrfchscyrh.github.io/eVTOL_webpage/"
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/paper/",
-      "finalUrl": "https://cgchrfchscyrh.github.io/eVTOL_webpage/paper/",
       "status": 200,
+      "final_url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/paper/",
       "headers": {
-        "Server": "GitHub.com",
         "Content-Type": "text/html; charset=utf-8",
-        "Strict-Transport-Security": "max-age=31556952"
+        "Strict-Transport-Security": "max-age=31556952",
+        "X-Content-Type-Options": null,
+        "X-Frame-Options": null,
+        "Content-Security-Policy": null
       },
       "csp": "default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'",
       "referrer": "strict-origin-when-cross-origin",
-      "canonical": "https://cgchrfchscyrh.github.io/eVTOL_webpage/paper/",
-      "title": "Research guide"
+      "canonical": "https://cgchrfchscyrh.github.io/eVTOL_webpage/paper/"
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/results/",
-      "finalUrl": "https://cgchrfchscyrh.github.io/eVTOL_webpage/results/",
       "status": 200,
+      "final_url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/results/",
       "headers": {
-        "Server": "GitHub.com",
         "Content-Type": "text/html; charset=utf-8",
-        "Strict-Transport-Security": "max-age=31556952"
+        "Strict-Transport-Security": "max-age=31556952",
+        "X-Content-Type-Options": null,
+        "X-Frame-Options": null,
+        "Content-Security-Policy": null
       },
       "csp": "default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'",
       "referrer": "strict-origin-when-cross-origin",
-      "canonical": "https://cgchrfchscyrh.github.io/eVTOL_webpage/results/",
-      "title": "Results & original figures"
+      "canonical": "https://cgchrfchscyrh.github.io/eVTOL_webpage/results/"
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/accessibility/",
-      "finalUrl": "https://cgchrfchscyrh.github.io/eVTOL_webpage/accessibility/",
       "status": 200,
+      "final_url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/accessibility/",
       "headers": {
-        "Server": "GitHub.com",
         "Content-Type": "text/html; charset=utf-8",
-        "Strict-Transport-Security": "max-age=31556952"
+        "Strict-Transport-Security": "max-age=31556952",
+        "X-Content-Type-Options": null,
+        "X-Frame-Options": null,
+        "Content-Security-Policy": null
       },
       "csp": "default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'",
       "referrer": "strict-origin-when-cross-origin",
-      "canonical": "https://cgchrfchscyrh.github.io/eVTOL_webpage/accessibility/",
-      "title": "Accessibility & media credits"
+      "canonical": "https://cgchrfchscyrh.github.io/eVTOL_webpage/accessibility/"
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/404.html",
-      "finalUrl": "https://cgchrfchscyrh.github.io/eVTOL_webpage/404.html",
       "status": 200,
+      "final_url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/404.html",
       "headers": {
-        "Server": "GitHub.com",
         "Content-Type": "text/html; charset=utf-8",
-        "Strict-Transport-Security": "max-age=31556952"
+        "Strict-Transport-Security": "max-age=31556952",
+        "X-Content-Type-Options": null,
+        "X-Frame-Options": null,
+        "Content-Security-Policy": null
       },
       "csp": "default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'",
       "referrer": "strict-origin-when-cross-origin",
-      "canonical": null,
-      "title": "Page not found"
+      "canonical": ""
     }
   ],
-  "resources": [
+  "missing_page": {
+    "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/missing-page-check-20261018/",
+    "status": 404,
+    "robots": "noindex",
+    "custom_page": true
+  },
+  "asset_count": 25,
+  "assets": [
     {
-      "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/",
+      "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/_astro/Layout.Bo6kXSGr.css",
       "status": 200,
-      "contentType": "text/html; charset=utf-8",
-      "bytes": 38069,
-      "sha256": "b43e6a176f465a7b7883eb14bba08f726e4e4961dc6be21d83cb54781b5d5d2f"
-    },
-    {
-      "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/404.html",
-      "status": 200,
-      "contentType": "text/html; charset=utf-8",
-      "bytes": 3377,
-      "sha256": "51e58164c6d33088729fd10de0160b63f9ddb1ba81971c152faaa1e265a00a13"
-    },
-    {
-      "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/_astro/Layout.BffM17T-.css",
-      "status": 200,
-      "contentType": "text/css; charset=utf-8",
-      "bytes": 25961,
-      "sha256": "221e928de274bc386c9c4066b92ec51951c03f7bb15776e0ee73dcaa0d93a016"
+      "bytes": 29279,
+      "sha256": "6fd6482155eda9a356f23738f090bd4d351025f3fc4b45ec748b5e916d0418d5",
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/_astro/ibm-plex-sans-cyrillic-ext-wght-normal.d45eAU9y.woff2",
       "status": 200,
-      "contentType": "font/woff2",
       "bytes": 23568,
-      "sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935"
+      "sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/_astro/ibm-plex-sans-cyrillic-wght-normal.BAAhND-U.woff2",
       "status": 200,
-      "contentType": "font/woff2",
       "bytes": 29512,
-      "sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0"
+      "sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/_astro/ibm-plex-sans-greek-wght-normal.CmyJS8uq.woff2",
       "status": 200,
-      "contentType": "font/woff2",
       "bytes": 19500,
-      "sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2"
-    },
-    {
-      "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/_astro/ibm-plex-sans-vietnamese-wght-normal.Dg1JeJN0.woff2",
-      "status": 200,
-      "contentType": "font/woff2",
-      "bytes": 13160,
-      "sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2"
+      "sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/_astro/ibm-plex-sans-latin-ext-wght-normal.CIII54If.woff2",
       "status": 200,
-      "contentType": "font/woff2",
       "bytes": 30964,
-      "sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81"
+      "sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/_astro/ibm-plex-sans-latin-wght-normal.IvpUvPa2.woff2",
       "status": 200,
-      "contentType": "font/woff2",
       "bytes": 45712,
-      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "matches_local_build": true
     },
     {
-      "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/accessibility/",
+      "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/_astro/ibm-plex-sans-vietnamese-wght-normal.Dg1JeJN0.woff2",
       "status": 200,
-      "contentType": "text/html; charset=utf-8",
-      "bytes": 14790,
-      "sha256": "fe48c96a81bbe96e386bed8854092da8acf9dac5496dae78eb2064613b9fc486"
+      "bytes": 13160,
+      "sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/citation.bib",
       "status": 200,
-      "contentType": "application/octet-stream",
       "bytes": 431,
       "sha256": "aedc8e702907800e409058d67de3b673326b628b3b840268993278fe10e55858",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/data/ablation.csv",
       "status": 200,
-      "contentType": "text/csv; charset=utf-8",
       "bytes": 573,
       "sha256": "07f84ef1d0ad71f704dbdabc404fee6ef50e19241a94d45ce9f85195af9a69d6",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/data/all-objectives.csv",
       "status": 200,
-      "contentType": "text/csv; charset=utf-8",
       "bytes": 304,
       "sha256": "d3375f4497eaa15a373701e9da7ab400eae72da3227ce13d605599799040fd59",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/data/efficiency.csv",
       "status": 200,
-      "contentType": "text/csv; charset=utf-8",
       "bytes": 871,
       "sha256": "ac9acb58329eaf80e5057f09fe9822525fb70b1b831fcf3f701c14eaacf75607",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/data/energy.csv",
       "status": 200,
-      "contentType": "text/csv; charset=utf-8",
       "bytes": 863,
       "sha256": "a6ad5b5fa00bb30ff54355846d92837286dcd9baf25af37136f2659bfb39b66b",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/favicon.svg",
       "status": 200,
-      "contentType": "image/svg+xml",
       "bytes": 235,
       "sha256": "620fd9e0432282fc6f609a2f13faf62523f3e0d7d38f1d61ce5ceca54320a658",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/figures/framework.png",
       "status": 200,
-      "contentType": "image/png",
       "bytes": 406029,
       "sha256": "f69f0d84d8402e9fd80dfa9f4377e250642c7e69cb6ba458d4ea4c958530882c",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/figures/overview.png",
       "status": 200,
-      "contentType": "image/png",
       "bytes": 1225017,
       "sha256": "5a3c9e5b68e7f578a85a6fc80a03cac8268977dd90663935b4004dfe2ba0e8c0",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/figures/presentation/urban-digital-twin.webp",
       "status": 200,
-      "contentType": "image/webp",
       "bytes": 1571040,
       "sha256": "04d43c13c058509ed95fbe5753b04bfabc07e87189c4b153ec2943a46a7e81c6",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/figures/presentation/urban-wind-field.webp",
       "status": 200,
-      "contentType": "image/webp",
       "bytes": 656572,
       "sha256": "be230018d7ae2b7366071efa0959d873182ab14663a5366c31d595f617a7288e",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/figures/training.png",
       "status": 200,
-      "contentType": "image/png",
       "bytes": 944569,
       "sha256": "08647a4cc9ae2ec2f2ee5522b4030aedafc758f0cd2fa1482196028e1453cd09",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/figures/wind.png",
       "status": 200,
-      "contentType": "image/png",
       "bytes": 871199,
       "sha256": "4765bb43b533d7e688259f4d7d7574e6d3d5b092b3f8c9ba3916b30c2bd92c8d",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/media/context-descriptions.vtt",
       "status": 200,
-      "contentType": "text/vtt; charset=utf-8",
       "bytes": 480,
       "sha256": "4395d76a5c6cbb6902e0ab9521678f3e460e725212f84cd3aa7ac777c48a893e",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/media/context.mp4",
       "status": 200,
-      "contentType": "video/mp4",
       "bytes": 1683007,
       "sha256": "85a3909e9828e8b5211c015005c25e262cd05f794787eabd0728b979f0e376c5",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/media/poster.jpg",
       "status": 200,
-      "contentType": "image/jpeg",
       "bytes": 52041,
       "sha256": "394c6029a185d8295aadaa01dfe194ec5d90a1b6b9d3359312520dc3068fcb49",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/media/urban-flight-simulation-descriptions.vtt",
       "status": 200,
-      "contentType": "text/vtt; charset=utf-8",
       "bytes": 599,
       "sha256": "1b991536012c0cba388b2188451c6afeca018293cce8ed0e662995202d5aaf30",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/media/urban-flight-simulation.jpg",
       "status": 200,
-      "contentType": "image/jpeg",
       "bytes": 149539,
       "sha256": "df21504bf548ca3f84211be0a980086df2f26b60878c5724e021a6d967a514da",
-      "matchesSource": true
+      "matches_local_build": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/media/urban-flight-simulation.mp4",
       "status": 200,
-      "contentType": "video/mp4",
       "bytes": 7171874,
       "sha256": "f8672f333303b9c3783d38033ef653b64b072acbc6133dce98f2b43f6fede5f0",
-      "matchesSource": true
-    },
-    {
-      "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/paper/",
-      "status": 200,
-      "contentType": "text/html; charset=utf-8",
-      "bytes": 12654,
-      "sha256": "35afe4a61c322c87e030d28870ec8f3328234c764b6a3439071987a081555b3e"
-    },
-    {
-      "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/results/",
-      "status": 200,
-      "contentType": "text/html; charset=utf-8",
-      "bytes": 20542,
-      "sha256": "9462cb5c806716a89b55bbb6a3b7f456dccbc5777cc692f9b1e934cc142d5208"
+      "matches_local_build": true
     }
   ],
-  "mediaRangeRequests": [
+  "internal_fragment_count": 32,
+  "media_ranges": [
     {
-      "file": "context.mp4",
+      "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/media/context.mp4",
       "status": 206,
-      "contentRange": "bytes 0-1023/1683007",
-      "contentType": "video/mp4"
+      "content_range": "bytes 0-1023/1683007",
+      "bytes": 1024
     },
     {
-      "file": "urban-flight-simulation.mp4",
+      "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/media/urban-flight-simulation.mp4",
       "status": 206,
-      "contentRange": "bytes 0-1023/7171874",
-      "contentType": "video/mp4"
+      "content_range": "bytes 0-1023/7171874",
+      "bytes": 1024
     }
   ],
-  "internalFragmentLinksChecked": 37,
-  "custom404": {
-    "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/check-missing-page/",
-    "status": 404,
-    "hasDisclaimer": true,
-    "hasCsp": true,
-    "noindex": true
-  },
   "errors": [],
-  "notes": [
-    "GitHub Pages controls HTTP response headers. Only actual observed values are recorded. CSP and referrer policy are additionally present as HTML meta elements.",
-    "Missing HTTP CSP, X-Frame-Options and X-Content-Type-Options response headers are not claimed as configured."
-  ],
-  "deploymentCommit": "f464007fabff27284f9186bdb363854b844cc838",
-  "workflowRun": "https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/38172730548"
+  "limitations": [
+    "GitHub Pages does not expose custom security response-header configuration; observed headers are recorded above.",
+    "CSP is delivered via HTML meta rather than a response header.",
+    "These checks do not constitute complete accessibility certification."
+  ]
 }

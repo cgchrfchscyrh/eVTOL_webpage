@@ -21,6 +21,8 @@ Flying DNA 的三柱为 Digital Twin、Networked Systems、Artificial Intelligen
 
 首屏左侧保留 NASA/Joby 现实背景视频，右侧使用 Flying DNA 原速无音轨仿真。两者不是同场实验，也不构成本论文实机验证。所有宽度下标题均位于完整画面上方，窄屏纵向排列。两段视频保留原生控件、完整 HTML 画面说明和 WebVTT 描述轨道；自动播放与暂停行为见页首最新约定。无 JavaScript 时仍可用原生控件播放和阅读说明。
 
+本轮已发布版本：`a2019de`，GitHub Actions [部署及检查通过](https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/39156613305)。CI 完成 11 次 axe 扫描与 112 项功能检查；线上另验证 5 页、25 个资源、32 个页内目标与 11 项浏览器行为。无障碍扫描不是完整 ADA/WCAG 认证。
+
 ## 本地运行与检查
 
 需要 Node.js 24。使用项目自带的锁定文件安装。

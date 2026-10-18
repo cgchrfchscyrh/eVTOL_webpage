@@ -1,47 +1,41 @@
 {
-  "checkedOn": "2026-10-11",
-  "checkedAt": "2026-10-11T20:35:49.806Z",
+  "checkedOn": "2026-10-18",
+  "checkedAt": "2026-10-18T19:00:43.135Z",
   "url": "https://cgchrfchscyrh.github.io/eVTOL_webpage/",
-  "initiallyPaused": true,
-  "sections": [
-    "Problem",
-    "Existing work",
-    "Research gap",
-    "Our method",
-    "Experiments",
-    "Results",
-    "Conclusion"
+  "checks": [
+    "Both videos start automatically when first visible",
+    "Muted inline videos retain native controls, looping and complete frames",
+    "Keyboard pauses automatic playback",
+    "Manual pause persists after leaving and returning",
+    "Keyboard explicitly resumes playback",
+    "No institutional introduction or disclaimer on homepage",
+    "Compact research sections are present",
+    "320 CSS-pixel homepage has no page-level overflow",
+    "Mobile videos retain complete frames",
+    "reduce preference suppresses automatic playback",
+    "saveData preference suppresses automatic playback"
   ],
+  "errors": [],
   "media": [
     {
       "id": "context-video",
       "src": "https://cgchrfchscyrh.github.io/eVTOL_webpage/media/context.mp4",
       "duration": 15,
-      "paused": true,
-      "controls": true,
       "muted": true,
-      "describedBy": "context-summary context-visual-description"
+      "controls": true,
+      "playsInline": true,
+      "loop": true,
+      "objectFit": "contain"
     },
     {
       "id": "simulation-video",
       "src": "https://cgchrfchscyrh.github.io/eVTOL_webpage/media/urban-flight-simulation.mp4",
       "duration": 20.93,
-      "paused": true,
-      "controls": true,
       "muted": true,
-      "describedBy": "simulation-summary simulation-visual-description"
+      "controls": true,
+      "playsInline": true,
+      "loop": true,
+      "objectFit": "contain"
     }
-  ],
-  "keyboardPairPlayPause": true,
-  "fullFrameToggle": true,
-  "narrow": {
-    "width": 320,
-    "documentWidth": 320,
-    "titleBeforeVideos": true,
-    "stacked": true,
-    "completeFrames": true
-  },
-  "errors": [],
-  "deploymentCommit": "f464007fabff27284f9186bdb363854b844cc838",
-  "workflowRun": "https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/38172730548"
+  ]
 }

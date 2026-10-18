@@ -18,7 +18,9 @@ The local production build passed **11 axe scans and 112 functional checks**, wi
 
 Lint, Astro/TypeScript checking, and the production build pass. The dependency audit reports zero vulnerabilities and no exceptions; no dependency changes were needed for this revision. The local desktop and 320-pixel screenshots were inspected, including the method figure and complete media frames. Screenshot evidence and immutable-data checks are in `reports/visual-revision-review.json`.
 
-The final GitHub Pages deployment and HTTPS/resource/header checks are pending the publishing workflow; previous live reports describe their own dated builds.
+The [successful GitHub Pages workflow](https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/39156613305) published commit `a2019dea58fa7e29d99a6e1be53b1c125bdae4cc` on 18 October 2026. Its clean CI run passed the same 11 axe scans and 112 checks; the downloaded artifact is stored in `reports/ci/axe-wcag21aa.json`. The dependency audit, lint, type checks, and build also passed.
+
+Live verification checked five pages, 25 local resources (including font files), 32 internal fragment links, both MP4 byte-range responses, and an actual nonexistent path returning the custom noindex 404 page. All 25 resource bodies matched the local production build. HTTPS enforcement and HSTS are active; HTML CSP and the referrer policy are present. The browser passed 11 checks for automatic muted playback, native/shared keyboard pause, persistent manual pause, explicit resume, complete video frames, 320-pixel reflow, reduced-motion and data-saving preferences, and absent institutional copy. See `reports/live-deployment.json` and `reports/live-browser.json`.
 
 ## Remaining review
 

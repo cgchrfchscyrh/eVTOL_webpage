@@ -1,11 +1,23 @@
 {
-  "commit": "65d9e82ea2e72fd5d9b8cd52bff9e016defd87e8",
-  "workflowRun": 37144902582,
-  "workflowUrl": "https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/37144902582",
+  "checkedOn": "2026-10-18",
+  "commit": "a2019dea58fa7e29d99a6e1be53b1c125bdae4cc",
+  "workflowRun": 39156613305,
+  "workflowUrl": "https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/39156613305",
   "conclusion": "success",
-  "axeScans": 10,
-  "additionalChecks": 91,
+  "axeScans": 11,
+  "additionalChecks": 112,
   "axeViolations": 0,
   "checkErrors": 0,
-  "site": "https://cgchrfchscyrh.github.io/eVTOL_webpage/"
+  "site": "https://cgchrfchscyrh.github.io/eVTOL_webpage/",
+  "liveVerification": {
+    "pages": 5,
+    "assets": 25,
+    "internalFragments": 32,
+    "mediaRanges": 2,
+    "browserChecks": 11,
+    "errors": 0,
+    "httpsEnforced": true,
+    "missingRouteStatus": 404,
+    "allAssetBytesMatchLocalBuild": true
+  }
 }

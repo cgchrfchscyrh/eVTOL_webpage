@@ -1,88 +1,32 @@
 {
-  "date": "2026-10-11T20:34:31.324Z",
+  "date": "2026-10-18T18:59:14.522Z",
   "project": "eVTOL_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
   "scans": [
     {
-      "name": "/ desktop",
-      "passes": 27,
+      "name": "Homepage expanded media descriptions",
+      "passes": 26,
       "violations": [],
       "incomplete": [
         {
-          "id": "color-contrast",
+          "id": "video-caption",
           "nodes": [
             [
-              ".hero-text > .eyebrow"
+              "#context-video"
             ],
             [
-              "#paper-title"
-            ],
-            [
-              ".hero-question"
-            ],
-            [
-              "li:nth-child(1) > a[href=\"mailto:liusongyang@ufl.edu\"]"
-            ],
-            [
-              "li:nth-child(1) > sup > a[href$=\"#affiliation-1\"][aria-label=\"Affiliation 1\"]"
-            ],
-            [
-              "a[href$=\"mailto:weizili@utk.edu\"]"
-            ],
-            [
-              "a[href$=\"#affiliation-2\"]"
-            ],
-            [
-              "a[href$=\"mailto:hli111@utk.edu\"]"
-            ],
-            [
-              "a[href$=\"#affiliation-3\"]"
-            ],
-            [
-              "a[href$=\"mailto:shuai.li@ufl.edu\"]"
-            ],
-            [
-              "li:nth-child(4) > sup > a[href$=\"#affiliation-1\"][aria-label=\"Affiliation 1\"]"
-            ],
-            [
-              "#affiliation-1"
-            ],
-            [
-              "#affiliation-2"
-            ],
-            [
-              "#affiliation-3"
-            ],
-            [
-              ".hero-venue"
-            ],
-            [
-              ".actions > .light.button:nth-child(1)"
-            ],
-            [
-              ".light.button:nth-child(2)"
-            ],
-            [
-              ".light.button[href$=\"paper/\"]"
-            ],
-            [
-              ".text-link[href$=\"paper/\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(1) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(2) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".comparison > .text-link[href$=\"results/\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "#results > .text-link[href$=\"results/\"] > span[aria-hidden=\"true\"]"
+              "#simulation-video"
             ]
           ]
-        },
+        }
+      ]
+    },
+    {
+      "name": "/ desktop",
+      "passes": 26,
+      "violations": [],
+      "incomplete": [
         {
           "id": "video-caption",
           "nodes": [
@@ -98,29 +42,9 @@
     },
     {
       "name": "/ mobile",
-      "passes": 27,
+      "passes": 26,
       "violations": [],
       "incomplete": [
-        {
-          "id": "color-contrast",
-          "nodes": [
-            [
-              ".text-link[href$=\"paper/\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(1) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(2) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".comparison > .text-link[href$=\"results/\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "#results > .text-link[href$=\"results/\"] > span[aria-hidden=\"true\"]"
-            ]
-          ]
-        },
         {
           "id": "video-caption",
           "nodes": [
@@ -187,118 +111,119 @@
     "/: page loads",
     "/: one H1",
     "/: English language declared",
-    "/: informative images have nonempty alternatives",
-    "/: no autoplay, loops, or third-party players",
-    "/: institutional disclaimer is present",
-    "/: IDs are unique",
-    "/: visible headings do not skip levels",
-    "/: in-page links have targets",
+    "/: informative images have alternatives",
+    "/: no third-party player or unconditional HTML autoplay",
+    "/: requested institutional text is absent",
+    "/: unique IDs",
+    "/: local anchors have targets",
+    "/: headings do not skip levels",
     "/: skip link is first keyboard stop",
-    "/: keyboard focus has visible outline",
+    "/: visible focus",
     "/: skip link focuses main",
-    "NASA context and Flying DNA simulation videos are both present",
-    "Both title videos are paused on initial load",
-    "Both title videos are muted, inline, and retain native controls",
-    "Both videos have accessible names and existing text-description targets",
-    "Combined playback control has a visible keyboard focus outline",
-    "Keyboard starts both title videos and exposes pause",
-    "Keyboard pauses both title videos together",
-    "Native playback updates the group control without starting the other video",
-    "Native pause keeps the combined playback label synchronized",
-    "Keyboard activates full-frame mode with an accurate pressed state and label",
-    "Full-frame mode shows both complete video frames",
-    "Full-frame mode places both videos below the title text",
-    "Keyboard restores the title overlay and unpressed state",
-    "context-video: finite positive duration is available from media metadata",
-    "context-video: timed visual-description track loads",
-    "simulation-video: finite positive duration is available from media metadata",
-    "simulation-video: timed visual-description track loads",
-    "Both videos end without looping and expose replay",
-    "Replay restarts both title videos from the beginning",
-    "Citation can be copied with keyboard",
-    "/: no page-level horizontal overflow at 320 CSS px",
-    "Homepage places title text above the videos at 320 CSS px",
-    "Homepage shows complete video frames at 320 CSS px",
-    "Homepage stacks both videos vertically at 320 CSS px",
-    "/: no page-level horizontal overflow at 768 CSS px",
-    "Homepage places title text above the videos at 768 CSS px",
-    "Homepage shows complete video frames at 768 CSS px",
-    "/: reflows at 320 CSS px with increased text spacing",
+    "Both silent videos start automatically on their first visible visit",
+    "Both videos are muted, inline, looping and retain native controls",
+    "Automatic playback exposes an explicit Pause videos control",
+    "Both video names and complete text description targets exist",
+    "Shared playback control has visible focus",
+    "Keyboard pauses both automatically playing videos",
+    "Manual pause persists after leaving and returning to the videos",
+    "Keyboard explicitly resumes both videos",
+    "Videos pause when completely outside the viewport",
+    "Returning does not force a second automatic start",
+    "Native pause remains effective while the group label reflects the other playing video",
+    "Shared pause and label remain synchronized with native controls",
+    "context-video: timed visual descriptions load",
+    "simulation-video: timed visual descriptions load",
+    "Loops restart without losing the available pause control",
+    "Citation can be copied using the keyboard",
+    "Complete media descriptions can be expanded",
+    "/: no horizontal page overflow at 320px",
+    "Videos retain complete frames at 320px",
+    "Title and authors stay above complete videos at 320px",
+    "/: no horizontal page overflow at 768px",
+    "Videos retain complete frames at 768px",
+    "Title and authors stay above complete videos at 768px",
+    "/: 320px reflow with increased text spacing",
     "/paper/: page loads",
     "/paper/: one H1",
     "/paper/: English language declared",
-    "/paper/: informative images have nonempty alternatives",
-    "/paper/: no autoplay, loops, or third-party players",
-    "/paper/: institutional disclaimer is present",
-    "/paper/: IDs are unique",
-    "/paper/: visible headings do not skip levels",
-    "/paper/: in-page links have targets",
+    "/paper/: informative images have alternatives",
+    "/paper/: no third-party player or unconditional HTML autoplay",
+    "/paper/: requested institutional text is absent",
+    "/paper/: unique IDs",
+    "/paper/: local anchors have targets",
+    "/paper/: headings do not skip levels",
     "/paper/: skip link is first keyboard stop",
-    "/paper/: keyboard focus has visible outline",
+    "/paper/: visible focus",
     "/paper/: skip link focuses main",
-    "/paper/: no page-level horizontal overflow at 320 CSS px",
-    "/paper/: no page-level horizontal overflow at 768 CSS px",
-    "/paper/: reflows at 320 CSS px with increased text spacing",
+    "/paper/: no horizontal page overflow at 320px",
+    "/paper/: no horizontal page overflow at 768px",
+    "/paper/: 320px reflow with increased text spacing",
     "/results/: page loads",
     "/results/: one H1",
     "/results/: English language declared",
-    "/results/: informative images have nonempty alternatives",
-    "/results/: no autoplay, loops, or third-party players",
-    "/results/: institutional disclaimer is present",
-    "/results/: IDs are unique",
-    "/results/: visible headings do not skip levels",
-    "/results/: in-page links have targets",
+    "/results/: informative images have alternatives",
+    "/results/: no third-party player or unconditional HTML autoplay",
+    "/results/: requested institutional text is absent",
+    "/results/: unique IDs",
+    "/results/: local anchors have targets",
+    "/results/: headings do not skip levels",
     "/results/: skip link is first keyboard stop",
-    "/results/: keyboard focus has visible outline",
+    "/results/: visible focus",
     "/results/: skip link focuses main",
-    "All expected result tables are present",
-    "All tables have descriptive captions",
-    "Table headers define their scope",
-    "/results/: no page-level horizontal overflow at 320 CSS px",
-    "/results/: no page-level horizontal overflow at 768 CSS px",
-    "/results/: reflows at 320 CSS px with increased text spacing",
-    "Wide result table supports keyboard horizontal scrolling",
+    "All original result tables are retained",
+    "All result tables have captions",
+    "All table headers have scope",
+    "/results/: no horizontal page overflow at 320px",
+    "/results/: no horizontal page overflow at 768px",
+    "/results/: 320px reflow with increased text spacing",
+    "Wide tables support keyboard scrolling",
     "/accessibility/: page loads",
     "/accessibility/: one H1",
     "/accessibility/: English language declared",
-    "/accessibility/: informative images have nonempty alternatives",
-    "/accessibility/: no autoplay, loops, or third-party players",
-    "/accessibility/: institutional disclaimer is present",
-    "/accessibility/: IDs are unique",
-    "/accessibility/: visible headings do not skip levels",
-    "/accessibility/: in-page links have targets",
+    "/accessibility/: informative images have alternatives",
+    "/accessibility/: no third-party player or unconditional HTML autoplay",
+    "/accessibility/: requested institutional text is absent",
+    "/accessibility/: unique IDs",
+    "/accessibility/: local anchors have targets",
+    "/accessibility/: headings do not skip levels",
     "/accessibility/: skip link is first keyboard stop",
-    "/accessibility/: keyboard focus has visible outline",
+    "/accessibility/: visible focus",
     "/accessibility/: skip link focuses main",
-    "/accessibility/: no page-level horizontal overflow at 320 CSS px",
-    "/accessibility/: no page-level horizontal overflow at 768 CSS px",
-    "/accessibility/: reflows at 320 CSS px with increased text spacing",
+    "/accessibility/: no horizontal page overflow at 320px",
+    "/accessibility/: no horizontal page overflow at 768px",
+    "/accessibility/: 320px reflow with increased text spacing",
     "/404.html: page loads",
     "/404.html: one H1",
     "/404.html: English language declared",
-    "/404.html: informative images have nonempty alternatives",
-    "/404.html: no autoplay, loops, or third-party players",
-    "/404.html: institutional disclaimer is present",
-    "/404.html: IDs are unique",
-    "/404.html: visible headings do not skip levels",
-    "/404.html: in-page links have targets",
+    "/404.html: informative images have alternatives",
+    "/404.html: no third-party player or unconditional HTML autoplay",
+    "/404.html: requested institutional text is absent",
+    "/404.html: unique IDs",
+    "/404.html: local anchors have targets",
+    "/404.html: headings do not skip levels",
     "/404.html: skip link is first keyboard stop",
-    "/404.html: keyboard focus has visible outline",
+    "/404.html: visible focus",
     "/404.html: skip link focuses main",
-    "/404.html: no page-level horizontal overflow at 320 CSS px",
-    "/404.html: no page-level horizontal overflow at 768 CSS px",
-    "/404.html: reflows at 320 CSS px with increased text spacing",
-    "Comparison All objectives remains visible without JavaScript",
-    "Both native video controls remain available without JavaScript",
-    "Unavailable JavaScript media controls are hidden without JavaScript",
-    "Homepage reflows at 320 CSS px without JavaScript",
+    "/404.html: no horizontal page overflow at 320px",
+    "/404.html: no horizontal page overflow at 768px",
+    "/404.html: 320px reflow with increased text spacing",
+    "Native video controls remain available without JavaScript",
+    "No-JavaScript visit leaves videos paused",
+    "Unavailable script playback control is hidden without JavaScript",
+    "Method and result figures remain available without JavaScript",
+    "320px layout reflows without JavaScript",
     "Citation remains readable without JavaScript",
-    "Unavailable JavaScript copy control is hidden",
-    "Reduced-motion visit does not start either title video"
+    "reduced-motion: both videos remain paused on entry",
+    "reduced-motion: explicit playback remains available",
+    "reduced-motion: shared pause works after explicit playback",
+    "save-data: both videos remain paused on entry",
+    "save-data: explicit playback remains available",
+    "save-data: shared pause works after explicit playback"
   ],
   "errors": [],
   "limitations": [
     "Automated checks are not a complete WCAG or ADA certification.",
-    "External full-text PDFs, screen-reader usability, scientific image contrast, and institutional approval need separate review."
+    "External PDFs, screen-reader usability, and scientific image contrast need separate review."
   ]
 }
