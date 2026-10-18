@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#202020"/><path d="M15 44 28 20l10 24 11-24M12 48h40" fill="none" stroke="#fafafa" stroke-width="4" stroke-linejoin="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">eVTOL: an aircraft with four lift rotors</title>
+  <rect width="64" height="64" rx="14" fill="#202020"/>
+  <path d="M17 22h30M17 43h30" fill="none" stroke="#fafafa" stroke-width="5"/>
+  <path d="M32 8c-3 0-5 5-5 10v24l-4 8v4l9-3 9 3v-4l-4-8V18c0-5-2-10-5-10Z" fill="#fafafa"/>
+  <g fill="#202020" stroke="#fafafa" stroke-width="4">
+    <circle cx="16" cy="22" r="7"/>
+    <circle cx="48" cy="22" r="7"/>
+    <circle cx="16" cy="43" r="7"/>
+    <circle cx="48" cy="43" r="7"/>
+  </g>
+</svg>
