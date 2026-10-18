@@ -1,6 +1,6 @@
 # eVTOL research webpage
 
-2026-10-18 视觉精简：首页采用 Abstract / Method / Experiments / Results / Citation，标题和作者位于完整双视频上方，长图注与媒体说明可展开。静音视频首次进入视口时自动播放并循环，提供明确的 Pause videos / Play videos；减少动画或省流量时不自动播放，滚出视口暂停，用户暂停不会被自动恢复。主页取消 UF 单位介绍和免责声明；原研究附件不变。
+2026-10-18 视觉精简：首页采用 Abstract / Method / Results / Citation，标题和作者位于完整双视频上方，长图注与媒体说明可展开。静音视频首次进入视口时自动播放并循环，仅保留各视频的原生播放/暂停控件，移除独立全局按钮；减少动画或省流量时不自动播放，滚出视口暂停，用户暂停不会被自动恢复。主页取消 UF 单位介绍和免责声明；原研究附件不变。
 
 
 论文：**Reinforcement learning based multi-perspective motion planning of manned electric vertical take-off and landing vehicle in urban environment with wind fields**。2025 年发表论文及其原表是已验证方法与量化结果的事实来源；原始 PDF 保持不变，不在仓库中重新分发。本次修订另使用作者提供的六页 `Flying DNA - Copy 1.pptx` 介绍更广泛的项目愿景，明确区分愿景、演示素材与论文实验。
@@ -9,19 +9,19 @@
 
 ## 网站内容
 
-- `/`：浅灰标题与作者、完整双视频、Abstract / Method / Experiments / Results / Citation、可展开图注及媒体说明。
-- `/paper/`：HTML 研究指南，明确是论文的阅读辅助，不是完整逐字转录。
-- `/results/`：原始图、详细文字说明、结果表格及 CSV 下载。
+- `/`：浅灰标题与作者、完整双视频、Abstract / Method / Results / Citation、可展开图注及媒体说明。
+- `/paper/`：不索引的兼容页，引导已有书签前往首页 Method。
+- `/results/`：不索引的兼容页，引导已有书签前往首页 Results；网页不再展示数字结果、定量训练图或数据下载入口。
 - `/accessibility/`：无障碍说明、媒体来源、附件限制和联系信息。
 - `/404.html`：保留导航的错误页面。
 
-中性炭黑和灰白界面不使用 UF 标志或蓝橙主题。按用户 2026-10-18 最新要求，网站不再展示机构介绍和免责声明，作者姓名及原论文资料保持不变。原论文图的科学配色保持不变，另提供文字和表格说明。
+中性炭黑和灰白界面不使用 UF 标志或蓝橙主题。按用户 2026-10-18 最新要求，网站不再展示机构介绍和免责声明，作者姓名及原论文资料保持不变。原论文图的科学配色保持不变，另提供文字说明。
 
 Flying DNA 的三柱为 Digital Twin、Networked Systems、Artificial Intelligence。这是项目的研究愿景，不表示 2025 年论文已经验证完整的三柱系统。PPT 阅读副本仅选第 5 页的数字孪生城市场景与风场静图，以及第 6 页嵌入的 `image13.gif`；原 PPT 保持不变，不整份公开。静图提供 alt text 和完整 HTML 说明，保留科学图示的原配色，不将其作为界面品牌配色。
 
-首屏左侧保留 NASA/Joby 现实背景视频，右侧使用 Flying DNA 原速无音轨仿真。两者不是同场实验，也不构成本论文实机验证。所有宽度下标题均位于完整画面上方，窄屏纵向排列。两段视频保留原生控件、完整 HTML 画面说明和 WebVTT 描述轨道；自动播放与暂停行为见页首最新约定。无 JavaScript 时仍可用原生控件播放和阅读说明。
+首屏左侧保留 NASA/Joby 现实背景视频，右侧使用 Flying DNA 原速无音轨仿真。两者不是同场实验，也不构成本论文实机验证。所有宽度下标题均位于完整画面上方，窄屏纵向排列。首屏两段视频与正文三个短片段均保留原生控件、完整 HTML 画面说明和 WebVTT 描述轨道；自动播放与暂停行为见页首最新约定。无 JavaScript 时仍可用原生控件播放和阅读说明。
 
-本轮已发布版本：`a2019de`，GitHub Actions [部署及检查通过](https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/39156613305)。CI 完成 11 次 axe 扫描与 112 项功能检查；线上另验证 5 页、25 个资源、32 个页内目标与 11 项浏览器行为。无障碍扫描不是完整 ADA/WCAG 认证。
+前轮历史发布版本：`a2019de`，GitHub Actions [部署及检查通过](https://github.com/cgchrfchscyrh/eVTOL_webpage/actions/runs/39156613305)。CI 完成 11 次 axe 扫描与 112 项功能检查；线上另验证 5 页、25 个资源、32 个页内目标与 11 项浏览器行为。无障碍扫描不是完整 ADA/WCAG 认证。
 
 ## 本地运行与检查
 
@@ -62,11 +62,11 @@ TEST_URL=http://127.0.0.1:4332/eVTOL_webpage npm run test:a11y
 - `src/components/` 和 `src/pages/`：布局和交互。
 - `src/styles/global.css`：响应式样式、可见焦点、打印与 reduced-motion 支持。
 - `public/figures/`：原论文图与 Flying DNA 第 5 页静图的阅读副本。
-- `public/data/`：与 HTML 数值一致的 CSV。修改结果时同步更新并核对原论文。
-- `public/media/`：静音片段、封面及英文画面描述 VTT。
+- `public/data/`：原论文 CSV 数据保持不变，本次精简仅移除网页展示和下载入口。
+- `public/media/`：静音片段、封面及英文画面描述 VTT；`evtol-clips.json` 是片段来源、切点和说明的唯一配置。
 - `reports/source-provenance.json`：原 PDF 文件名、SHA-256、提取来源和核对日期。
 
-论文数字使用原表数值，未复用与数值不一致的百分比表述。缺失的训练轨迹数据没有从图片猜测或补造。eVTOL 的公开研究仓库目前尚未发布实现，因此按钮使用 “Project repository”，而不是声称代码已公开。
+论文数字使用原表数值，未复用与数值不一致的百分比表述。缺失的训练轨迹数据没有从图片猜测或补造。首屏仅保留指向已发表论文 DOI 的 Paper 按钮。
 
 ## GitHub Pages
 

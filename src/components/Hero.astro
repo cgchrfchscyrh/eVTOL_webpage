@@ -19,36 +19,28 @@ import { asset } from "../data/paths";
         <p class="hero-venue">{site.venue}</p>
         <div class="actions">
           <a class="button light" href={site.paperUrl}>Paper <span aria-hidden="true">↗</span></a>
-          <a class="button light" href={site.repo}>Repository <span aria-hidden="true">↗</span></a>
-          <a class="button light" href={asset("paper/")}>Research guide</a>
         </div>
       </div>
     </div>
     <div class="hero-backdrops">
-      <video id="context-video" data-playback-group="hero" controls muted playsinline loop preload="metadata" poster={asset("media/poster.jpg")} width="1280" height="720" aria-label={site.contextTitle} aria-describedby="context-summary context-visual-description">
+      <figure>
+      <video id="context-video" data-duration="15" data-playback-group="hero" controls controlslist="nodownload" muted playsinline loop preload="metadata" poster={asset("media/poster.jpg")} width="1280" height="720" aria-label={site.contextTitle} aria-describedby="context-summary context-visual-description">
         <source src={asset("media/context.mp4")} type="video/mp4" />
         <track kind="descriptions" src={asset("media/context-descriptions.vtt")} srclang="en" label="English visual descriptions" />
-        <a href={asset("media/context.mp4")}>Download the silent NASA air-taxi context clip (MP4).</a>
+        Your browser does not support video playback. A complete text description is available below.
       </video>
-      <video id="simulation-video" data-playback-group="hero" controls muted playsinline loop preload="metadata" poster={asset(simulation.poster)} width={simulation.width} height={simulation.height} aria-label={simulation.title} aria-describedby="simulation-summary simulation-visual-description">
+      <figcaption id="context-summary"><a href={site.contextUrl}>NASA / Joby</a> · Flight testing</figcaption>
+      </figure>
+      <figure>
+      <video id="simulation-video" data-duration="20.93" data-playback-group="hero" controls controlslist="nodownload" muted playsinline loop preload="metadata" poster={asset(simulation.poster)} width={simulation.width} height={simulation.height} aria-label={simulation.title} aria-describedby="simulation-summary simulation-visual-description">
         <source src={asset(simulation.video)} type="video/mp4" />
         <track kind="descriptions" src={asset(simulation.track)} srclang="en" label="English visual descriptions" />
-        <a href={asset(simulation.video)}>Download the silent urban flight visualization (MP4).</a>
+        Your browser does not support video playback. A complete text description is available below.
       </video>
+      <figcaption id="simulation-summary">Flying DNA · Urban flight simulation</figcaption>
+      </figure>
     </div>
   </div>
-  <div class="hero-scene-captions">
-    <div id="context-summary">
-      <p><a href={site.contextUrl}>NASA / Joby</a> · Flight testing</p>
-    </div>
-    <div id="simulation-summary">
-      <p>Flying DNA · Urban flight simulation</p>
-    </div>
-  </div>
-  <div class="hero-playback">
-    <button class="button dark" id="hero-playback-toggle" data-media-control  aria-controls="context-video simulation-video" aria-describedby="hero-playback-note" type="button" hidden>Play videos</button>
-    <p id="hero-playback-note">Silent videos · <a href={asset("accessibility/#media-description")}>Descriptions & sources</a></p>
-    <p id="media-status" class="sr-only" role="status"></p>
-  </div>
+  <p id="media-status" class="sr-only" role="status"></p>
 </section>
 <MediaControls />

@@ -1,109 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Figure from "../components/Figure.astro";
 import site from "../data/site.json";
 import { asset } from "../data/paths";
 ---
 
-<Layout title={`Research guide — ${site.wordmark}`}>
+<Layout title={`Method — ${site.wordmark}`} description="Explore the method on the eVTOL project page." canonicalPath={asset()} noindex>
   <div class="reading-container">
     <header class="page-title">
-      <p class="eyebrow">{site.venue}</p><h1>Research guide</h1><p class="lead">
-        {site.title}
-      </p><p>{site.guideIntro}</p><div class="actions">
-        <a class="button dark" href={site.paperUrl}>Published paper ↗</a>{
-          site.htmlPaper && (
-            <a class="button" href={site.htmlPaper}>
-              Full preprint in HTML ↗
-            </a>
-          )
-        }{
-          site.pdfUrl && (
-            <a class="button" href={site.pdfUrl}>
-              {site.pdfLabel} ↗
-            </a>
-          )
-        }
-      </div>
+      <h1>Explore the method</h1>
+      <p class="lead">The project’s method is now part of the main page.</p>
+      <div class="actions"><a class="button dark" href={asset("#method")}>Go to Method</a></div>
     </header>
-    <nav class="contents" aria-label="Research guide contents">
-      <h2>In this guide</h2><ol>
-        <li><a href="#guide-flying-dna">Flying DNA and the published study</a></li>
-        {
-          site.guideSections.map((section, i) => (
-            <li>
-              <a href={`#guide-${i + 1}`}>{section.title}</a>
-            </li>
-          ))
-        }
-      </ol>
-    </nav>
-    <div class="prose">
-      <section id="guide-flying-dna">
-        <h2>Flying DNA and the published study</h2>
-        <p>
-          The six-slide Flying DNA project presentation places advanced air
-          mobility within a broader research vision: digital twins represent
-          environments and systems, networked systems connect physical agents
-          and infrastructure, and artificial intelligence supports understanding,
-          design, and control. Slides 5–6 illustrate directions in urban wind
-          sensing, prediction, and aerial navigation.
-        </p>
-        <p>
-          The published 2025 study below evaluates a specific part of that
-          vision: modified PPO learns multi-objective eVTOL motion in a simulated
-          city with computed CFD wind fields. The broader presentation does not
-          add a quantitative benchmark or establish an operational sensing
-          network, online wind prediction, or real-flight validation for this
-          planner. All reported numbers and technical details continue to follow
-          the published article.
-        </p>
-        <p>
-          For a separately attributed reference, see
-          <a href={asset("#related-work")}
-            >GeoWind2Plan in the homepage’s independent related work</a
-          >.
-        </p>
-        <p class="fine-print">
-          Presentation source: Flying DNA, slides 2–3 (program framework) and
-          5–6 (wind and navigation illustrations). The original presentation and
-          published paper remain unchanged.
-        </p>
-      </section>
-      <Fragment>
-        {
-          site.guideSections.map((section, i) => (
-            <section id={`guide-${i + 1}`}>
-              <h2>{section.title}</h2>
-              {section.paragraphs.map((p) => (
-                <p>{p}</p>
-              ))}
-            </section>
-          ))
-        }
-      </Fragment>
-      <section>
-        <h2>Boundaries of the evidence</h2><ul>
-          {site.limitations.map((p) => <li>{p}</li>)}
-        </ul>
-      </section>
-    </div>
-    <Figure id={site.id === "mixed_traffic" ? "network" : "wind"} />
-    <section class="section">
-      <h2>Continue with the evidence</h2><p>
-        <a href={asset("results/")}
-          >Read the original figure descriptions and numeric results</a
-        >, including downloadable CSV tables.
-      </p><p><a href={site.repo}>{site.repoLabel}</a>. {site.repoNote}</p><p
-        class="fine-print"
-      >
-        The uploaded publisher PDF was used to verify this guide and extract the
-        original figures. It remains unchanged. External publisher PDFs and the
-        arXiv preprint have not been certified for accessibility; <a
-          href={asset("accessibility/#attachments")}
-          >read the attachment notes</a
-        >.
-      </p>
-    </section>
   </div>
 </Layout>

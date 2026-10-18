@@ -3,46 +3,37 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Figure from "../components/Figure.astro";
 import PresentationFigure from "../components/PresentationFigure.astro";
+import MotionClip from "../components/MotionClip.astro";
 import Citation from "../components/Citation.astro";
 import MediaCredit from "../components/MediaCredit.astro";
-import { asset } from "../data/paths";
-const contents = ["Abstract", "Method", "Experiments", "Results", "Citation"];
 ---
 
 <Layout>
   <Hero />
   <div class="container visual-research">
-    <nav class="research-nav" aria-label="Research sections">
-      <ol>{contents.map((label) => <li><a href={`#${label.toLowerCase()}`}>{label}</a></li>)}</ol>
-    </nav>
     <section class="section abstract-section" id="abstract" aria-labelledby="abstract-title">
       <h2 id="abstract-title">Abstract</h2>
-      <p>Urban air taxis must navigate wind and buildings while balancing energy, passenger experience, and environmental noise. We formulate this as a multi-objective reinforcement-learning problem. A modified PPO policy learns three-dimensional motion in a simulated Atlanta environment with CFD wind fields. Its reward combines energy consumption, energy efficiency, comfort, safety, flight time, and noise. Across the reported comparisons, the policy improves several objectives while retaining trade-offs in safety and travel time. The study evaluates simulated flight between endpoints; takeoff, landing, and real-aircraft validation remain outside its scope.</p>
+      <p class="section-intro">Urban air taxis must navigate wind and buildings while balancing energy, passenger experience, and environmental noise. We bring these competing objectives into a reinforcement-learning framework for simulated urban flight.</p>
+      <MotionClip id="urban-intersection" />
     </section>
     <section class="section" id="method" aria-labelledby="method-title">
       <h2 id="method-title">Method</h2>
-      <p class="section-intro">City geometry and local wind inform a modified PPO policy. Six objectives connect the aircraft, its passengers, and the surrounding environment.</p>
-      <Figure id="framework" concise caption="A policy that balances six objectives." />
-      <p class="section-link"><a href={asset("paper/")}>Method details and research guide →</a></p>
-    </section>
-    <section class="section" id="experiments" aria-labelledby="experiments-title">
-      <h2 id="experiments-title">Experiments</h2>
-      <p class="section-intro">The published study tests 10 km flights across seven wind conditions in simulated Atlanta. Flying DNA’s broader vision connects digital twins, networked systems, and AI; its city and wind illustrations appear below.</p>
-      <div class="presentation-grid">
-        <PresentationFigure id="urban-digital-twin" concise />
-        <PresentationFigure id="urban-wind-field" concise />
+      <p class="section-intro">City geometry and local wind inform a modified PPO policy. Its reward connects the aircraft, its passengers, and the surrounding environment.</p>
+      <Figure id="framework" concise caption="Learning motion with multiple flight objectives." />
+      <div class="method-visuals">
+        <MotionClip id="urban-corridor" />
+        <div class="presentation-grid">
+          <PresentationFigure id="urban-digital-twin" concise />
+          <PresentationFigure id="urban-wind-field" concise />
+        </div>
       </div>
-      <p class="section-link"><a href={asset("results/#figure-wind")}>View the paper’s experimental environment →</a></p>
+      <p class="visual-note">City and wind illustrations from the broader Flying DNA presentation.</p>
     </section>
     <section class="section" id="results" aria-labelledby="results-title">
       <h2 id="results-title">Results</h2>
-      <Figure id="training" concise caption="Six objectives during learning." />
-      <div class="result-numbers">
-        <p><strong>57.83 <span>kWh</span></strong><span>Energy · DDPG: 123.54 kWh</span></p>
-        <p><strong>20.55 <span>dB</span></strong><span>Average step noise · DDPG: 25.01 dB</span></p>
-      </div>
-      <p class="section-intro">Table 6 reports lower energy use and noise than DDPG. TD-MPC2 achieves a better safety score and a slightly shorter flight time. Comfort and safety are modeled scores.</p>
-      <p class="section-link"><a href={asset("results/")}>All results, figure descriptions and CSV data →</a></p>
+      <p class="section-intro">In the all-objective comparison, the policy improves energy use, comfort, and modeled noise, with trade-offs in safety scores and travel time.</p>
+      <MotionClip id="urban-facade" />
+      <p class="scope-note">Evidence is limited to simulated flight. Takeoff, landing, and real-aircraft validation are outside the study; the animation illustrates the setting rather than experimental results.</p>
     </section>
     <Citation />
     <aside class="related-reading" id="related-work" aria-label="Related reading">

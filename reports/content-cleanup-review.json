@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-18",
+  "scope": "Content simplification; no source manuscript or research data changes.",
+  "screenshots": [
+    "/tmp/evtol-content-desktop.png",
+    "/tmp/evtol-content-mobile.png"
+  ],
+  "headings": [
+    "Abstract",
+    "Method",
+    "Results",
+    "Citation"
+  ],
+  "removed": [
+    "Standalone playback control",
+    "Research guide and Results & figures navigation",
+    "Repository and guide hero buttons",
+    "Numerical result cards, tables and training result plots",
+    "Download controls"
+  ],
+  "hero": "Published paper DOI remains the only primary resource button; paired context and simulation videos retained with separately associated captions.",
+  "clips": "Three consecutive excerpts of the same Flying DNA presentation animation, distributed across Abstract, Method, and Results; no claim of separate experiments or policy validation.",
+  "researchLimits": [
+    "Simulated flight only; no takeoff, landing, real-aircraft testing or operating certification.",
+    "Safety and flight-time trade-offs retained.",
+    "Presentation city/wind illustrations do not establish the paper’s city or wind test conditions."
+  ],
+  "originals": [
+    {
+      "file": "src/data/site.json",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/narrative.json",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/presentation.json",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/hero-media.json",
+      "unchanged": true
+    },
+    {
+      "file": "public/data/efficiency.csv",
+      "unchanged": true
+    },
+    {
+      "file": "public/data/ablation.csv",
+      "unchanged": true
+    },
+    {
+      "file": "public/data/energy.csv",
+      "unchanged": true
+    },
+    {
+      "file": "public/data/all-objectives.csv",
+      "unchanged": true
+    },
+    {
+      "file": "public/figures/wind.png",
+      "unchanged": true
+    },
+    {
+      "file": "public/figures/overview.png",
+      "unchanged": true
+    },
+    {
+      "file": "public/figures/framework.png",
+      "unchanged": true
+    },
+    {
+      "file": "public/figures/training.png",
+      "unchanged": true
+    },
+    {
+      "file": "public/figures/presentation/urban-wind-field.webp",
+      "unchanged": true
+    },
+    {
+      "file": "public/figures/presentation/urban-digital-twin.webp",
+      "unchanged": true
+    },
+    {
+      "file": "public/media/context.mp4",
+      "unchanged": true
+    },
+    {
+      "file": "public/media/urban-flight-simulation.mp4",
+      "unchanged": true
+    }
+  ],
+  "media": [
+    {
+      "file": "public/media/context.mp4",
+      "duration": "15.000000",
+      "audio": false
+    },
+    {
+      "file": "public/media/urban-corridor.mp4",
+      "duration": "5.990000",
+      "audio": false
+    },
+    {
+      "file": "public/media/urban-flight-simulation.mp4",
+      "duration": "20.930000",
+      "audio": false
+    },
+    {
+      "file": "public/media/urban-intersection.mp4",
+      "duration": "5.990000",
+      "audio": false
+    },
+    {
+      "file": "public/media/urban-facade.mp4",
+      "duration": "6.890000",
+      "audio": false
+    }
+  ],
+  "localChecks": {
+    "axeScans": 11,
+    "functionalChecks": 189,
+    "violations": 0,
+    "errors": 0
+  },
+  "limitations": [
+    "No full ADA/WCAG certification.",
+    "External PDF reading order, multiple screen-reader testing and institutional review remain unverified."
+  ],
+  "deployment": "Pending parent agent publication and live verification."
+}

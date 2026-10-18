@@ -1,0 +1,21 @@
+---
+import media from "../../public/media/evtol-clips.json";
+const clips = media.clips;
+import { asset } from "../data/paths";
+interface Props { id: string; }
+const clip = clips.find((item) => item.id === Astro.props.id)!;
+---
+<figure class="motion-clip">
+  <video id={`${clip.id}-video`} data-playback-group="research" data-duration={clip.duration} controls controlslist="nodownload" muted loop playsinline preload="none" width={clip.width} height={clip.height} poster={asset(`media/${clip.poster}`)} aria-label={clip.title} aria-describedby={`${clip.id}-caption ${clip.id}-description`}>
+    <source src={asset(`media/${clip.file}`)} type="video/mp4" />
+    <track kind="descriptions" src={asset(`media/${clip.track}`)} srclang="en" label="English visual descriptions" />
+    Your browser does not support video playback. Read the visual description below.
+  </video>
+  <figcaption>
+    <p id={`${clip.id}-caption`}>{clip.caption}</p>
+    <details class="clip-description"><summary>Description & source</summary>
+      <div id={`${clip.id}-description`}><p>{clip.description}</p><p>{clip.scope}</p></div>
+      <p class="fine-print">{clip.credit}</p>
+    </details>
+  </figcaption>
+</figure>

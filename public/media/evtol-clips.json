@@ -1,0 +1,63 @@
+{
+  "source": "Flying DNA presentation, slide 6 animation; existing silent MP4 retained.",
+  "clips": [
+    {
+      "id": "urban-intersection",
+      "start": 0,
+      "duration": 5.99,
+      "title": "Navigating the city",
+      "caption": "An urban flight scene from Flying DNA.",
+      "description": "A four-rotor aircraft passes above a rendered street intersection, with cars, crosswalks, sidewalks, and multistory buildings below. The camera follows from an elevated rear view while a broad yellow trace meets the aircraft. Reflections are visible on the road surface. This is the opening excerpt of the presentation animation, used to illustrate the urban planning context.",
+      "file": "urban-intersection.mp4",
+      "poster": "urban-intersection.jpg",
+      "track": "urban-intersection-descriptions.vtt",
+      "width": 854,
+      "height": 480,
+      "source": "urban-flight-simulation.mp4",
+      "credit": "Flying DNA presentation, slide 6. Excerpt from the same embedded animation shown in the title; original speed and complete frame retained.",
+      "scope": "Presentation visualization only; not a real-aircraft trial or validation of the published controller."
+    },
+    {
+      "id": "urban-corridor",
+      "start": 7,
+      "duration": 5.99,
+      "title": "Flight among buildings",
+      "caption": "Buildings shape the space available for flight.",
+      "description": "The camera follows a four-rotor aircraft toward a rendered intersection surrounded by multistory buildings. As the camera moves closer and changes viewpoint, the aircraft and broad yellow trace remain visible above the road, with vehicles and crosswalk markings below. The aircraft appears against the building facades near the end. This excerpt continues the same presentation animation; no wind measurements, policy outputs, or performance metrics are shown.",
+      "file": "urban-corridor.mp4",
+      "poster": "urban-corridor.jpg",
+      "track": "urban-corridor-descriptions.vtt",
+      "width": 854,
+      "height": 480,
+      "source": "urban-flight-simulation.mp4",
+      "credit": "Flying DNA presentation, slide 6. Excerpt from the same embedded animation shown in the title; original speed and complete frame retained.",
+      "scope": "Presentation visualization only; not a real-aircraft trial or validation of the published controller."
+    },
+    {
+      "id": "urban-facade",
+      "start": 14,
+      "duration": 6.89,
+      "title": "The surrounding urban environment",
+      "caption": "The same city animation, viewed near building facades.",
+      "description": "The four-rotor aircraft appears beside multistory building facades above a rendered street. The viewpoint moves from the aircraft’s side toward a close rear view, with a broad yellow trace crossing the image and partially blocking the background near the end. Streets, windows, and neighboring buildings frame the scene. This final excerpt is from the same presentation animation and is an illustration of the urban setting, not a separate trial or a demonstration of the published policy.",
+      "file": "urban-facade.mp4",
+      "poster": "urban-facade.jpg",
+      "track": "urban-facade-descriptions.vtt",
+      "width": 854,
+      "height": 480,
+      "source": "urban-flight-simulation.mp4",
+      "credit": "Flying DNA presentation, slide 6. Excerpt from the same embedded animation shown in the title; original speed and complete frame retained.",
+      "scope": "Presentation visualization only; not a real-aircraft trial or validation of the published controller."
+    }
+  ],
+  "hero": [
+    {
+      "file": "context.mp4",
+      "duration": 15.0
+    },
+    {
+      "file": "urban-flight-simulation.mp4",
+      "duration": 20.93
+    }
+  ]
+}

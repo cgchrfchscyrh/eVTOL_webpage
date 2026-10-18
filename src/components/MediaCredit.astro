@@ -1,7 +1,8 @@
 ---
 import site from "../data/site.json";
 import simulation from "../data/hero-media.json";
-import { asset } from "../data/paths";
+import media from "../../public/media/evtol-clips.json";
+const clips = media.clips;
 ---
 
 <section id="media-description" class="media-description" aria-labelledby="media-heading">
@@ -21,7 +22,13 @@ import { asset } from "../data/paths";
       {simulation.description.map((paragraph) => <p>{paragraph}</p>)}
     </div>
     <p class="fine-print">{simulation.credit}</p>
-    <p><a href={asset(simulation.video)}>Download the urban flight visualization (MP4)</a> · <a href={asset(simulation.track)}>Read the timed simulation descriptions (VTT)</a></p>
   </section>
-  <p class="fine-print">Both clips are silent. They start automatically when first visible unless reduced motion or data saving is enabled. Use “Pause videos” to stop both; your pause is retained when returning to the videos. The complete videos appear below the title. At narrow widths, they stack vertically. The two recordings illustrate different settings and are not a synchronized experimental comparison.</p>
+  <section aria-labelledby="excerpts-heading">
+    <h3 id="excerpts-heading">Urban flight excerpts</h3>
+    <div id="excerpts-visual-description">
+      {clips.map((clip) => <div class="excerpt-credit"><h4>{clip.title}</h4><p>{clip.description}</p></div>)}
+      <p>These clips are successive excerpts of the same Flying DNA presentation animation, not separate experiments. They are shown at original speed, without cropping or audio. They do not establish controller identity, wind conditions, quantitative performance, or real-aircraft validation.</p>
+    </div>
+  </section>
+  <p class="fine-print">All videos are silent and include text alternatives. Visible videos can play automatically; native player controls remain available to pause or resume each video. Manual pauses are remembered. Reduced-motion and data-saving preferences suppress automatic playback. The NASA/Joby recording and presentation animation illustrate separate settings.</p>
 </section>

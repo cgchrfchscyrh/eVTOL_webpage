@@ -2,140 +2,679 @@ import { chromium } from "playwright";
 import AxeBuilder from "@axe-core/playwright";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import assert from "node:assert/strict";
-const site = JSON.parse(await readFile(new URL("../src/data/site.json", import.meta.url), "utf8"));
-const base = (process.env.TEST_URL || "http://127.0.0.1:4514/eVTOL_webpage").replace(/\/$/, "");
-const browser = await chromium.launch({ headless: true, ...(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {}), args: ["--no-sandbox"] });
-const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, permissions: ["clipboard-read", "clipboard-write"] });
+const site = JSON.parse(
+  await readFile(new URL("../src/data/site.json", import.meta.url), "utf8"),
+);
+const clipManifest = JSON.parse(
+  await readFile(
+    new URL("../public/media/evtol-clips.json", import.meta.url),
+    "utf8",
+  ),
+);
+const clipByFile = new Map([...clipManifest.clips, ...clipManifest.hero].map((clip) => [clip.file, clip]));
+const base = (
+  process.env.TEST_URL || "http://127.0.0.1:4514/eVTOL_webpage"
+).replace(/\/$/, "");
+const browser = await chromium.launch({
+  headless: true,
+  ...(process.env.CHROME_PATH
+    ? { executablePath: process.env.CHROME_PATH }
+    : {}),
+  args: ["--no-sandbox"],
+});
+const context = await browser.newContext({
+  viewport: { width: 1440, height: 1000 },
+  permissions: ["clipboard-read", "clipboard-write"],
+});
 const page = await context.newPage();
-const report = { date: new Date().toISOString(), project: site.id, target: "WCAG 2.1 A/AA", engine: "axe-core via Playwright", scans: [], checks: [], errors: [], limitations: ["Automated checks are not a complete WCAG or ADA certification.", "External PDFs, screen-reader usability, and scientific image contrast need separate review."] };
-const check = (value, message) => (value ? report.checks : report.errors).push(message);
-page.on("pageerror", (e) => report.errors.push(e.message));
-page.on("console", (m) => { if (m.type() === "error") report.errors.push(m.text()); });
-page.on("requestfailed", (r) => { if (!r.failure()?.errorText.includes("ERR_ABORTED")) report.errors.push(r.url() + ": " + r.failure()?.errorText); });
+const report = {
+  date: new Date().toISOString(),
+  project: site.id,
+  target: "WCAG 2.1 A/AA",
+  engine: "axe-core via Playwright",
+  scans: [],
+  checks: [],
+  errors: [],
+  limitations: [
+    "Automated checks are not a complete WCAG or ADA certification.",
+    "External PDFs, screen-reader usability, and scientific image contrast require separate review.",
+  ],
+};
+const check = (value, message) =>
+  (value ? report.checks : report.errors).push(message);
+page.on("pageerror", (error) => report.errors.push(error.message));
+page.on("console", (message) => {
+  if (message.type() === "error") report.errors.push(message.text());
+});
 async function scan(name) {
-  const r = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
-  report.scans.push({ name, passes: r.passes.length, violations: r.violations.map((v) => ({ id: v.id, impact: v.impact, nodes: v.nodes.map((n) => ({ target: n.target, reason: n.failureSummary })) })), incomplete: r.incomplete.map((v) => ({ id: v.id, nodes: v.nodes.map((n) => n.target) })) });
+  const result = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+    .analyze();
+  report.scans.push({
+    name,
+    passes: result.passes.length,
+    violations: result.violations.map((v) => ({
+      id: v.id,
+      impact: v.impact,
+      nodes: v.nodes.map((n) => ({
+        target: n.target,
+        reason: n.failureSummary,
+      })),
+    })),
+    incomplete: result.incomplete.map((v) => ({
+      id: v.id,
+      nodes: v.nodes.map((n) => n.target),
+    })),
+  });
 }
-const paused = (p) => p.locator("video").evaluateAll((vs) => vs.length === 2 && vs.every((v) => v.paused));
-const waitPlaying = (p) => p.waitForFunction(() => [...document.querySelectorAll("video")].every((v) => !v.paused && v.currentTime > 0.1) && !document.querySelector("#hero-playback-toggle").hasAttribute("aria-busy"), {}, { timeout: 30000 });
+const expectedVideoIds = [
+  "context-video",
+  "simulation-video",
+  "urban-intersection-video",
+  "urban-corridor-video",
+  "urban-facade-video",
+];
+const paperUrl = site.paperUrl;
+const paused = (target) =>
+  target
+    .locator("video")
+    .evaluateAll((videos) => videos.every((video) => video.paused));
+async function expectHeroPlaying(target) {
+  await target.waitForFunction(() =>
+    [...document.querySelectorAll('video[data-playback-group="hero"]')].every(
+      (v) => !v.paused && v.currentTime > 0.1,
+    ),
+  );
+}
+async function atTop(target) {
+  await target.evaluate(() => scrollTo(0, 0));
+  await target.waitForTimeout(300);
+}
+// Traverse real keyboard stops into Chrome's native video controls.
+async function tabToVideo(target, video) {
+  await target.locator(".skip-link").focus();
+  for (let i = 0; i < 100; i++) {
+    await target.keyboard.press("Tab");
+    if (await video.evaluate((v) => document.activeElement === v)) return;
+  }
+  throw new Error(
+    "Native video controls were not reachable through the tab order",
+  );
+}
+async function waitForPlayback(video, expected) {
+  await video.page().waitForFunction(
+    ({ id, paused }) => {
+      const v = document.getElementById(id);
+      return v instanceof HTMLVideoElement && v.paused === paused;
+    },
+    { id: await video.getAttribute("id"), paused: expected },
+  );
+}
 try {
-  for (const route of ["/", "/paper/", "/results/", "/accessibility/", "/404.html"]) {
+  for (const route of [
+    "/",
+    "/paper/",
+    "/results/",
+    "/accessibility/",
+    "/404.html",
+  ]) {
     await page.setViewportSize({ width: 1440, height: 1000 });
-    const response = await page.goto(base + route, { waitUntil: "networkidle" });
+    const response = await page.goto(base + route, {
+      waitUntil: "networkidle",
+    });
     check(response?.ok() || route === "/404.html", route + ": page loads");
-    check(await page.locator("h1").count() === 1, route + ": one H1");
-    check(await page.locator("html").getAttribute("lang") === "en", route + ": English language declared");
-    check(await page.locator('img:not([alt]),img[alt=""]').count() === 0, route + ": informative images have alternatives");
-    check(await page.locator("iframe,video[autoplay]").count() === 0, route + ": no third-party player or unconditional HTML autoplay");
-    check(!/University of Florida|official UF|institutional disclaimer|UF interface|author affiliations/i.test(await page.locator("body").innerText()), route + ": requested institutional text is absent");
-    check(await page.evaluate(() => { const ids = [...document.querySelectorAll("[id]")].map((el) => el.id); return new Set(ids).size === ids.length; }), route + ": unique IDs");
-    check(await page.evaluate(() => [...document.querySelectorAll('a[href^="#"]')].every((el) => document.getElementById(el.getAttribute("href").slice(1)))), route + ": local anchors have targets");
-    check(await page.evaluate(() => { let previous = 0; return [...document.querySelectorAll("h1,h2,h3,h4,h5,h6")].filter((el) => el.getClientRects().length).every((el) => { const level = Number(el.tagName[1]); const okay = level <= previous + 1; previous = level; return okay; }); }), route + ": headings do not skip levels");
+    check((await page.locator("h1").count()) === 1, route + ": one H1");
+    check(
+      (await page.locator("html").getAttribute("lang")) === "en",
+      route + ": English document language",
+    );
+    check(
+      (await page.locator('img:not([alt]), img[alt=""]').count()) === 0,
+      route + ": informative images have alternatives",
+    );
+    check(
+      (await page.locator("iframe,video[autoplay]").count()) === 0,
+      route + ": no embedded third-party player or uncontrolled HTML autoplay",
+    );
+    check(
+      !/University of Florida|\bUF\b|official views or policies|official position/i.test(
+        await page.locator("body").innerText(),
+      ),
+      route + ": no institutional affiliation or disclaimer text",
+    );
+    check(
+      (await page
+        .locator(
+          "table, .numeric-pair, .results-highlights, .metric-comparison, .result-numbers, #figure-training",
+        )
+        .count()) === 0,
+      route + ": numerical result displays are removed",
+    );
+    check(
+      (await page
+        .getByRole("link", {
+          name: /Research guide|Results & figures|All results, figures, and data/i,
+        })
+        .count()) === 0,
+      route +
+        ": removed research-guide and result-index navigation stays absent",
+    );
+    check(
+      await page.evaluate(() => {
+        const ids = [...document.querySelectorAll("[id]")].map((el) => el.id);
+        return ids.length === new Set(ids).size;
+      }),
+      route + ": unique IDs",
+    );
+    check(
+      await page.evaluate(() =>
+        [...document.querySelectorAll('a[href^="#"]')].every((el) =>
+          document.getElementById(el.getAttribute("href").slice(1)),
+        ),
+      ),
+      route + ": valid local anchors",
+    );
+    check(
+      await page.evaluate(() => {
+        let previous = 0;
+        return [...document.querySelectorAll("h1,h2,h3,h4,h5,h6")]
+          .filter((el) => el.getClientRects().length)
+          .every((el) => {
+            const level = Number(el.tagName[1]);
+            const valid = level <= previous + 1;
+            previous = level;
+            return valid;
+          });
+      }),
+      route + ": heading hierarchy",
+    );
     await page.keyboard.press("Tab");
-    check(await page.locator(":focus").getAttribute("class") === "skip-link", route + ": skip link is first keyboard stop");
-    check(await page.locator(":focus").evaluate((el) => getComputedStyle(el).outlineStyle !== "none"), route + ": visible focus");
+    check(
+      (await page.locator(":focus").getAttribute("class")) === "skip-link",
+      route + ": skip link is first keyboard stop",
+    );
+    check(
+      await page
+        .locator(":focus")
+        .evaluate((el) => getComputedStyle(el).outlineStyle !== "none"),
+      route + ": visible focus",
+    );
     await page.keyboard.press("Enter");
-    check(await page.locator(":focus").getAttribute("id") === "main", route + ": skip link focuses main");
+    check(
+      (await page.locator(":focus").getAttribute("id")) === "main",
+      route + ": skip link targets main",
+    );
     if (route === "/") {
-      const videos = page.locator("video");
-      const toggle = page.locator("#hero-playback-toggle");
-      await waitPlaying(page);
-      check(true, "Both silent videos start automatically on their first visible visit");
-      check(await videos.evaluateAll((vs) => vs.every((v) => v.muted && v.controls && v.playsInline && v.loop)), "Both videos are muted, inline, looping and retain native controls");
-      check(await toggle.innerText() === "Pause videos", "Automatic playback exposes an explicit Pause videos control");
-      check(await videos.evaluateAll((vs) => vs.every((v) => v.getAttribute("aria-label") && v.getAttribute("aria-describedby")?.split(/\s+/).every((id) => document.getElementById(id)?.textContent.trim()))), "Both video names and complete text description targets exist");
-      await toggle.focus();
-      check(await toggle.evaluate((el) => getComputedStyle(el).outlineStyle !== "none"), "Shared playback control has visible focus");
+      await atTop(page);
+      await expectHeroPlaying(page);
+      check(true, "Visible title videos automatically play without a click");
+      check(
+        (await page.locator("#hero-playback-toggle").count()) === 0,
+        "No separate global playback button remains; native controls are available",
+      );
+      check(
+        JSON.stringify(
+          await page
+            .locator("video")
+            .evaluateAll((videos) => videos.map((v) => v.id).sort()),
+        ) === JSON.stringify([...expectedVideoIds].sort()),
+        "Five expected urban-flight and context clips are distributed across the page",
+      );
+      check(
+        (await page.locator(".hero-text .actions a").count()) === 1 &&
+          (await page
+            .locator(".hero-text .actions")
+            .getByRole("link", { name: /^Paper/ })
+            .getAttribute("href")) === paperUrl,
+        "The hero has only the Paper button linked to the published article",
+      );
+      for (const [section, ids] of [
+        ["abstract", ["urban-intersection-video"]],
+        ["method", ["urban-corridor-video"]],
+        ["results", ["urban-facade-video"]],
+      ])
+        check(
+          JSON.stringify(
+            await page
+              .locator("#" + section + " video")
+              .evaluateAll((videos) => videos.map((v) => v.id)),
+          ) === JSON.stringify(ids),
+          section +
+            ": the intended short excerpts accompany the research section",
+        );
+      check(
+        (await page.locator("video").count()) === expectedVideoIds.length,
+        "All expected video players are available",
+      );
+      check(
+        await page
+          .locator("video")
+          .evaluateAll((videos) =>
+            videos.every(
+              (v) =>
+                v.muted &&
+                v.controls &&
+                v.playsInline &&
+                v.loop &&
+                v.playbackRate === 1,
+            ),
+          ),
+        "Silent inline playback, original speed, native controls, and controllable loops",
+      );
+      check(
+        await page
+          .locator(".hero-backdrops video")
+          .evaluateAll((videos) =>
+            videos.every((v) => getComputedStyle(v).objectFit === "contain"),
+          ),
+        "Desktop title media shows complete frames",
+      );
+      check(
+        await page.evaluate(
+          () =>
+            document.querySelector(".hero-text").getBoundingClientRect()
+              .bottom <=
+            document.querySelector(".hero-backdrops").getBoundingClientRect()
+              .top +
+              1,
+        ),
+        "Title and author names are above the footage",
+      );
+      const heroVideo = page.locator("#simulation-video");
+      await tabToVideo(page, heroVideo);
+      check(true, "Native video playback controls are reachable through Tab");
       await page.keyboard.press("Space");
-      check(await paused(page), "Keyboard pauses both automatically playing videos");
-      await page.locator("#citation").scrollIntoViewIfNeeded();
-      await page.locator(".hero-backdrops").scrollIntoViewIfNeeded();
-      await page.waitForTimeout(300);
-      check(await paused(page), "Manual pause persists after leaving and returning to the videos");
-      await toggle.focus();
-      await page.keyboard.press("Enter");
-      await waitPlaying(page);
-      check(true, "Keyboard explicitly resumes both videos");
-      await page.locator("#citation").scrollIntoViewIfNeeded();
-      await page.waitForFunction(() => [...document.querySelectorAll("video")].every((v) => v.paused));
-      check(true, "Videos pause when completely outside the viewport");
-      await page.locator(".hero-backdrops").scrollIntoViewIfNeeded();
-      await page.waitForTimeout(200);
-      check(await paused(page), "Returning does not force a second automatic start");
-      await toggle.click();
-      await waitPlaying(page);
-      await page.locator("#context-video").evaluate((v) => { if (v instanceof HTMLVideoElement) v.pause(); });
-      check(await page.locator("#context-video").evaluate((v) => v.paused) && await toggle.innerText() === "Pause videos", "Native pause remains effective while the group label reflects the other playing video");
-      await toggle.click();
-      check(await paused(page) && await toggle.innerText() === "Play videos", "Shared pause and label remain synchronized with native controls");
-      for (const id of ["context-video", "simulation-video"]) {
-        const video = page.locator("#" + id);
-        await video.evaluate((v) => { v.textTracks[0].mode = "hidden"; });
-        await page.waitForFunction((videoId) => document.getElementById(videoId).textTracks[0]?.cues?.length > 0, id);
-        check(await video.evaluate((v) => v.textTracks[0].kind === "descriptions"), id + ": timed visual descriptions load");
+      await waitForPlayback(heroVideo, true);
+      check(true, "Space on the native player pauses the video");
+      for (const video of await page
+        .locator('video[data-playback-group="research"]')
+        .all()) {
+        await video.scrollIntoViewIfNeeded();
+        await waitForPlayback(video, false);
+        check(
+          await video.evaluate((v) => v.muted && v.loop),
+          "Research excerpt plays silently when visible: " +
+            (await video.getAttribute("id")),
+        );
       }
-      await videos.evaluateAll((vs) => vs.forEach((v) => { v.currentTime = v.duration - 0.15; }));
-      await toggle.click();
-      await page.waitForFunction(() => [...document.querySelectorAll("video")].every((v) => !v.paused && v.currentTime < 2));
-      check(true, "Loops restart without losing the available pause control");
-      await toggle.click();
-      await page.locator("#copy-citation").focus();
+      check(
+        await page
+          .locator('video[data-playback-group="hero"]')
+          .evaluateAll((videos) => videos.every((v) => v.paused)),
+        "Offscreen title videos pause automatically",
+      );
+      await atTop(page);
+      check(
+        (await heroVideo.evaluate((v) => v.paused)) &&
+          (await page.locator("#context-video").evaluate((v) => !v.paused)),
+        "Native manual pause remains remembered after scrolling while other media can play",
+      );
+      await tabToVideo(page, heroVideo);
+      await page.keyboard.press("Space");
+      await waitForPlayback(heroVideo, false);
+      check(true, "Space on the native player explicitly resumes playback");
+      await heroVideo.evaluate((v) => {
+        v.currentTime = v.duration - 0.15;
+      });
+      await page.waitForFunction(() => {
+        const v = document.querySelector("#simulation-video");
+        return !v.paused && !v.seeking && v.currentTime < 1;
+      });
+      check(true, "Video looping preserves playback and remains pausable");
+      await page.keyboard.press("Space");
+      await waitForPlayback(heroVideo, true);
+      check(true, "Native keyboard pause still works after a loop");
+      for (const id of expectedVideoIds) {
+        const video = page.locator("#" + id);
+        const sourceFile = (await video.locator("source").getAttribute("src"))
+          .split("/")
+          .pop();
+        const expectedClip =
+          clipByFile.get(sourceFile);
+        const expectedDuration = expectedClip?.duration;
+        check(
+          Number.isFinite(expectedDuration) &&
+            Number(await video.getAttribute("data-duration")) ===
+              expectedDuration,
+          id + ": the selected duration matches the reviewed media manifest",
+        );
+        await video.evaluate((v) => {
+          if (v.readyState === 0) {
+            v.preload = "metadata";
+            v.load();
+          }
+          v.textTracks[0].mode = "hidden";
+        });
+        await page.waitForFunction((videoId) => {
+          const v = document.getElementById(videoId);
+          return (
+            Number.isFinite(v.duration) && v.textTracks[0]?.cues?.length > 0
+          );
+        }, id);
+        check(
+          await video.evaluate(
+            (v, expected) =>
+              Math.abs(v.duration - expected) < 0.15 &&
+              v.textTracks[0].kind === "descriptions",
+            expectedDuration,
+          ),
+          id +
+            ": selected excerpt duration and timed description load correctly",
+        );
+        check(
+          await video.evaluate((v) => {
+            const ids = v.getAttribute("aria-describedby")?.split(/\s+/) || [];
+            const descriptions = ids.map((descriptionId) =>
+              document.getElementById(descriptionId),
+            );
+            return (
+              descriptions.length > 0 &&
+              descriptions.every(Boolean) &&
+              descriptions
+                .map((description) => description.textContent.trim())
+                .join(" ").length > 100
+            );
+          }),
+          id + ": a complete text alternative is programmatically associated",
+        );
+        check(
+          await video.evaluate((v) => {
+            const cues = [...v.textTracks[0].cues];
+            return cues.every(
+              (cue) =>
+                cue.startTime >= 0 &&
+                cue.endTime > cue.startTime &&
+                cue.endTime <= v.duration + 0.2 &&
+                cue.text.trim().length > 0,
+            );
+          }),
+          id + ": description cues use valid times within the clip",
+        );
+        for (const [kind, url] of Object.entries(
+          await video.evaluate((v) => ({
+            video: v.querySelector("source")?.src,
+            poster: v.poster,
+            description: v.querySelector('track[kind="descriptions"]')?.src,
+          })),
+        )) {
+          check(
+            Boolean(url) && url.startsWith(base + "/media/"),
+            id + ": local " + kind + " asset is declared",
+          );
+          if (url) {
+            const assetResponse = await context.request.get(
+              url,
+              kind === "video" ? { headers: { Range: "bytes=0-1" } } : {},
+            );
+            check(
+              assetResponse.ok(),
+              id + ": " + kind + " asset responds successfully",
+            );
+          }
+        }
+      }
+      check(
+        JSON.stringify(
+          await page
+            .locator(
+              ".visual-research > section > h2, .visual-research > section > .section-heading > h2",
+            )
+            .allTextContents(),
+        ) === JSON.stringify(["Abstract", "Method", "Results", "Citation"]),
+        "Concise standard research headings",
+      );
+      await page
+        .getByRole("button", { name: "Copy citation", exact: true })
+        .focus();
       await page.keyboard.press("Enter");
-      check((await page.evaluate(() => navigator.clipboard.readText())).includes(site.citationKey), "Citation can be copied using the keyboard");
-      await page.locator(".media-notes > summary").click();
-      check(await page.locator("#media-description").isVisible(), "Complete media descriptions can be expanded");
-      await scan("Homepage expanded media descriptions");
-      await page.locator(".media-notes > summary").click();
+      check(
+        (await page.evaluate(() => navigator.clipboard.readText())).includes(
+          site.citationKey,
+        ),
+        "Keyboard citation copy",
+      );
+      for (const description of await page
+        .locator("details.clip-description")
+        .all()) {
+        const summary = description.locator(":scope > summary");
+        await summary.focus();
+        await page.keyboard.press("Enter");
+        check(
+          (await description.evaluate((el) => el.open)) &&
+            (await description.innerText()).length > 150,
+          "Keyboard opens a complete clip description",
+        );
+      }
+      await scan("Expanded clip descriptions desktop");
+      for (const description of await page
+        .locator("details.clip-description")
+        .all()) {
+        await description.locator(":scope > summary").focus();
+        await page.keyboard.press("Space");
+        check(
+          !(await description.evaluate((el) => el.open)),
+          "Keyboard closes the clip description",
+        );
+      }
+      check(
+        (await page.locator("details.clip-description").count()) >= 3,
+        "Every section excerpt offers an expandable complete visual description",
+      );
     }
-    if (route === "/results/") {
-      check(await page.locator("table").count() === site.tables.length, "All original result tables are retained");
-      check(await page.locator("table caption").count() === site.tables.length, "All result tables have captions");
-      check(await page.locator("th:not([scope])").count() === 0, "All table headers have scope");
+    if (route === "/paper/" || route === "/results/") {
+      check(
+        (
+          await page.locator('meta[name="robots"]').getAttribute("content")
+        )?.includes("noindex"),
+        route + ": retired page is excluded from indexing",
+      );
+      check(
+        (await page
+          .locator(
+            'main a[href="' +
+              base.replace(/^https?:\/\/[^/]+/, "") +
+              (route === "/paper/" ? "/#method" : "/#results") +
+              '"]',
+          )
+          .count()) > 0,
+        route +
+          ": existing bookmarks have a clear route back to the research page",
+      );
     }
+    if (route === "/accessibility/")
+      for (const id of [
+        "context-visual-description",
+        "simulation-visual-description",
+        "excerpts-visual-description",
+      ])
+        check(
+          (await page.locator("#" + id).innerText()).length > 100,
+          id + ": complete visual alternative available",
+        );
     await scan(route + " desktop");
     for (const width of [320, 768]) {
       await page.setViewportSize({ width, height: 900 });
-      check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), route + `: no horizontal page overflow at ${width}px`);
-      if (route === "/") {
-        check(await page.locator("video").evaluateAll((vs) => vs.every((v) => getComputedStyle(v).objectFit === "contain")), `Videos retain complete frames at ${width}px`);
-        check(await page.evaluate(() => document.querySelector(".hero-backdrops").getBoundingClientRect().top >= document.querySelector(".hero-text").getBoundingClientRect().bottom - 1), `Title and authors stay above complete videos at ${width}px`);
-      }
+      check(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+        route + `: no horizontal page overflow at ${width}px`,
+      );
+      if (route === "/")
+        check(
+          await page
+            .locator(".hero-backdrops video")
+            .evaluateAll((videos) =>
+              videos.every((v) => getComputedStyle(v).objectFit === "contain"),
+            ),
+          `Complete video frames at ${width}px`,
+        );
     }
     await page.setViewportSize({ width: 320, height: 900 });
-    const spacing = await page.addStyleTag({ content: "*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}" });
-    check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), route + ": 320px reflow with increased text spacing");
+    const spacing = await page.addStyleTag({
+      content:
+        "*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}",
+    });
+    check(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+      route + ": 320px text-spacing reflow",
+    );
     await spacing.evaluate((el) => el.remove());
-    await page.setViewportSize({ width: 390, height: 900 });
     await scan(route + " mobile");
-    if (route === "/results/") {
-      const table = page.locator(".table-scroll").first();
-      await table.focus(); await page.keyboard.press("ArrowRight"); await page.waitForTimeout(200);
-      check(await table.evaluate((el) => el.scrollLeft > 0), "Wide tables support keyboard scrolling");
-    }
   }
-  const nojs = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 900 } });
-  const n = await nojs.newPage(); await n.goto(base + "/");
-  check(await n.locator("video[controls]").count() === 2, "Native video controls remain available without JavaScript");
-  check(await paused(n), "No-JavaScript visit leaves videos paused");
-  check(await n.locator("#hero-playback-toggle").isHidden(), "Unavailable script playback control is hidden without JavaScript");
-  check(await n.locator("#figure-framework").isVisible() && await n.locator("#figure-training").isVisible(), "Method and result figures remain available without JavaScript");
-  check(await n.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "320px layout reflows without JavaScript");
-  check((await n.locator("#citation-text").innerText()).includes(site.citationKey), "Citation remains readable without JavaScript");
-  await nojs.close();
   for (const preference of ["reduced-motion", "save-data"]) {
-    const c = await browser.newContext({ viewport: { width: 1440, height: 1000 }, ...(preference === "reduced-motion" ? { reducedMotion: "reduce" } : {}) });
-    if (preference === "save-data") await c.addInitScript(() => Object.defineProperty(navigator, "connection", { value: { saveData: true }, configurable: true }));
-    const p = await c.newPage(); await p.goto(base + "/", { waitUntil: "networkidle" });
-    check(await p.locator("video").evaluateAll((vs) => vs.every((v) => v.paused && v.currentTime === 0)), preference + ": both videos remain paused on entry");
-    await p.locator("#hero-playback-toggle").click(); await waitPlaying(p);
-    check(true, preference + ": explicit playback remains available");
-    await p.locator("#hero-playback-toggle").click();
-    check(await paused(p), preference + ": shared pause works after explicit playback");
-    await c.close();
+    const ctx = await browser.newContext({
+      viewport: { width: 1440, height: 1000 },
+      ...(preference === "reduced-motion" ? { reducedMotion: "reduce" } : {}),
+    });
+    if (preference === "save-data")
+      await ctx.addInitScript(() =>
+        Object.defineProperty(navigator, "connection", {
+          value: Object.assign(new EventTarget(), { saveData: true }),
+          configurable: true,
+        }),
+      );
+    const p = await ctx.newPage();
+    await p.goto(base + "/", { waitUntil: "networkidle" });
+    check(
+      await p
+        .locator("video")
+        .evaluateAll((videos) =>
+          videos.every((v) => v.paused && v.currentTime === 0),
+        ),
+      preference + ": no automatic motion on entry",
+    );
+    await p.locator("#urban-facade-video").scrollIntoViewIfNeeded();
+    await p.waitForTimeout(200);
+    check(await paused(p), preference + ": scrolling does not start media");
+    await atTop(p);
+    const video = p.locator("#simulation-video");
+    await tabToVideo(p, video);
+    await p.keyboard.press("Space");
+    await waitForPlayback(video, false);
+    await p.waitForTimeout(200);
+    check(
+      await video.evaluate((v) => !v.paused),
+      preference + ": explicit native keyboard playback remains available",
+    );
+    await p.keyboard.press("Space");
+    await waitForPlayback(video, true);
+    check(
+      await paused(p),
+      preference + ": native keyboard pause remains available",
+    );
+    await ctx.close();
   }
-} catch (e) { report.errors.push(e.stack || String(e)); }
-finally { await browser.close(); await mkdir("reports", { recursive: true }); await writeFile("reports/axe-wcag21aa.json", JSON.stringify(report, null, 2) + "\n"); }
-const violations = report.scans.reduce((n, s) => n + s.violations.length, 0);
-console.log(JSON.stringify({ project: site.id, scans: report.scans.length, checks: report.checks.length, violations, errors: report.errors }, null, 2));
-assert.equal(violations, 0, "axe violations found; see report");
-assert.equal(report.errors.length, 0, "Functional or accessibility checks failed; see report");
+  const dynamic = await context.newPage();
+  await dynamic.goto(base + "/", { waitUntil: "networkidle" });
+  await expectHeroPlaying(dynamic);
+  await dynamic.emulateMedia({ reducedMotion: "reduce" });
+  await dynamic.waitForFunction(() =>
+    [...document.querySelectorAll("video")].every((v) => v.paused),
+  );
+  check(true, "Changing reduced-motion preference stops automatic playback");
+  await dynamic.close();
+  const nojs = await browser.newContext({
+    javaScriptEnabled: false,
+    viewport: { width: 320, height: 900 },
+  });
+  const n = await nojs.newPage();
+  await n.goto(base + "/");
+  check(
+    (await n.locator("video[controls]").count()) === expectedVideoIds.length &&
+      (await paused(n)),
+    "No-JavaScript media retains native controls without automatic motion",
+  );
+  check(
+    (await n.locator("#hero-playback-toggle").count()) === 0 &&
+      (await n.locator("#copy-citation").isHidden()),
+    "No global playback button; unavailable citation control stays hidden without JavaScript",
+  );
+  check(
+    await n.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+    "No-JavaScript 320px reflow",
+  );
+  await n.goto(base + "/accessibility/");
+  check(
+    (await n.locator("#excerpts-visual-description").innerText()).length >
+      100,
+    "Complete video alternatives accessible without JavaScript",
+  );
+  await nojs.close();
+  const buffering = await context.newPage();
+  let release;
+  const gate = new Promise((resolve) => {
+    release = resolve;
+  });
+  const routes = new Set();
+  await buffering.route(/\.mp4(?:\?|$)/, async (route) => {
+    const pending = gate.then(() => route.continue()).catch(() => {});
+    routes.add(pending);
+    await pending;
+    routes.delete(pending);
+  });
+  try {
+    await buffering.goto(base + "/", { waitUntil: "domcontentloaded" });
+    await buffering.waitForFunction(() =>
+      [...document.querySelectorAll('video[data-playback-group="hero"]')].some(
+        (v) => !v.paused,
+      ),
+    );
+    const bufferingVideo = buffering.locator("#simulation-video");
+    await tabToVideo(buffering, bufferingVideo);
+    await buffering.keyboard.press("Space");
+    await waitForPlayback(bufferingVideo, true);
+    check(
+      true,
+      "Native keyboard pause interrupts pending autoplay while media is buffering",
+    );
+    release();
+    await Promise.allSettled([...routes]);
+    await buffering.waitForTimeout(300);
+    check(
+      await bufferingVideo.evaluate((v) => v.paused),
+      "Releasing buffered media does not undo the native user pause",
+    );
+  } finally {
+    release();
+    await Promise.allSettled([...routes]);
+    await buffering.close();
+  }
+} catch (error) {
+  report.errors.push(error.stack || String(error));
+} finally {
+  await browser.close();
+  await mkdir("reports", { recursive: true });
+  await writeFile(
+    "reports/axe-wcag21aa.json",
+    JSON.stringify(report, null, 2) + "\n",
+  );
+}
+const violations = report.scans.reduce(
+  (sum, scan) => sum + scan.violations.length,
+  0,
+);
+console.log(
+  JSON.stringify(
+    {
+      scans: report.scans.length,
+      checks: report.checks.length,
+      violations,
+      errors: report.errors,
+    },
+    null,
+    2,
+  ),
+);
+assert.equal(
+  violations,
+  0,
+  "axe violations found; see reports/axe-wcag21aa.json",
+);
+assert.equal(
+  report.errors.length,
+  0,
+  "Accessibility or functional checks failed; see report",
+);
