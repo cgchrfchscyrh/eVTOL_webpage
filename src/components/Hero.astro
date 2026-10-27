@@ -1,4 +1,5 @@
 ---
+import stories from "../data/vision-stories.json";
 import site from "../data/site.json";
 import simulation from "../data/hero-media.json";
 import MediaControls from "./MediaControls.astro";
@@ -8,7 +9,7 @@ import { asset } from "../data/paths";
 <section class="hero cinematic-hero" aria-labelledby="paper-title">
   <div class="hero-stage" id="hero-stage">
     <div class="hero-text">
-      <h1 id="paper-title" class="long-title">{site.title}</h1>
+      <h1 id="paper-title" class="project-display-title">{stories.flight.headlineLines.map(line => <span class="display-line">{line}{" "}</span>)}</h1>
       <div class="hero-publication">
         <ul class="authors">
           {site.authors.map((author) => (

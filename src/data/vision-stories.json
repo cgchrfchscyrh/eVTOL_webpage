@@ -1,0 +1,37 @@
+{
+  "flight": {
+    "headline": "Urban flight, in balance.",
+    "title": "One flight. An urban air network.",
+    "current": "Multi-objective flight planning",
+    "evidence": "Simulation study",
+    "image": "figures/framework.png",
+    "imageAlt": "Published reinforcement-learning framework linking energy, passenger comfort, modeled noise, safety and travel time.",
+    "sourceAnchor": "#method",
+    "scene": "flight",
+    "future": "Aircraft, airspace & the city",
+    "systems": [
+      "Wind",
+      "Flight paths",
+      "People below"
+    ],
+    "connections": [
+      {
+        "task": "Model the environment",
+        "partners": "Weather + acoustics"
+      },
+      {
+        "task": "Validate the aircraft",
+        "partners": "Flight control + testing"
+      },
+      {
+        "task": "Connect city operations",
+        "partners": "Airspace + infrastructure"
+      }
+    ],
+    "sceneAlt": "Future concept: a rotorcraft follows a route over buildings, with wind streams and a noise footprint below.",
+    "description": "The paper studies trade-offs in simulated flight planning. Environmental modeling, aircraft validation, and city operations require weather, acoustics, flight-control, airspace and infrastructure expertise. A rotorcraft above buildings is connected to a dashed route, wind lines, and a noise footprint to illustrate the future network. Real flight, takeoff and landing validation are outside the present study.",
+    "headlineLines": [
+      "Urban flight, in balance."
+    ]
+  }
+}

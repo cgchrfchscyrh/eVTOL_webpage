@@ -1,4 +1,6 @@
 ---
+import Vision from "../components/Vision.astro";
+import stories from "../data/vision-stories.json";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Figure from "../components/Figure.astro";
@@ -8,7 +10,7 @@ import Citation from "../components/Citation.astro";
 import MediaCredit from "../components/MediaCredit.astro";
 ---
 
-<Layout>
+<Layout title={stories.flight.headline}>
   <Hero />
   <div class="container visual-research">
     <section class="section abstract-section" id="abstract" aria-labelledby="abstract-title">
@@ -34,7 +36,7 @@ import MediaCredit from "../components/MediaCredit.astro";
       <p class="scope-note">Evidence is limited to simulated flight. Takeoff, landing, and real-aircraft validation are outside the study; the animation illustrates the setting rather than experimental results.</p>
       <MotionClip id="urban-facade" />
     </section>
-    <section class="section vision-section" id="vision" aria-labelledby="vision-title"><h2 id="vision-title">From a flight policy to urban aviation.</h2><p class="section-intro">A simulated flight policy addresses one part of an urban air service. Real operations would need vehicle control, weather prediction, acoustics, airspace management, infrastructure, and passenger needs to fit together. This broader goal requires collaboration across those fields; the present study evaluates flight-policy trade-offs in simulation.</p></section>
+    <Vision project="flight" />
     <Citation />
     <aside class="related-reading" id="related-work" aria-label="Related reading">
       <p><strong>Related reading</strong> · <a href="https://arxiv.org/html/2609.36056v1">GeoWind2Plan</a>, an independent study of wind-aware aerial planning.</p>
