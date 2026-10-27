@@ -12,12 +12,12 @@ import MediaCredit from "../components/MediaCredit.astro";
   <Hero />
   <div class="container visual-research">
     <section class="section abstract-section" id="abstract" aria-labelledby="abstract-title">
-      <h2 id="abstract-title">Abstract</h2>
-      <p class="section-intro">Urban air taxis must navigate wind and buildings while balancing energy, passenger experience, and environmental noise. We bring these competing objectives into a reinforcement-learning framework for simulated urban flight.</p>
+      <h2 id="abstract-title">One flight, competing demands.</h2>
+      <p class="section-intro">A maneuver around a city block must account for wind, nearby buildings, and the people on board and below. A shorter or faster path may not be the best one for every objective. We study this local planning problem through reinforcement learning for simulated urban flight.</p>
       <MotionClip id="urban-intersection" />
     </section>
     <section class="section" id="method" aria-labelledby="method-title">
-      <h2 id="method-title">Method</h2>
+      <h2 id="method-title">Learn with the city in the loop.</h2>
       <p class="section-intro">City geometry and local wind inform a modified PPO policy. Its reward connects the aircraft, its passengers, and the surrounding environment.</p>
       <Figure id="framework" concise caption="Learning motion with multiple flight objectives." />
       <div class="method-visuals">
@@ -27,14 +27,14 @@ import MediaCredit from "../components/MediaCredit.astro";
           <PresentationFigure id="urban-wind-field" concise />
         </div>
       </div>
-      <p class="visual-note">City and wind illustrations from the broader Flying DNA presentation.</p>
     </section>
     <section class="section" id="results" aria-labelledby="results-title">
-      <h2 id="results-title">Results</h2>
+      <h2 id="results-title">Make the trade-offs visible.</h2>
       <p class="section-intro">In the all-objective comparison, the policy improves energy use, comfort, and modeled noise, with trade-offs in safety scores and travel time.</p>
-      <MotionClip id="urban-facade" />
       <p class="scope-note">Evidence is limited to simulated flight. Takeoff, landing, and real-aircraft validation are outside the study; the animation illustrates the setting rather than experimental results.</p>
+      <MotionClip id="urban-facade" />
     </section>
+    <section class="section vision-section" id="vision" aria-labelledby="vision-title"><h2 id="vision-title">From a flight policy to urban aviation.</h2><p class="section-intro">A simulated flight policy addresses one part of an urban air service. Real operations would need vehicle control, weather prediction, acoustics, airspace management, infrastructure, and passenger needs to fit together. This broader goal requires collaboration across those fields; the present study evaluates flight-policy trade-offs in simulation.</p></section>
     <Citation />
     <aside class="related-reading" id="related-work" aria-label="Related reading">
       <p><strong>Related reading</strong> · <a href="https://arxiv.org/html/2609.36056v1">GeoWind2Plan</a>, an independent study of wind-aware aerial planning.</p>

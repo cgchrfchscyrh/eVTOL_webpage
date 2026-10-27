@@ -8,7 +8,6 @@ import { asset } from "../data/paths";
 <section class="hero cinematic-hero" aria-labelledby="paper-title">
   <div class="hero-stage" id="hero-stage">
     <div class="hero-text">
-      <p class="eyebrow">FLYING DNA · eVTOL research</p>
       <h1 id="paper-title" class="long-title">{site.title}</h1>
       <div class="hero-publication">
         <ul class="authors">
@@ -16,7 +15,6 @@ import { asset } from "../data/paths";
             <li><a href={`mailto:${author.email}`}>{author.name}</a></li>
           ))}
         </ul>
-        <p class="hero-venue">{site.venue}</p>
         <div class="actions">
           <a class="button light" href={site.paperUrl}>Paper <span aria-hidden="true">↗</span></a>
         </div>
@@ -24,20 +22,18 @@ import { asset } from "../data/paths";
     </div>
     <div class="hero-backdrops">
       <figure>
-      <video id="context-video" data-duration="15" data-playback-group="hero" controls controlslist="nodownload" muted playsinline loop preload="metadata" poster={asset("media/poster.jpg")} width="1280" height="720" aria-label={site.contextTitle} aria-describedby="context-summary context-visual-description">
+      <video id="context-video" data-duration="15" data-playback-group="hero" controls controlslist="nodownload" muted playsinline loop preload="metadata" poster={asset("media/poster.jpg")} width="1280" height="720" aria-label={site.contextTitle} aria-describedby="context-visual-description">
         <source src={asset("media/context.mp4")} type="video/mp4" />
         <track kind="descriptions" src={asset("media/context-descriptions.vtt")} srclang="en" label="English visual descriptions" />
-        Your browser does not support video playback. A complete text description is available below.
+        Your browser does not support video playback. A complete text description is available in the media notes.
       </video>
-      <figcaption id="context-summary"><a href={site.contextUrl}>NASA / Joby</a> · Flight testing</figcaption>
       </figure>
       <figure>
-      <video id="simulation-video" data-duration="20.93" data-playback-group="hero" controls controlslist="nodownload" muted playsinline loop preload="metadata" poster={asset(simulation.poster)} width={simulation.width} height={simulation.height} aria-label={simulation.title} aria-describedby="simulation-summary simulation-visual-description">
+      <video id="simulation-video" data-duration="20.93" data-playback-group="hero" controls controlslist="nodownload" muted playsinline loop preload="metadata" poster={asset(simulation.poster)} width={simulation.width} height={simulation.height} aria-label={simulation.title} aria-describedby="simulation-visual-description">
         <source src={asset(simulation.video)} type="video/mp4" />
         <track kind="descriptions" src={asset(simulation.track)} srclang="en" label="English visual descriptions" />
-        Your browser does not support video playback. A complete text description is available below.
+        Your browser does not support video playback. A complete text description is available in the media notes.
       </video>
-      <figcaption id="simulation-summary">Flying DNA · Urban flight simulation</figcaption>
       </figure>
     </div>
   </div>
