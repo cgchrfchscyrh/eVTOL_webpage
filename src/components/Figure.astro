@@ -6,8 +6,9 @@ interface Props {
   compact?: boolean;
   concise?: boolean;
   caption?: string;
+  bare?: boolean;
 }
-const { id, compact = false, concise = false, caption } = Astro.props;
+const { id, compact = false, concise = false, caption, bare = false } = Astro.props;
 const fig = site.figures.find((f) => f.id === id)!;
 const description = concise
   ? fig.description.replace("Table 6 on this page", "Table 6 on the results page")
@@ -26,7 +27,7 @@ const description = concise
       decoding="async"
     />
   </div>
-  <figcaption>
+  {!bare && <figcaption>
     <strong>{caption || fig.title}</strong>
     {concise ? <details class="figure-details"><summary>Description & source</summary><p>{description}</p><p class="fine-print">{fig.credit} <a href={asset(`figures/${fig.file}`)}>Open figure {fig.number} at full size</a>.</p></details> : <><p>{description}</p><p class="fine-print">
       {fig.credit}
@@ -34,5 +35,5 @@ const description = concise
         >Open figure {fig.number} at full size</a
       >.
     </p></>}
-  </figcaption>
+  </figcaption>}
 </figure>

@@ -1,14 +1,31 @@
 {
-  "date": "2026-10-27T19:15:25.240Z",
+  "date": "2026-11-04T15:53:34.456Z",
   "project": "eVTOL_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
   "scans": [
     {
       "name": "Consolidated video descriptions desktop",
-      "passes": 27,
+      "passes": 26,
       "violations": [],
       "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".display-line:nth-child(1)"
+            ],
+            [
+              ".display-line:nth-child(2)"
+            ],
+            [
+              ".hero-credit"
+            ],
+            [
+              "#abstract > .media-pair.wide-media > .clip-with-bubble:nth-child(1) > .clip-bubble"
+            ]
+          ]
+        },
         {
           "id": "video-caption",
           "nodes": [
@@ -16,10 +33,10 @@
               "#context-video"
             ],
             [
-              "#simulation-video"
+              "#urban-intersection-video"
             ],
             [
-              "#urban-intersection-video"
+              "#simulation-video"
             ],
             [
               "#urban-corridor-video"
@@ -33,9 +50,26 @@
     },
     {
       "name": "/ desktop",
-      "passes": 27,
+      "passes": 26,
       "violations": [],
       "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".display-line:nth-child(1)"
+            ],
+            [
+              ".display-line:nth-child(2)"
+            ],
+            [
+              ".hero-credit"
+            ],
+            [
+              "#abstract > .media-pair.wide-media > .clip-with-bubble:nth-child(1) > .clip-bubble"
+            ]
+          ]
+        },
         {
           "id": "video-caption",
           "nodes": [
@@ -43,10 +77,10 @@
               "#context-video"
             ],
             [
-              "#simulation-video"
+              "#urban-intersection-video"
             ],
             [
-              "#urban-intersection-video"
+              "#simulation-video"
             ],
             [
               "#urban-corridor-video"
@@ -60,9 +94,23 @@
     },
     {
       "name": "/ mobile",
-      "passes": 27,
+      "passes": 26,
       "violations": [],
       "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".display-line:nth-child(1)"
+            ],
+            [
+              ".display-line:nth-child(2)"
+            ],
+            [
+              ".hero-credit"
+            ]
+          ]
+        },
         {
           "id": "video-caption",
           "nodes": [
@@ -70,10 +118,10 @@
               "#context-video"
             ],
             [
-              "#simulation-video"
+              "#urban-intersection-video"
             ],
             [
-              "#urban-intersection-video"
+              "#simulation-video"
             ],
             [
               "#urban-corridor-video"
@@ -154,19 +202,23 @@
     "Five expected urban-flight and context clips are distributed across the page",
     "The hero has only the Paper button linked to the published article",
     "abstract: the intended short excerpts accompany the research section",
-    "method: the intended short excerpts accompany the research section",
     "results: the intended short excerpts accompany the research section",
     "All expected video players are available",
     "Silent inline playback, original speed, native controls, and controllable loops",
-    "Desktop title media shows complete frames",
-    "Title and author names are above the footage",
+    "Opening video spans the full page width and most of the screen",
+    "The opening video credits NASA",
+    "The method figure, overview figure, and every research clip have plain-language bubbles",
+    "Method figure stays large at desktop width",
+    "Citation heading uses a compact size",
+    "The vision diagram and removed explanations stay absent",
     "Native video playback controls are reachable through Tab",
     "Space on the native player pauses the video",
     "Research excerpt plays silently when visible: urban-intersection-video",
+    "Research excerpt plays silently when visible: simulation-video",
     "Research excerpt plays silently when visible: urban-corridor-video",
     "Research excerpt plays silently when visible: urban-facade-video",
     "Offscreen title videos pause automatically",
-    "Native manual pause remains remembered after scrolling while other media can play",
+    "Native manual pause remains remembered after scrolling",
     "Space on the native player explicitly resumes playback",
     "Video looping preserves playback and remains pausable",
     "Native keyboard pause still works after a loop",
@@ -220,17 +272,13 @@
     "urban-facade-video: poster asset responds successfully",
     "urban-facade-video: local description asset is declared",
     "urban-facade-video: description asset responds successfully",
-    "Story progresses from a concrete question to a collaborative vision",
+    "Story moves from the setting to the method and the simulation",
     "Keyboard citation copy",
     "Video captions and per-player description blocks are removed",
-    "Title area has no topic subtitle",
-    "Visual bridge shows collaboration needs and an accessible future scene",
     "Keyboard opens consolidated complete media notes",
     "Keyboard closes consolidated media notes",
     "/: no horizontal page overflow at 320px",
-    "Complete video frames at 320px",
     "/: no horizontal page overflow at 768px",
-    "Complete video frames at 768px",
     "/: 320px text-spacing reflow",
     "/paper/: page loads",
     "/paper/: one H1",

@@ -1,41 +1,32 @@
 ---
 import stories from "../data/vision-stories.json";
 import site from "../data/site.json";
-import simulation from "../data/hero-media.json";
 import MediaControls from "./MediaControls.astro";
 import { asset } from "../data/paths";
 ---
 
-<section class="hero cinematic-hero" aria-labelledby="paper-title">
-  <div class="hero-stage" id="hero-stage">
-    <div class="hero-text">
+<section class="hero hero-film-section" aria-labelledby="paper-title">
+  <div class="hero-film" id="hero-stage">
+    <figure>
+      <video id="context-video" data-duration="20" data-playback-group="hero" controls controlslist="nodownload" muted playsinline loop preload="metadata" poster={asset("media/air-taxi-opening.jpg")} width="1920" height="1080" aria-label={site.contextTitle} aria-describedby="context-visual-description">
+        <source src={asset("media/air-taxi-opening.mp4")} type="video/mp4" />
+        <track kind="descriptions" src={asset("media/air-taxi-opening-descriptions.vtt")} srclang="en" label="English visual descriptions" />
+        Your browser does not support video playback. A complete text description is available in the media notes.
+      </video>
+    </figure>
+    <div class="hero-film-copy">
       <h1 id="paper-title" class="project-display-title">{stories.flight.headlineLines.map(line => <span class="display-line">{line}{" "}</span>)}</h1>
-      <div class="hero-publication">
-        <ul class="authors">
-          {site.authors.map((author) => (
-            <li><a href={`mailto:${author.email}`}>{author.name}</a></li>
-          ))}
-        </ul>
-        <div class="actions">
-          <a class="button light" href={site.paperUrl}>Paper <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
     </div>
-    <div class="hero-backdrops">
-      <figure>
-      <video id="context-video" data-duration="15" data-playback-group="hero" controls controlslist="nodownload" muted playsinline loop preload="metadata" poster={asset("media/poster.jpg")} width="1280" height="720" aria-label={site.contextTitle} aria-describedby="context-visual-description">
-        <source src={asset("media/context.mp4")} type="video/mp4" />
-        <track kind="descriptions" src={asset("media/context-descriptions.vtt")} srclang="en" label="English visual descriptions" />
-        Your browser does not support video playback. A complete text description is available in the media notes.
-      </video>
-      </figure>
-      <figure>
-      <video id="simulation-video" data-duration="20.93" data-playback-group="hero" controls controlslist="nodownload" muted playsinline loop preload="metadata" poster={asset(simulation.poster)} width={simulation.width} height={simulation.height} aria-label={simulation.title} aria-describedby="simulation-visual-description">
-        <source src={asset(simulation.video)} type="video/mp4" />
-        <track kind="descriptions" src={asset(simulation.track)} srclang="en" label="English visual descriptions" />
-        Your browser does not support video playback. A complete text description is available in the media notes.
-      </video>
-      </figure>
+    <p class="hero-credit">Source: NASA</p>
+  </div>
+  <div class="hero-publication">
+    <ul class="authors">
+      {site.authors.map((author) => (
+        <li><a href={`mailto:${author.email}`}>{author.name}</a></li>
+      ))}
+    </ul>
+    <div class="actions">
+      <a class="button dark" href={site.paperUrl}>Paper <span aria-hidden="true">↗</span></a>
     </div>
   </div>
   <p id="media-status" class="sr-only" role="status"></p>

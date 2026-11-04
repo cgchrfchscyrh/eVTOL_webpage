@@ -3,6 +3,7 @@ import site from "../data/site.json";
 import simulation from "../data/hero-media.json";
 import media from "../../public/media/evtol-clips.json";
 const clips = media.clips;
+const overview = site.figures.find((figure) => figure.id === "overview")!;
 ---
 
 <section id="media-description" class="media-description" aria-labelledby="media-heading">
@@ -22,6 +23,11 @@ const clips = media.clips;
       {simulation.description.map((paragraph) => <p>{paragraph}</p>)}
     </div>
     <p class="fine-print">{simulation.credit}</p>
+  </section>
+  <section aria-labelledby="overview-figure-heading">
+    <h3 id="overview-figure-heading">{overview.title}</h3>
+    <p>{overview.description}</p>
+    <p class="fine-print">{overview.credit}</p>
   </section>
   <section aria-labelledby="excerpts-heading">
     <h3 id="excerpts-heading">Urban flight excerpts</h3>

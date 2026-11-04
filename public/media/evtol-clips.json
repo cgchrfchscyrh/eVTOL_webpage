@@ -52,8 +52,26 @@
   ],
   "hero": [
     {
-      "file": "context.mp4",
-      "duration": 15.0
+      "file": "air-taxi-opening.mp4",
+      "duration": 20.0,
+      "source": "https://images.nasa.gov/details/NHQ20210915ARMD01",
+      "excerpts": [
+        {
+          "start": 106.3,
+          "end": 113.6,
+          "crop": "1458:820:231:240"
+        },
+        {
+          "start": 66.3,
+          "end": 73.0,
+          "crop": "1316:740:300:0"
+        },
+        {
+          "start": 114.6,
+          "end": 120.6,
+          "crop": "1387:780:266:300"
+        }
+      ]
     },
     {
       "file": "urban-flight-simulation.mp4",
