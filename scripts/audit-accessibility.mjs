@@ -145,11 +145,10 @@ try {
     check(
       (await page
         .locator(
-          (route === "/" ? "" : "table, ") +
-            ".numeric-pair, .results-highlights, .metric-comparison, .result-numbers, #figure-training",
+          "table, .numeric-pair, .results-highlights, .metric-comparison, .result-numbers, #figure-training",
         )
         .count()) === 0,
-      route + ": only the homepage results table shows numbers",
+      route + ": numerical result displays are removed",
     );
     check(
       (await page
@@ -275,35 +274,18 @@ try {
         "Homepage has no top bar, footer, related reading, or media notes; credits stay linked",
       );
       check(
-        (await page.locator(".evidence-tile").count()) === 4 &&
-          (await page.locator(".evidence-tile a[href^='https://']").count()) === 4,
-        "Four evidence tiles each link to a source",
+        (await page.locator(".evidence-tile, .metric-group, #metrics, #results, #conclusion, .deck-hypothesis").count()) === 0 &&
+          (await page.locator("h1").innerText()) === site.title,
+        "Data tiles, metrics, results, and conclusion are removed; the title is the paper title",
       );
       check(
         (await page.locator(".hero-credit").innerText()) === "Source: NASA",
         "The opening video credits NASA",
       );
       check(
-        (await page.locator(".metric-group").count()) === 3 &&
-          (await page.locator(".metric-group li").count()) === 6 &&
-          (await page.locator("#background .deck-figure img").count()) === 3 &&
+        (await page.locator("#background .deck-figure img").count()) === 3 &&
           (await page.locator("#method .deck-trio > *").count()) === 3,
-        "Deck images, the three metric perspectives, and six metrics are shown",
-      );
-      check(
-        await page.evaluate(() => {
-          const table = document.querySelector("#results table");
-          return (
-            table?.querySelector("caption")?.textContent.trim().length > 20 &&
-            table.querySelectorAll('thead th[scope="col"]').length === 5 &&
-            table.querySelectorAll('tbody th[scope="row"]').length === 6 &&
-            table.querySelectorAll("tbody strong").length === 6 &&
-            [...table.querySelectorAll("tbody th")].every((th) =>
-              /(higher|lower) is better/.test(th.textContent),
-            )
-          );
-        }),
-        "Results table has a caption, headers, marked best values, and direction for each metric",
+        "Deck images and the city, CFD, and wind-prediction trio are shown",
       );
       check(
         await page
@@ -458,8 +440,8 @@ try {
               ".visual-research > section > h2, .visual-research > section > .section-heading > h2, .visual-research > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["Background", "Problem", "Methodology", "Experiment", "Evaluation metrics", "Results", "Conclusion", "Citation"]),
-        "Story follows the proposal deck: background, problem, method, experiment, metrics, results, conclusion",
+        ) === JSON.stringify(["Background", "Problem", "Methodology", "Experiment", "Citation"]),
+        "Story follows the proposal deck: background, problem, method, experiment",
       );
       await page
         .getByRole("button", { name: "Copy citation", exact: true })
@@ -486,7 +468,7 @@ try {
           .locator(
             'main a[href="' +
               base.replace(/^https?:\/\/[^/]+/, "") +
-              (route === "/paper/" ? "/#method" : "/#results") +
+              (route === "/paper/" ? "/#method" : "/#experiment") +
               '"]',
           )
           .count()) > 0,

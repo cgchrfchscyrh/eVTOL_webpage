@@ -2050,7 +2050,7 @@ tbody tr:hover {
 .hero-pair figure { position: relative; margin: 0; min-width: 0; }
 .hero .hero-pair video { position: static; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 .hero-pair .hero-credit { top: 12px; right: 12px; bottom: auto; }
-.hero-publication h1 { max-width: 34ch; margin: 0 auto 14px; color: #202020; font-size: clamp(24px, 2.3vw, 30px); font-weight: 600; line-height: 1.25; letter-spacing: -.02em; }
+.hero-publication h1 { max-width: 60ch; margin: 0 auto 14px; color: #202020; font-size: clamp(24px, 2.3vw, 30px); font-weight: 600; line-height: 1.25; letter-spacing: -.02em; }
 
 /* Evidence tiles. */
 .evidence-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
@@ -2086,7 +2086,7 @@ tbody tr:hover {
 .deck-mosaic { display: grid; grid-template-columns: 4fr 3fr; grid-template-rows: 1fr 1fr; gap: 12px; margin-bottom: 32px; }
 .deck-mosaic .deck-figure:first-child { grid-row: span 2; aspect-ratio: 4 / 3; }
 .deck-mosaic .deck-figure:not(:first-child) img { position: absolute; inset: 0; }
-.deck-step { max-width: 760px; margin: 40px auto 18px; text-align: center; }
+.deck-step { max-width: 760px; margin: 48px auto 16px; text-align: center; }
 .deck-section > .deck-step:first-of-type { margin-top: 8px; }
 .deck-step h3 { margin: 0 0 6px; font-size: 20px; }
 .deck-step p { margin: 0; color: #333; font-size: 17px; line-height: 1.6; }

@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-05T22:26:22.191Z",
+  "date": "2026-11-05T22:46:59.909Z",
   "project": "eVTOL_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
   "scans": [
     {
       "name": "/ desktop",
-      "passes": 26,
+      "passes": 24,
       "violations": [],
       "incomplete": [
         {
@@ -43,43 +43,7 @@
               ".deck-split-tags > span:nth-child(1)"
             ],
             [
-              ".deck-split-tags > span:nth-child(2)"
-            ],
-            [
-              ".metric-group:nth-child(1) > ul > li:nth-child(1) > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".metric-group:nth-child(1) > ul > li:nth-child(2) > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".metric-group:nth-child(2) > ul > li:nth-child(1) > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".metric-group:nth-child(2) > ul > li:nth-child(2) > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "li:nth-child(3) > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".metric-group:nth-child(3) > ul > li > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(1) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(2) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(3) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(4) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(5) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(6) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+              "span:nth-child(2)"
             ]
           ]
         },
@@ -107,7 +71,7 @@
     },
     {
       "name": "/ mobile",
-      "passes": 27,
+      "passes": 24,
       "violations": [],
       "incomplete": [
         {
@@ -144,43 +108,7 @@
               ".deck-split-tags > span:nth-child(1)"
             ],
             [
-              ".deck-split-tags > span:nth-child(2)"
-            ],
-            [
-              ".metric-group:nth-child(1) > ul > li:nth-child(1) > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".metric-group:nth-child(1) > ul > li:nth-child(2) > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".metric-group:nth-child(2) > ul > li:nth-child(1) > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".metric-group:nth-child(2) > ul > li:nth-child(2) > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "li:nth-child(3) > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".metric-group:nth-child(3) > ul > li > .metric-name > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(1) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(2) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(3) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(4) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(5) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "tr:nth-child(6) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+              "span:nth-child(2)"
             ]
           ]
         },
@@ -262,7 +190,7 @@
     "/: informative images have alternatives",
     "/: no embedded third-party player or uncontrolled HTML autoplay",
     "/: no institutional affiliation or disclaimer text",
-    "/: only the homepage results table shows numbers",
+    "/: numerical result displays are removed",
     "/: removed research-guide and result-index navigation stays absent",
     "/: unique IDs",
     "/: valid local anchors",
@@ -280,10 +208,9 @@
     "Silent inline playback, original speed, native controls, and controllable loops",
     "Opening shows the real aircraft and the simulation side by side at one height across the full width",
     "Homepage has no top bar, footer, related reading, or media notes; credits stay linked",
-    "Four evidence tiles each link to a source",
+    "Data tiles, metrics, results, and conclusion are removed; the title is the paper title",
     "The opening video credits NASA",
-    "Deck images, the three metric perspectives, and six metrics are shown",
-    "Results table has a caption, headers, marked best values, and direction for each metric",
+    "Deck images and the city, CFD, and wind-prediction trio are shown",
     "Method figure stays large at desktop width",
     "Citation heading uses a compact size",
     "The vision diagram and removed explanations stay absent",
@@ -347,7 +274,7 @@
     "wind-prediction-video: poster asset responds successfully",
     "wind-prediction-video: local description asset is declared",
     "wind-prediction-video: description asset responds successfully",
-    "Story follows the proposal deck: background, problem, method, experiment, metrics, results, conclusion",
+    "Story follows the proposal deck: background, problem, method, experiment",
     "Keyboard citation copy",
     "Video captions and per-player description blocks are removed",
     "/: no horizontal page overflow at 320px",
@@ -359,7 +286,7 @@
     "/paper/: informative images have alternatives",
     "/paper/: no embedded third-party player or uncontrolled HTML autoplay",
     "/paper/: no institutional affiliation or disclaimer text",
-    "/paper/: only the homepage results table shows numbers",
+    "/paper/: numerical result displays are removed",
     "/paper/: removed research-guide and result-index navigation stays absent",
     "/paper/: unique IDs",
     "/paper/: valid local anchors",
@@ -378,7 +305,7 @@
     "/results/: informative images have alternatives",
     "/results/: no embedded third-party player or uncontrolled HTML autoplay",
     "/results/: no institutional affiliation or disclaimer text",
-    "/results/: only the homepage results table shows numbers",
+    "/results/: numerical result displays are removed",
     "/results/: removed research-guide and result-index navigation stays absent",
     "/results/: unique IDs",
     "/results/: valid local anchors",
@@ -397,7 +324,7 @@
     "/accessibility/: informative images have alternatives",
     "/accessibility/: no embedded third-party player or uncontrolled HTML autoplay",
     "/accessibility/: no institutional affiliation or disclaimer text",
-    "/accessibility/: only the homepage results table shows numbers",
+    "/accessibility/: numerical result displays are removed",
     "/accessibility/: removed research-guide and result-index navigation stays absent",
     "/accessibility/: unique IDs",
     "/accessibility/: valid local anchors",
@@ -417,7 +344,7 @@
     "/404.html: informative images have alternatives",
     "/404.html: no embedded third-party player or uncontrolled HTML autoplay",
     "/404.html: no institutional affiliation or disclaimer text",
-    "/404.html: only the homepage results table shows numbers",
+    "/404.html: numerical result displays are removed",
     "/404.html: removed research-guide and result-index navigation stays absent",
     "/404.html: unique IDs",
     "/404.html: valid local anchors",

@@ -1,62 +1,29 @@
 ---
-import stories from "../data/vision-stories.json";
+import site from "../data/site.json";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Figure from "../components/Figure.astro";
 import DeckFigure from "../components/DeckFigure.astro";
 import MotionClip from "../components/MotionClip.astro";
 import Citation from "../components/Citation.astro";
-import evidence from "../data/evidence.json";
-
-// Slide 10 of the proposal deck: six metrics from three perspectives.
-const metricGroups = [
-  { title: "eVTOL aircraft", metrics: [["Energy consumption", "down"], ["Energy efficiency", "up"]] },
-  { title: "Passengers", metrics: [["Comfort", "up", "acceleration and noise"], ["Safety", "up", "acceleration, building clearance, and wind"], ["Flight time", "down"]] },
-  { title: "Environment", metrics: [["Noise level", "down", "average at nine microphones across the city"]] },
-];
-// Slide 11: the all-objective comparison (Table 6 of the paper).
-const methods = ["Ours", "DDPG", "TD-MPC2", "Average TD3"];
-const rows = [
-  { metric: "Energy (kWh)", better: "down", values: ["57.83", "123.54", "76.58", "67.52"] },
-  { metric: "Efficiency (m/kWh)", better: "up", values: ["206.59", "99.72", "156.56", "172.35"] },
-  { metric: "Comfort", better: "up", values: ["−401.59", "−778.11", "−435.38", "−612.21"] },
-  { metric: "Safety", better: "up", values: ["−477.55", "−917.69", "−382.53", "−682.55"] },
-  { metric: "Flight time (s)", better: "down", values: ["162", "348", "160", "270"] },
-  { metric: "Noise (dB)", better: "down", values: ["20.55", "25.01", "21.59", "21.39"] },
-];
-const num = (value: string) => Number(value.replace("−", "-"));
-const best = (row: (typeof rows)[number]) => {
-  const values = row.values.map(num);
-  return values.indexOf(row.better === "up" ? Math.max(...values) : Math.min(...values));
-};
-const arrow = { up: "↑", down: "↓" } as Record<string, string>;
-const meaning = { up: "higher is better", down: "lower is better" } as Record<string, string>;
 ---
 
-<Layout title={stories.flight.headline} bare>
+<Layout title={site.title} bare>
   <Hero />
   <div class="container visual-research">
     <section class="section deck-section" id="background" aria-labelledby="background-title">
       <h2 id="background-title">Background</h2>
-      <p class="deck-lead">Advanced air mobility (AAM) brings autonomous aircraft into low-altitude city airspace. eVTOL aircraft carry passengers without runways.</p>
+      <p class="deck-lead">Advanced air mobility (AAM) extends city transportation into low-altitude airspace. Because eVTOL aircraft take off and land vertically, they can carry passengers across a city without runways.</p>
       <div class="deck-mosaic wide-media">
         <DeckFigure id="air-mobility" tag="Air mobility" />
         <DeckFigure id="evtol-transport" tag="eVTOL · Transportation" />
         <DeckFigure id="drone-logistics" tag="Drone · Logistics" />
       </div>
-      <div class="evidence-grid">
-        {evidence.map(tile => <article class="evidence-tile">
-          <h3>{tile.label}</h3>
-          <p class="evidence-value">{tile.value}</p>
-          <p class="evidence-text">{tile.text}</p>
-          <a href={tile.source} aria-label={`Source for ${tile.label}: ${tile.sourceName}`}>Source ↗</a>
-        </article>)}
-      </div>
     </section>
 
     <section class="section deck-section" id="problem" aria-labelledby="problem-title">
       <h2 id="problem-title">Problem</h2>
-      <p class="deck-lead">Wind, noise, and passenger needs all constrain urban eVTOL flight. Existing planners optimize one objective at a time or assume a fixed wind model.</p>
+      <p class="deck-lead">Wind between city buildings changes speed and direction over short distances. It pushes an aircraft off its path and raises the energy it needs to stay on course.</p>
       <div class="media-pair wide-media">
         <MotionClip id="problem-wind-simulation" tag="Simulated wind" />
         <MotionClip id="problem-real-flight" tag="Real flight" />
@@ -65,14 +32,10 @@ const meaning = { up: "higher is better", down: "lower is better" } as Record<st
 
     <section class="section deck-section" id="method" aria-labelledby="method-title">
       <h2 id="method-title">Methodology</h2>
-      <div class="deck-step">
-        <h3>Plan the whole flight</h3>
-        <p>Multi-objective motion planning from origin to destination through urban wind fields.</p>
-      </div>
+      <p class="deck-lead">Multi-objective motion planning from origin to destination through urban wind fields. The plan weighs energy use and efficiency for the aircraft, comfort, safety, and flight time for passengers, and noise for people on the ground.</p>
       <div class="method-figure wide-media deck-wide"><Figure id="overview" bare /></div>
       <div class="deck-step">
         <h3>Simulate the city’s wind</h3>
-        <p>Physics-based flight dynamics in wind fields from computational fluid dynamics (CFD).</p>
       </div>
       <div class="deck-trio wide-media">
         <DeckFigure id="city" tag="City" />
@@ -81,7 +44,6 @@ const meaning = { up: "higher is better", down: "lower is better" } as Record<st
       </div>
       <div class="deck-step">
         <h3>Train a tailored PPO policy</h3>
-        <p>Tanh activations, normalization layers, dropout, and a decaying learning rate keep multi-objective learning stable.</p>
       </div>
       <div class="method-figure wide-media deck-wide"><Figure id="framework" bare /></div>
     </section>
@@ -93,51 +55,6 @@ const meaning = { up: "higher is better", down: "lower is better" } as Record<st
         <DeckFigure id="atlanta-experiment" />
         <p class="deck-split-tags" aria-hidden="true"><span>Atlanta</span><span>CFD</span></p>
       </div>
-      <p class="deck-hypothesis"><strong>Hypothesis.</strong> Our tailored multi-objective RL beats representative RL baselines overall.</p>
-    </section>
-
-    <section class="section deck-section" id="metrics" aria-labelledby="metrics-title">
-      <h2 id="metrics-title">Evaluation metrics</h2>
-      <p class="deck-lead">Six metrics from three perspectives. ↑ higher is better; ↓ lower is better.</p>
-      <div class="metric-groups">
-        {metricGroups.map((group) => <article class="metric-group">
-          <h3>{group.title}</h3>
-          <ul>
-            {group.metrics.map(([name, better, note]) => <li>
-              <span class="metric-name">{name} <span aria-hidden="true">{arrow[better]}</span><span class="sr-only">({meaning[better]})</span></span>
-              {note && <span class="metric-note">{note}</span>}
-            </li>)}
-          </ul>
-        </article>)}
-      </div>
-    </section>
-
-    <section class="section deck-section" id="results" aria-labelledby="results-title">
-      <h2 id="results-title">Results</h2>
-      <p class="deck-lead">Our method is best on four of six metrics and second on the other two, balancing the aircraft, its passengers, and the city below.</p>
-      <div class="results-table-wrap" role="region" aria-labelledby="results-caption" tabindex="0">
-        <table class="results-table">
-          <caption id="results-caption">All-objective comparison. Bold marks the best value in each row.</caption>
-          <thead>
-            <tr><th scope="col">Metric</th>{methods.map((method) => <th scope="col">{method}</th>)}</tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => <tr>
-              <th scope="row">{row.metric} <span aria-hidden="true">{arrow[row.better]}</span><span class="sr-only">({meaning[row.better]})</span></th>
-              {row.values.map((value, i) => <td>{i === best(row) ? <strong>{value}<span class="sr-only"> (best)</span></strong> : value}</td>)}
-            </tr>)}
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="section deck-section" id="conclusion" aria-labelledby="conclusion-title">
-      <h2 id="conclusion-title">Conclusion</h2>
-      <ul class="conclusion-list">
-        <li>Urban eVTOL motion planning is one multi-objective problem: aircraft, passengers, and environment, under complex wind.</li>
-        <li>A tailored PPO policy combines energy, efficiency, safety, comfort, flight time, and noise.</li>
-        <li>It performs best or near-best on all six objectives against model-free and model-based RL baselines.</li>
-      </ul>
     </section>
     <Citation />
   </div>

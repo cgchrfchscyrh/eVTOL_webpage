@@ -1,5 +1,9 @@
 # Accessibility review — 18 October 2026
 
+## Shorter deck narrative — 5 November 2026
+
+At the author's request, the four data tiles and the Evaluation metrics, Results, and Conclusion sections were removed, so the homepage again shows no numerical results; the retired `/results/` page now links to the published paper and the Experiment section. The title is now the paper's full title. The remaining notes below about the results table no longer apply.
+
 ## Proposal-deck narrative — 5 November 2026
 
 At the author's request, the homepage now follows the proposal defense deck: Background, Problem, Methodology, Experiment, Evaluation metrics, Results, and Conclusion. The deck's images are WebP files with alt text. Its two GIF animations and its drone video are now silent MP4 files with native controls, posters, timed WebVTT descriptions, and text alternatives linked through `aria-describedby`; the simulator's toolbar and status text were cropped from one GIF, and the drone video's audio track was removed. The three excerpts of the opening simulation were removed because they repeated the opening video. The overview and framework diagrams keep their alt text and gain a screen-reader description. The Results section reproduces the paper's all-objective comparison (Table 6) as an HTML table with a caption, column and row headers, a stated direction for each metric, and the best value in each row in bold and marked “best” for screen readers. The table scrolls inside a keyboard-focusable region on narrow screens. Build, lint, and the browser suite passed: **10 axe scans and 187 functional checks**, with no violations or failures, at desktop, 390, and 320 CSS pixels. This replaces the earlier note that numerical results are omitted from the homepage. It is not full ADA/WCAG certification.
