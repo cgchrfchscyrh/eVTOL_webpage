@@ -69,7 +69,7 @@ async function scan(name) {
 }
 const expectedVideoIds = [
   "context-video",
-  "simulation-video",
+  "hero-sim-video",
   "urban-intersection-video",
   "urban-corridor-video",
   "urban-facade-video",
@@ -230,7 +230,7 @@ try {
       );
       for (const [section, ids] of [
         ["abstract", ["urban-intersection-video"]],
-        ["results", ["simulation-video", "urban-corridor-video", "urban-facade-video"]],
+        ["results", ["urban-corridor-video", "urban-facade-video"]],
       ])
         check(
           JSON.stringify(
@@ -261,15 +261,22 @@ try {
         "Silent inline playback, original speed, native controls, and controllable loops",
       );
       check(
-        await page
-          .locator("#context-video")
-          .evaluate(
-            (v) =>
-              Math.round(v.getBoundingClientRect().width) ===
-                document.documentElement.clientWidth &&
-              v.getBoundingClientRect().height >= innerHeight * 0.6,
-          ),
-        "Opening video spans the full page width and most of the screen",
+        await page.evaluate(() => {
+          const box = (q) => document.querySelector(q).getBoundingClientRect();
+          const left = box("#context-video"), right = box("#hero-sim-video");
+          return left.left === 0 && Math.abs(left.right - right.left) <= 1 && Math.abs(right.right - document.documentElement.clientWidth) <= 1 && Math.abs(left.height - right.height) <= 1;
+        }),
+        "Opening shows the real aircraft and the simulation side by side at one height across the full width",
+      );
+      check(
+        (await page.locator(".site-header, .site-footer, .related-reading, details.media-notes").count()) === 0 &&
+          (await page.locator(".citation-links a[href$='/accessibility/']").count()) === 1,
+        "Homepage has no top bar, footer, related reading, or media notes; credits stay linked",
+      );
+      check(
+        (await page.locator(".evidence-tile").count()) === 4 &&
+          (await page.locator(".evidence-tile a[href^='https://']").count()) === 4,
+        "Four evidence tiles each link to a source",
       );
       check(
         (await page.locator(".hero-credit").innerText()) === "Source: NASA",
@@ -277,7 +284,7 @@ try {
       );
       check(
         (await page.locator(".method-bubble").count()) === 3 &&
-          (await page.locator(".clip-bubble").count()) === 5,
+          (await page.locator(".clip-bubble").count()) === 4,
         "The method figure, overview figure, and every research clip have plain-language bubbles",
       );
       check(
@@ -433,8 +440,8 @@ try {
               ".visual-research > section > h2, .visual-research > section > .section-heading > h2, .visual-research > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["From city wind to a flight path", "How we trained it", "Simulation", "Citation"]),
-        "Story moves from the setting to the method and the simulation",
+        ) === JSON.stringify(["Cities are congested, and the U.S. is preparing its airspace for air taxis.", "From city wind to a flight path", "How we trained it", "Simulation", "Citation"]),
+        "Story moves from the context to the setting, the method, and the simulation",
       );
       await page
         .getByRole("button", { name: "Copy citation", exact: true })
@@ -447,14 +454,6 @@ try {
         "Keyboard citation copy",
       );
       check(await page.locator("figure:has(video) > figcaption, details.clip-description").count() === 0, "Video captions and per-player description blocks are removed");
-      const mediaNotes = page.locator("details.media-notes");
-      await mediaNotes.locator(":scope > summary").focus();
-      await page.keyboard.press("Enter");
-      check(await mediaNotes.evaluate(el => el.open) && (await mediaNotes.innerText()).length > 1000, "Keyboard opens consolidated complete media notes");
-      await scan("Consolidated video descriptions desktop");
-      await mediaNotes.locator(":scope > summary").focus();
-      await page.keyboard.press("Space");
-      check(!(await mediaNotes.evaluate(el => el.open)), "Keyboard closes consolidated media notes");
 
     }
     if (route === "/paper/" || route === "/results/") {
@@ -479,8 +478,8 @@ try {
     }
     if (route === "/accessibility/")
       for (const id of [
-        "context-visual-description",
-        "simulation-visual-description",
+        "context-visual-notes",
+        "simulation-visual-notes",
         "excerpts-visual-description",
       ])
         check(

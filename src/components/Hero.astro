@@ -1,25 +1,33 @@
 ---
 import stories from "../data/vision-stories.json";
 import site from "../data/site.json";
+import simulation from "../data/hero-media.json";
 import MediaControls from "./MediaControls.astro";
 import { asset } from "../data/paths";
 ---
 
 <section class="hero hero-film-section" aria-labelledby="paper-title">
-  <div class="hero-film" id="hero-stage">
+  <div class="hero-film hero-pair" id="hero-stage">
     <figure>
       <video id="context-video" data-duration="20" data-playback-group="hero" controls controlslist="nodownload" muted playsinline loop preload="metadata" poster={asset("media/air-taxi-opening.jpg")} width="1920" height="1080" aria-label={site.contextTitle} aria-describedby="context-visual-description">
         <source src={asset("media/air-taxi-opening.mp4")} type="video/mp4" />
         <track kind="descriptions" src={asset("media/air-taxi-opening-descriptions.vtt")} srclang="en" label="English visual descriptions" />
-        Your browser does not support video playback. A complete text description is available in the media notes.
+        Your browser does not support video playback. A complete text description is available on the accessibility page.
+      </video>
+      <p class="hero-credit">Source: NASA</p>
+    </figure>
+    <figure>
+      <video id="hero-sim-video" data-duration="20.93" data-playback-group="hero" controls controlslist="nodownload" muted playsinline loop preload="metadata" poster={asset(simulation.poster)} width={simulation.width} height={simulation.height} aria-label={simulation.title} aria-describedby="simulation-visual-description">
+        <source src={asset(simulation.video)} type="video/mp4" />
+        <track kind="descriptions" src={asset(simulation.track)} srclang="en" label="English visual descriptions" />
+        Your browser does not support video playback. A complete text description is available on the accessibility page.
       </video>
     </figure>
-    <div class="hero-film-copy">
-      <h1 id="paper-title" class="project-display-title">{stories.flight.headlineLines.map(line => <span class="display-line">{line}{" "}</span>)}</h1>
-    </div>
-    <p class="hero-credit">Source: NASA</p>
   </div>
+  <p class="sr-only" id="context-visual-description">{site.contextDetails.join(" ")}</p>
+  <p class="sr-only" id="simulation-visual-description">{simulation.description.join(" ")}</p>
   <div class="hero-publication">
+    <h1 id="paper-title" class="project-display-title">{stories.flight.headline}</h1>
     <ul class="authors">
       {site.authors.map((author) => (
         <li><a href={`mailto:${author.email}`}>{author.name}</a></li>

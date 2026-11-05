@@ -6,14 +6,23 @@ import Figure from "../components/Figure.astro";
 import PresentationFigure from "../components/PresentationFigure.astro";
 import MotionClip from "../components/MotionClip.astro";
 import Citation from "../components/Citation.astro";
-import MediaCredit from "../components/MediaCredit.astro";
-import simulation from "../data/hero-media.json";
-import { asset } from "../data/paths";
+import evidence from "../data/evidence.json";
 ---
 
-<Layout title={stories.flight.headline}>
+<Layout title={stories.flight.headline} bare>
   <Hero />
   <div class="container visual-research">
+    <section class="section evidence-section" id="context" aria-labelledby="context-title">
+      <h2 id="context-title">Cities are congested, and the U.S. is preparing its airspace for air taxis.</h2>
+      <div class="evidence-grid">
+        {evidence.map(tile => <article class="evidence-tile">
+          <h3>{tile.label}</h3>
+          <p class="evidence-value">{tile.value}</p>
+          <p class="evidence-text">{tile.text}</p>
+          <a href={tile.source} aria-label={`Source for ${tile.label}: ${tile.sourceName}`}>Source ↗</a>
+        </article>)}
+      </div>
+    </section>
     <section class="section abstract-section" id="abstract" aria-labelledby="abstract-title">
       <h2 id="abstract-title">From city wind to a flight path</h2>
       <div class="media-pair wide-media">
@@ -45,16 +54,6 @@ import { asset } from "../data/paths";
     </section>
     <section class="section" id="results" aria-labelledby="results-title">
       <h2 id="results-title" class="sr-only">Simulation</h2>
-      <div class="clip-with-bubble simulation-feature">
-        <figure class="motion-clip">
-          <video id="simulation-video" data-duration="20.93" data-playback-group="research" controls controlslist="nodownload" muted playsinline loop preload="none" poster={asset(simulation.poster)} width={simulation.width} height={simulation.height} aria-label={simulation.title} aria-describedby="simulation-visual-description">
-            <source src={asset(simulation.video)} type="video/mp4" />
-            <track kind="descriptions" src={asset(simulation.track)} srclang="en" label="English visual descriptions" />
-            Your browser does not support video playback. A complete text description is available in the media notes.
-          </video>
-        </figure>
-        <p class="clip-bubble"><strong>Through the streets.</strong> The camera follows the aircraft past an intersection and close to a facade.</p>
-      </div>
       <div class="media-pair wide-media">
         <div class="clip-with-bubble">
           <MotionClip id="urban-corridor" />
@@ -67,12 +66,5 @@ import { asset } from "../data/paths";
       </div>
     </section>
     <Citation />
-    <aside class="related-reading" id="related-work" aria-label="Related reading">
-      <p><strong>Related reading</strong> · <a href="https://arxiv.org/html/2609.36056v1">GeoWind2Plan</a>, an independent study of wind-aware aerial planning.</p>
-    </aside>
-    <details class="media-notes">
-      <summary>Media descriptions & credits</summary>
-      <MediaCredit />
-    </details>
   </div>
 </Layout>

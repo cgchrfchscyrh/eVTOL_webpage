@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Time lost in traffic",
+    "value": "49 hours",
+    "text": "lost to congestion by the typical U.S. driver in 2025, up 6 hours from 2024.",
+    "source": "https://inrix.com/blog/traffic-is-back-insights-from-the-2025-inrix-global-traffic-scorecard/",
+    "sourceName": "INRIX 2025 Global Traffic Scorecard"
+  },
+  {
+    "label": "Cost of congestion",
+    "value": "$85.8B",
+    "text": "in lost time across the United States in 2025.",
+    "source": "https://inrix.com/blog/traffic-is-back-insights-from-the-2025-inrix-global-traffic-scorecard/",
+    "sourceName": "INRIX 2025 Global Traffic Scorecard"
+  },
+  {
+    "label": "A new kind of aircraft",
+    "value": "80 years",
+    "text": "since the last new category of civil aircraft. The FAA issued its powered-lift rule for air taxis in October 2024.",
+    "source": "https://www.faa.gov/newsroom/new-rule-faa-ready-air-travel-future",
+    "sourceName": "Federal Aviation Administration"
+  },
+  {
+    "label": "eVTOL pilot program",
+    "value": "28 states",
+    "text": "covered by the eight public-private projects the FAA selected in March 2026.",
+    "source": "https://www.faa.gov/aam/eipp",
+    "sourceName": "Federal Aviation Administration"
+  }
+]

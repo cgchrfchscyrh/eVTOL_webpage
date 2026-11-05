@@ -1,67 +1,17 @@
 {
-  "date": "2026-11-04T15:53:34.456Z",
+  "date": "2026-11-05T22:03:05.901Z",
   "project": "eVTOL_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
   "scans": [
     {
-      "name": "Consolidated video descriptions desktop",
-      "passes": 26,
-      "violations": [],
-      "incomplete": [
-        {
-          "id": "color-contrast",
-          "nodes": [
-            [
-              ".display-line:nth-child(1)"
-            ],
-            [
-              ".display-line:nth-child(2)"
-            ],
-            [
-              ".hero-credit"
-            ],
-            [
-              "#abstract > .media-pair.wide-media > .clip-with-bubble:nth-child(1) > .clip-bubble"
-            ]
-          ]
-        },
-        {
-          "id": "video-caption",
-          "nodes": [
-            [
-              "#context-video"
-            ],
-            [
-              "#urban-intersection-video"
-            ],
-            [
-              "#simulation-video"
-            ],
-            [
-              "#urban-corridor-video"
-            ],
-            [
-              "#urban-facade-video"
-            ]
-          ]
-        }
-      ]
-    },
-    {
       "name": "/ desktop",
-      "passes": 26,
+      "passes": 25,
       "violations": [],
       "incomplete": [
         {
           "id": "color-contrast",
           "nodes": [
-            [
-              ".display-line:nth-child(1)"
-            ],
-            [
-              ".display-line:nth-child(2)"
-            ],
             [
               ".hero-credit"
             ],
@@ -77,10 +27,10 @@
               "#context-video"
             ],
             [
-              "#urban-intersection-video"
+              "#hero-sim-video"
             ],
             [
-              "#simulation-video"
+              "#urban-intersection-video"
             ],
             [
               "#urban-corridor-video"
@@ -94,18 +44,12 @@
     },
     {
       "name": "/ mobile",
-      "passes": 26,
+      "passes": 25,
       "violations": [],
       "incomplete": [
         {
           "id": "color-contrast",
           "nodes": [
-            [
-              ".display-line:nth-child(1)"
-            ],
-            [
-              ".display-line:nth-child(2)"
-            ],
             [
               ".hero-credit"
             ]
@@ -118,10 +62,10 @@
               "#context-video"
             ],
             [
-              "#urban-intersection-video"
+              "#hero-sim-video"
             ],
             [
-              "#simulation-video"
+              "#urban-intersection-video"
             ],
             [
               "#urban-corridor-video"
@@ -205,7 +149,9 @@
     "results: the intended short excerpts accompany the research section",
     "All expected video players are available",
     "Silent inline playback, original speed, native controls, and controllable loops",
-    "Opening video spans the full page width and most of the screen",
+    "Opening shows the real aircraft and the simulation side by side at one height across the full width",
+    "Homepage has no top bar, footer, related reading, or media notes; credits stay linked",
+    "Four evidence tiles each link to a source",
     "The opening video credits NASA",
     "The method figure, overview figure, and every research clip have plain-language bubbles",
     "Method figure stays large at desktop width",
@@ -214,7 +160,6 @@
     "Native video playback controls are reachable through Tab",
     "Space on the native player pauses the video",
     "Research excerpt plays silently when visible: urban-intersection-video",
-    "Research excerpt plays silently when visible: simulation-video",
     "Research excerpt plays silently when visible: urban-corridor-video",
     "Research excerpt plays silently when visible: urban-facade-video",
     "Offscreen title videos pause automatically",
@@ -232,16 +177,16 @@
     "context-video: poster asset responds successfully",
     "context-video: local description asset is declared",
     "context-video: description asset responds successfully",
-    "simulation-video: the selected duration matches the reviewed media manifest",
-    "simulation-video: selected excerpt duration and timed description load correctly",
-    "simulation-video: a complete text alternative is programmatically associated",
-    "simulation-video: description cues use valid times within the clip",
-    "simulation-video: local video asset is declared",
-    "simulation-video: video asset responds successfully",
-    "simulation-video: local poster asset is declared",
-    "simulation-video: poster asset responds successfully",
-    "simulation-video: local description asset is declared",
-    "simulation-video: description asset responds successfully",
+    "hero-sim-video: the selected duration matches the reviewed media manifest",
+    "hero-sim-video: selected excerpt duration and timed description load correctly",
+    "hero-sim-video: a complete text alternative is programmatically associated",
+    "hero-sim-video: description cues use valid times within the clip",
+    "hero-sim-video: local video asset is declared",
+    "hero-sim-video: video asset responds successfully",
+    "hero-sim-video: local poster asset is declared",
+    "hero-sim-video: poster asset responds successfully",
+    "hero-sim-video: local description asset is declared",
+    "hero-sim-video: description asset responds successfully",
     "urban-intersection-video: the selected duration matches the reviewed media manifest",
     "urban-intersection-video: selected excerpt duration and timed description load correctly",
     "urban-intersection-video: a complete text alternative is programmatically associated",
@@ -272,11 +217,9 @@
     "urban-facade-video: poster asset responds successfully",
     "urban-facade-video: local description asset is declared",
     "urban-facade-video: description asset responds successfully",
-    "Story moves from the setting to the method and the simulation",
+    "Story moves from the context to the setting, the method, and the simulation",
     "Keyboard citation copy",
     "Video captions and per-player description blocks are removed",
-    "Keyboard opens consolidated complete media notes",
-    "Keyboard closes consolidated media notes",
     "/: no horizontal page overflow at 320px",
     "/: no horizontal page overflow at 768px",
     "/: 320px text-spacing reflow",
@@ -332,8 +275,8 @@
     "/accessibility/: skip link is first keyboard stop",
     "/accessibility/: visible focus",
     "/accessibility/: skip link targets main",
-    "context-visual-description: complete visual alternative available",
-    "simulation-visual-description: complete visual alternative available",
+    "context-visual-notes: complete visual alternative available",
+    "simulation-visual-notes: complete visual alternative available",
     "excerpts-visual-description: complete visual alternative available",
     "/accessibility/: no horizontal page overflow at 320px",
     "/accessibility/: no horizontal page overflow at 768px",

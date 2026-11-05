@@ -1,5 +1,9 @@
 # Accessibility review — 18 October 2026
 
+## Opening pair and evidence tiles — 5 November 2026
+
+The opening now shows NASA's aircraft footage beside our simulation, at one height, with the title below. Four text-only evidence tiles with named source links cover traffic congestion and U.S. preparations for air taxis. At the author's request, the homepage has no top bar or footer, and the related-reading line and the collapsed media notes were removed; full video descriptions and credits remain on the accessibility page, linked from the citation, and every video keeps its text alternative for screen readers. The full simulation video now appears only in the opening; its excerpts remain in the results.
+
 ## Opening video and shorter text — 4 November 2026
 
 The homepage now opens with a full-width silent film cut from NASA's source video at 1080p, with the title on a dark gradient and a visible NASA credit. Each shot is cropped to leave out the captions on the source, and the timed description track and text alternative were rewritten for the new shots. Narrow screens crop the sides of the frame. Frame-to-frame brightness showed no large swings; that is a screening check, not a certified flash analysis. The vision diagram and the longer explanations were removed at the author's request, and short bubbles now explain the figures and clips. The overview figure keeps its image alternative, and its full description moved to the media notes. Statements about what the footage does not show remain in the media notes, not beside the videos. Existing PDF and screen-reader limitations still apply.
