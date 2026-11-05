@@ -275,7 +275,7 @@ try {
       );
       check(
         (await page.locator(".evidence-tile, .metric-group, #metrics, #results, #conclusion, .deck-hypothesis").count()) === 0 &&
-          (await page.locator("h1").innerText()) === site.title,
+          (await page.locator("h1").innerText()) === site.displayTitle,
         "Data tiles, metrics, results, and conclusion are removed; the title is the paper title",
       );
       check(
@@ -440,7 +440,7 @@ try {
               ".visual-research > section > h2, .visual-research > section > .section-heading > h2, .visual-research > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["Background", "Problem", "Methodology", "Experiment", "Citation"]),
+        ) === JSON.stringify(["Background", "Problem", "Methodology", "Citation"]),
         "Story follows the proposal deck: background, problem, method, experiment",
       );
       await page

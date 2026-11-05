@@ -8,7 +8,7 @@ import MotionClip from "../components/MotionClip.astro";
 import Citation from "../components/Citation.astro";
 ---
 
-<Layout title={site.title} bare>
+<Layout title={site.displayTitle} bare>
   <Hero />
   <div class="container visual-research">
     <section class="section deck-section" id="background" aria-labelledby="background-title">
@@ -48,8 +48,7 @@ import Citation from "../components/Citation.astro";
       <div class="method-figure wide-media deck-wide"><Figure id="framework" bare /></div>
     </section>
 
-    <section class="section deck-section" id="experiment" aria-labelledby="experiment-title">
-      <h2 id="experiment-title">Experiment</h2>
+    <section class="section deck-section" id="experiment" aria-label="Experiment">
       <p class="deck-lead">An OpenStreetMap model of Atlanta, Georgia. Each trial plans a 10 km flight under one of seven wind conditions.</p>
       <div class="deck-split">
         <DeckFigure id="atlanta-experiment" />

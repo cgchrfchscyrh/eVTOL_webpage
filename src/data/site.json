@@ -3,6 +3,7 @@
   "wordmark": "eVTOL / MOTION PLANNING",
   "shortTitle": "Learning to fly with the city in mind.",
   "title": "Reinforcement learning based multi-perspective motion planning of manned electric vertical take-off and landing vehicle in urban environment with wind fields",
+  "displayTitle": "Reinforcement learning based multi-perspective motion planning of manned eVTOL vehicles in urban wind fields",
   "description": "Reinforcement learning for eVTOL flight through urban wind fields, considering energy, passengers, and noise on the ground.",
   "venue": "Engineering Applications of Artificial Intelligence · 2025",
   "publication": "Engineering Applications of Artificial Intelligence, volume 149 (2025), article 110392.",
