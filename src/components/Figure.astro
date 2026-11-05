@@ -23,10 +23,12 @@ const description = concise
       height={fig.height}
       style={`max-width:${fig.width}px;aspect-ratio:${fig.width}/${fig.height}`}
       alt={fig.alt}
+      aria-describedby={bare ? `figure-${id}-description` : undefined}
       loading="lazy"
       decoding="async"
     />
   </div>
+  {bare && <p class="sr-only" id={`figure-${id}-description`}>{fig.description}</p>}
   {!bare && <figcaption>
     <strong>{caption || fig.title}</strong>
     {concise ? <details class="figure-details"><summary>Description & source</summary><p>{description}</p><p class="fine-print">{fig.credit} <a href={asset(`figures/${fig.file}`)}>Open figure {fig.number} at full size</a>.</p></details> : <><p>{description}</p><p class="fine-print">

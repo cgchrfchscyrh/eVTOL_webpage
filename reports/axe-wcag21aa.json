@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-05T22:03:05.901Z",
+  "date": "2026-11-05T22:26:22.191Z",
   "project": "eVTOL_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
   "scans": [
     {
       "name": "/ desktop",
-      "passes": 25,
+      "passes": 26,
       "violations": [],
       "incomplete": [
         {
@@ -16,7 +16,70 @@
               ".hero-credit"
             ],
             [
-              "#abstract > .media-pair.wide-media > .clip-with-bubble:nth-child(1) > .clip-bubble"
+              "#deck-air-mobility > figcaption"
+            ],
+            [
+              "#deck-evtol-transport > figcaption"
+            ],
+            [
+              "#deck-drone-logistics > figcaption"
+            ],
+            [
+              ".motion-clip:nth-child(1) > .media-tag[aria-hidden=\"true\"]"
+            ],
+            [
+              ".motion-clip:nth-child(2) > .media-tag[aria-hidden=\"true\"]"
+            ],
+            [
+              "#deck-city > figcaption"
+            ],
+            [
+              "#deck-cfd > figcaption"
+            ],
+            [
+              ".deck-trio > .motion-clip > .media-tag[aria-hidden=\"true\"]"
+            ],
+            [
+              ".deck-split-tags > span:nth-child(1)"
+            ],
+            [
+              ".deck-split-tags > span:nth-child(2)"
+            ],
+            [
+              ".metric-group:nth-child(1) > ul > li:nth-child(1) > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".metric-group:nth-child(1) > ul > li:nth-child(2) > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".metric-group:nth-child(2) > ul > li:nth-child(1) > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".metric-group:nth-child(2) > ul > li:nth-child(2) > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "li:nth-child(3) > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".metric-group:nth-child(3) > ul > li > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(1) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(2) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(3) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(4) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(5) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(6) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
             ]
           ]
         },
@@ -30,13 +93,13 @@
               "#hero-sim-video"
             ],
             [
-              "#urban-intersection-video"
+              "#problem-wind-simulation-video"
             ],
             [
-              "#urban-corridor-video"
+              "#problem-real-flight-video"
             ],
             [
-              "#urban-facade-video"
+              "#wind-prediction-video"
             ]
           ]
         }
@@ -44,7 +107,7 @@
     },
     {
       "name": "/ mobile",
-      "passes": 25,
+      "passes": 27,
       "violations": [],
       "incomplete": [
         {
@@ -52,6 +115,72 @@
           "nodes": [
             [
               ".hero-credit"
+            ],
+            [
+              "#deck-air-mobility > figcaption"
+            ],
+            [
+              "#deck-evtol-transport > figcaption"
+            ],
+            [
+              "#deck-drone-logistics > figcaption"
+            ],
+            [
+              ".motion-clip:nth-child(1) > .media-tag[aria-hidden=\"true\"]"
+            ],
+            [
+              ".motion-clip:nth-child(2) > .media-tag[aria-hidden=\"true\"]"
+            ],
+            [
+              "#deck-city > figcaption"
+            ],
+            [
+              "#deck-cfd > figcaption"
+            ],
+            [
+              ".deck-trio > .motion-clip > .media-tag[aria-hidden=\"true\"]"
+            ],
+            [
+              ".deck-split-tags > span:nth-child(1)"
+            ],
+            [
+              ".deck-split-tags > span:nth-child(2)"
+            ],
+            [
+              ".metric-group:nth-child(1) > ul > li:nth-child(1) > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".metric-group:nth-child(1) > ul > li:nth-child(2) > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".metric-group:nth-child(2) > ul > li:nth-child(1) > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".metric-group:nth-child(2) > ul > li:nth-child(2) > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "li:nth-child(3) > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".metric-group:nth-child(3) > ul > li > .metric-name > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(1) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(2) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(3) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(4) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(5) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "tr:nth-child(6) > th[scope=\"row\"] > span[aria-hidden=\"true\"]"
             ]
           ]
         },
@@ -65,13 +194,13 @@
               "#hero-sim-video"
             ],
             [
-              "#urban-intersection-video"
+              "#problem-wind-simulation-video"
             ],
             [
-              "#urban-corridor-video"
+              "#problem-real-flight-video"
             ],
             [
-              "#urban-facade-video"
+              "#wind-prediction-video"
             ]
           ]
         }
@@ -133,7 +262,7 @@
     "/: informative images have alternatives",
     "/: no embedded third-party player or uncontrolled HTML autoplay",
     "/: no institutional affiliation or disclaimer text",
-    "/: numerical result displays are removed",
+    "/: only the homepage results table shows numbers",
     "/: removed research-guide and result-index navigation stays absent",
     "/: unique IDs",
     "/: valid local anchors",
@@ -143,25 +272,26 @@
     "/: skip link targets main",
     "Visible title videos automatically play without a click",
     "No separate global playback button remains; native controls are available",
-    "Five expected urban-flight and context clips are distributed across the page",
+    "The opening pair and the three presentation videos are on the page",
     "The hero has only the Paper button linked to the published article",
-    "abstract: the intended short excerpts accompany the research section",
-    "results: the intended short excerpts accompany the research section",
+    "problem: the intended short excerpts accompany the research section",
+    "method: the intended short excerpts accompany the research section",
     "All expected video players are available",
     "Silent inline playback, original speed, native controls, and controllable loops",
     "Opening shows the real aircraft and the simulation side by side at one height across the full width",
     "Homepage has no top bar, footer, related reading, or media notes; credits stay linked",
     "Four evidence tiles each link to a source",
     "The opening video credits NASA",
-    "The method figure, overview figure, and every research clip have plain-language bubbles",
+    "Deck images, the three metric perspectives, and six metrics are shown",
+    "Results table has a caption, headers, marked best values, and direction for each metric",
     "Method figure stays large at desktop width",
     "Citation heading uses a compact size",
     "The vision diagram and removed explanations stay absent",
     "Native video playback controls are reachable through Tab",
     "Space on the native player pauses the video",
-    "Research excerpt plays silently when visible: urban-intersection-video",
-    "Research excerpt plays silently when visible: urban-corridor-video",
-    "Research excerpt plays silently when visible: urban-facade-video",
+    "Research excerpt plays silently when visible: problem-wind-simulation-video",
+    "Research excerpt plays silently when visible: problem-real-flight-video",
+    "Research excerpt plays silently when visible: wind-prediction-video",
     "Offscreen title videos pause automatically",
     "Native manual pause remains remembered after scrolling",
     "Space on the native player explicitly resumes playback",
@@ -187,37 +317,37 @@
     "hero-sim-video: poster asset responds successfully",
     "hero-sim-video: local description asset is declared",
     "hero-sim-video: description asset responds successfully",
-    "urban-intersection-video: the selected duration matches the reviewed media manifest",
-    "urban-intersection-video: selected excerpt duration and timed description load correctly",
-    "urban-intersection-video: a complete text alternative is programmatically associated",
-    "urban-intersection-video: description cues use valid times within the clip",
-    "urban-intersection-video: local video asset is declared",
-    "urban-intersection-video: video asset responds successfully",
-    "urban-intersection-video: local poster asset is declared",
-    "urban-intersection-video: poster asset responds successfully",
-    "urban-intersection-video: local description asset is declared",
-    "urban-intersection-video: description asset responds successfully",
-    "urban-corridor-video: the selected duration matches the reviewed media manifest",
-    "urban-corridor-video: selected excerpt duration and timed description load correctly",
-    "urban-corridor-video: a complete text alternative is programmatically associated",
-    "urban-corridor-video: description cues use valid times within the clip",
-    "urban-corridor-video: local video asset is declared",
-    "urban-corridor-video: video asset responds successfully",
-    "urban-corridor-video: local poster asset is declared",
-    "urban-corridor-video: poster asset responds successfully",
-    "urban-corridor-video: local description asset is declared",
-    "urban-corridor-video: description asset responds successfully",
-    "urban-facade-video: the selected duration matches the reviewed media manifest",
-    "urban-facade-video: selected excerpt duration and timed description load correctly",
-    "urban-facade-video: a complete text alternative is programmatically associated",
-    "urban-facade-video: description cues use valid times within the clip",
-    "urban-facade-video: local video asset is declared",
-    "urban-facade-video: video asset responds successfully",
-    "urban-facade-video: local poster asset is declared",
-    "urban-facade-video: poster asset responds successfully",
-    "urban-facade-video: local description asset is declared",
-    "urban-facade-video: description asset responds successfully",
-    "Story moves from the context to the setting, the method, and the simulation",
+    "problem-wind-simulation-video: the selected duration matches the reviewed media manifest",
+    "problem-wind-simulation-video: selected excerpt duration and timed description load correctly",
+    "problem-wind-simulation-video: a complete text alternative is programmatically associated",
+    "problem-wind-simulation-video: description cues use valid times within the clip",
+    "problem-wind-simulation-video: local video asset is declared",
+    "problem-wind-simulation-video: video asset responds successfully",
+    "problem-wind-simulation-video: local poster asset is declared",
+    "problem-wind-simulation-video: poster asset responds successfully",
+    "problem-wind-simulation-video: local description asset is declared",
+    "problem-wind-simulation-video: description asset responds successfully",
+    "problem-real-flight-video: the selected duration matches the reviewed media manifest",
+    "problem-real-flight-video: selected excerpt duration and timed description load correctly",
+    "problem-real-flight-video: a complete text alternative is programmatically associated",
+    "problem-real-flight-video: description cues use valid times within the clip",
+    "problem-real-flight-video: local video asset is declared",
+    "problem-real-flight-video: video asset responds successfully",
+    "problem-real-flight-video: local poster asset is declared",
+    "problem-real-flight-video: poster asset responds successfully",
+    "problem-real-flight-video: local description asset is declared",
+    "problem-real-flight-video: description asset responds successfully",
+    "wind-prediction-video: the selected duration matches the reviewed media manifest",
+    "wind-prediction-video: selected excerpt duration and timed description load correctly",
+    "wind-prediction-video: a complete text alternative is programmatically associated",
+    "wind-prediction-video: description cues use valid times within the clip",
+    "wind-prediction-video: local video asset is declared",
+    "wind-prediction-video: video asset responds successfully",
+    "wind-prediction-video: local poster asset is declared",
+    "wind-prediction-video: poster asset responds successfully",
+    "wind-prediction-video: local description asset is declared",
+    "wind-prediction-video: description asset responds successfully",
+    "Story follows the proposal deck: background, problem, method, experiment, metrics, results, conclusion",
     "Keyboard citation copy",
     "Video captions and per-player description blocks are removed",
     "/: no horizontal page overflow at 320px",
@@ -229,7 +359,7 @@
     "/paper/: informative images have alternatives",
     "/paper/: no embedded third-party player or uncontrolled HTML autoplay",
     "/paper/: no institutional affiliation or disclaimer text",
-    "/paper/: numerical result displays are removed",
+    "/paper/: only the homepage results table shows numbers",
     "/paper/: removed research-guide and result-index navigation stays absent",
     "/paper/: unique IDs",
     "/paper/: valid local anchors",
@@ -248,7 +378,7 @@
     "/results/: informative images have alternatives",
     "/results/: no embedded third-party player or uncontrolled HTML autoplay",
     "/results/: no institutional affiliation or disclaimer text",
-    "/results/: numerical result displays are removed",
+    "/results/: only the homepage results table shows numbers",
     "/results/: removed research-guide and result-index navigation stays absent",
     "/results/: unique IDs",
     "/results/: valid local anchors",
@@ -267,7 +397,7 @@
     "/accessibility/: informative images have alternatives",
     "/accessibility/: no embedded third-party player or uncontrolled HTML autoplay",
     "/accessibility/: no institutional affiliation or disclaimer text",
-    "/accessibility/: numerical result displays are removed",
+    "/accessibility/: only the homepage results table shows numbers",
     "/accessibility/: removed research-guide and result-index navigation stays absent",
     "/accessibility/: unique IDs",
     "/accessibility/: valid local anchors",
@@ -287,7 +417,7 @@
     "/404.html: informative images have alternatives",
     "/404.html: no embedded third-party player or uncontrolled HTML autoplay",
     "/404.html: no institutional affiliation or disclaimer text",
-    "/404.html: numerical result displays are removed",
+    "/404.html: only the homepage results table shows numbers",
     "/404.html: removed research-guide and result-index navigation stays absent",
     "/404.html: unique IDs",
     "/404.html: valid local anchors",

@@ -70,9 +70,9 @@ async function scan(name) {
 const expectedVideoIds = [
   "context-video",
   "hero-sim-video",
-  "urban-intersection-video",
-  "urban-corridor-video",
-  "urban-facade-video",
+  "problem-wind-simulation-video",
+  "problem-real-flight-video",
+  "wind-prediction-video",
 ];
 const paperUrl = site.paperUrl;
 const paused = (target) =>
@@ -145,10 +145,11 @@ try {
     check(
       (await page
         .locator(
-          "table, .numeric-pair, .results-highlights, .metric-comparison, .result-numbers, #figure-training",
+          (route === "/" ? "" : "table, ") +
+            ".numeric-pair, .results-highlights, .metric-comparison, .result-numbers, #figure-training",
         )
         .count()) === 0,
-      route + ": numerical result displays are removed",
+      route + ": only the homepage results table shows numbers",
     );
     check(
       (await page
@@ -218,7 +219,7 @@ try {
             .locator("video")
             .evaluateAll((videos) => videos.map((v) => v.id).sort()),
         ) === JSON.stringify([...expectedVideoIds].sort()),
-        "Five expected urban-flight and context clips are distributed across the page",
+        "The opening pair and the three presentation videos are on the page",
       );
       check(
         (await page.locator(".hero-publication .actions a").count()) === 1 &&
@@ -229,8 +230,8 @@ try {
         "The hero has only the Paper button linked to the published article",
       );
       for (const [section, ids] of [
-        ["abstract", ["urban-intersection-video"]],
-        ["results", ["urban-corridor-video", "urban-facade-video"]],
+        ["problem", ["problem-wind-simulation-video", "problem-real-flight-video"]],
+        ["method", ["wind-prediction-video"]],
       ])
         check(
           JSON.stringify(
@@ -283,9 +284,26 @@ try {
         "The opening video credits NASA",
       );
       check(
-        (await page.locator(".method-bubble").count()) === 3 &&
-          (await page.locator(".clip-bubble").count()) === 4,
-        "The method figure, overview figure, and every research clip have plain-language bubbles",
+        (await page.locator(".metric-group").count()) === 3 &&
+          (await page.locator(".metric-group li").count()) === 6 &&
+          (await page.locator("#background .deck-figure img").count()) === 3 &&
+          (await page.locator("#method .deck-trio > *").count()) === 3,
+        "Deck images, the three metric perspectives, and six metrics are shown",
+      );
+      check(
+        await page.evaluate(() => {
+          const table = document.querySelector("#results table");
+          return (
+            table?.querySelector("caption")?.textContent.trim().length > 20 &&
+            table.querySelectorAll('thead th[scope="col"]').length === 5 &&
+            table.querySelectorAll('tbody th[scope="row"]').length === 6 &&
+            table.querySelectorAll("tbody strong").length === 6 &&
+            [...table.querySelectorAll("tbody th")].every((th) =>
+              /(higher|lower) is better/.test(th.textContent),
+            )
+          );
+        }),
+        "Results table has a caption, headers, marked best values, and direction for each metric",
       );
       check(
         await page
@@ -440,8 +458,8 @@ try {
               ".visual-research > section > h2, .visual-research > section > .section-heading > h2, .visual-research > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["Cities are congested, and the U.S. is preparing its airspace for air taxis.", "From city wind to a flight path", "How we trained it", "Simulation", "Citation"]),
-        "Story moves from the context to the setting, the method, and the simulation",
+        ) === JSON.stringify(["Background", "Problem", "Methodology", "Experiment", "Evaluation metrics", "Results", "Conclusion", "Citation"]),
+        "Story follows the proposal deck: background, problem, method, experiment, metrics, results, conclusion",
       );
       await page
         .getByRole("button", { name: "Copy citation", exact: true })
@@ -532,7 +550,7 @@ try {
         ),
       preference + ": no automatic motion on entry",
     );
-    await p.locator("#urban-facade-video").scrollIntoViewIfNeeded();
+    await p.locator("#wind-prediction-video").scrollIntoViewIfNeeded();
     await p.waitForTimeout(200);
     check(await paused(p), preference + ": scrolling does not start media");
     await atTop(p);

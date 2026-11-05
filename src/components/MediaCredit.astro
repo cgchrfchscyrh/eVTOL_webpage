@@ -30,11 +30,14 @@ const overview = site.figures.find((figure) => figure.id === "overview")!;
     <p class="fine-print">{overview.credit}</p>
   </section>
   <section aria-labelledby="excerpts-heading">
-    <h3 id="excerpts-heading">Urban flight excerpts</h3>
+    <h3 id="excerpts-heading">Presentation videos</h3>
     <div id="excerpts-visual-description">
-      {clips.map((clip) => <div class="excerpt-credit"><h4>{clip.title}</h4><p>{clip.description}</p></div>)}
-      <p>These clips are successive excerpts of the same Flying DNA presentation animation, not separate experiments. They are shown at original speed, without cropping or audio. They do not establish controller identity, wind conditions, quantitative performance, or real-aircraft validation.</p>
+      {clips.map((clip) => <div class="excerpt-credit"><h4>{clip.title}</h4><p>{clip.description}</p><p>{clip.scope}</p><p class="fine-print">{clip.credit}</p></div>)}
     </div>
   </section>
-  <p class="fine-print">All videos are silent and include text alternatives. Visible videos can play automatically; native player controls remain available to pause or resume each video. Manual pauses are remembered. Reduced-motion and data-saving preferences suppress automatic playback. The NASA/Joby recording and presentation animation illustrate separate settings.</p>
+  <section aria-labelledby="deck-images-heading">
+    <h3 id="deck-images-heading">Presentation images</h3>
+    <p>The air-mobility, eVTOL, drone-logistics, city, CFD, and Atlanta images come from the authors’ proposal defense presentation, slides 3, 4, 7, and 9. They are converted to WebP without other edits. The air-mobility, eVTOL, and drone images are illustrations, not study results.</p>
+  </section>
+  <p class="fine-print">All videos are silent and include text alternatives. Visible videos can play automatically; native player controls remain available to pause or resume each video. Manual pauses are remembered. Reduced-motion and data-saving preferences suppress automatic playback. The NASA/Joby recording, the outdoor drone flight, and the simulations illustrate separate settings.</p>
 </section>

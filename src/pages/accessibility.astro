@@ -22,14 +22,14 @@ import { asset } from "../data/paths";
           <li>Reduced-motion and data-saving preferences prevent automatic playback. Explicit native playback remains available.</li>
           <li>Every video has a complete text alternative and a timed WebVTT description track. The local video files contain no audio tracks.</li>
           <li>Complete media frames appear below the title and stack on narrow screens. The page reflows at narrow widths and with increased text spacing.</li>
-          <li>Research figures have alt text and expandable explanations. The homepage presents qualitative findings; numerical result displays are omitted.</li>
+          <li>Research figures have alt text, and complex diagrams have a text description. The homepage results table uses column and row headers; the best value in each row is bold and also marked “best” for screen readers, and each metric states whether higher or lower is better.</li>
           <li>Core content, descriptions, and native player controls remain available without JavaScript. BibTeX can be selected and copied manually.</li>
         </ul>
       </section>
       <section>
         <h2>Research and presentation scope</h2>
         <p>The published paper evaluates a learned policy in simulated urban flight. It does not include real-aircraft trials, takeoff, landing, or operating certification. Comfort, safety, and noise depend on the study’s models; results do not establish generalization to arbitrary changing winds.</p>
-        <p>The authors’ <cite>Flying DNA - Copy 1.pptx</cite> introduces a broader vision spanning digital twins, connected systems, and artificial intelligence. Its city and wind illustrations do not establish a specific test condition. The simulation video and its excerpts come from the same slide animation; they do not demonstrate or validate the published policy.</p>
+        <p>The homepage follows the order of the authors’ proposal defense presentation: background, problem, methodology, experiment, evaluation metrics, results, and conclusion. The results table reproduces the paper’s all-objective comparison (Table 6). The opening simulation video comes from the authors’ <cite>Flying DNA - Copy 1.pptx</cite>; it and the presentation’s wind animations illustrate the setting and do not by themselves validate the published policy.</p>
         <p>The NASA/Joby opening footage provides independent real-flight context. It is cropped to leave out the captions on the source, and narrow screens crop the sides of the frame further. It is separate from the authors’ simulation and does not demonstrate their controller.</p>
       </section>
       <section id="attachments">
@@ -58,8 +58,8 @@ import { asset } from "../data/paths";
     <div class="section"><MediaCredit /></div>
     <section class="section">
       <h2>Research figure credits</h2>
-      <p>The framework diagram comes from the published paper by {site.authors.map((a) => a.name).join(", ")}. The city and wind illustrations come from the authors’ Flying DNA presentation. Original diagram colors are retained; labels and text explanations communicate the information without requiring color identification.</p>
-      <p>Full descriptions and credits are beside the <a href={asset("#method")}>method illustrations</a>. Rights in published papers and third-party media remain with their respective holders.</p>
+      <p>The overview and framework diagrams come from the published paper by {site.authors.map((a) => a.name).join(", ")}. The other images come from the authors’ proposal defense presentation. Original diagram colors are retained; labels and text descriptions communicate the information without requiring color identification.</p>
+      <p>See the <a href={asset("#method")}>methodology</a> on the homepage. Rights in published papers and third-party media remain with their respective holders.</p>
     </section>
   </div>
 </Layout>
